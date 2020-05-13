@@ -38,4 +38,24 @@ extension UIView {
             layer.borderColor = newValue?.cgColor
         }
     }
+    
+    //color: 색상, opacity: 그림자 투명도, offset: 그림자 위치, radius: 그림자 크기
+    func dropShadow(color: UIColor, opacity: Float = 0.5, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
+        layer.masksToBounds = false
+        layer.shadowColor = color.cgColor
+        layer.shadowOpacity = opacity
+        layer.shadowOffset = offSet
+        layer.shadowRadius = radius
+        
+        layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
+        layer.shouldRasterize = true
+        layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+    
+    func applyShadow(radius: CGFloat, color: UIColor, offset: CGSize, opacity: Float) {
+        self.layer.shadowRadius = radius
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOffset = offset
+        self.layer.shadowOpacity = opacity
+    }
 }

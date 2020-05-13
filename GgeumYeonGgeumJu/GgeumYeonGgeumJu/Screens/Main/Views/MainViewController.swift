@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController {
 
     
+    @IBOutlet weak var smokeNumberView: UIView!
+    @IBOutlet weak var smokeMoneyView: UIView!
     @IBOutlet weak var mainTitleLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var backImgHeightLayout: NSLayoutConstraint!
@@ -19,7 +21,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        applyCardView(views: [smokeMoneyView,smokeNumberView])
         scrollView.delegate = self
     }
 
@@ -27,6 +29,16 @@ class MainViewController: UIViewController {
         return statusStyle
     }
 
+    func applyCardView(views: [UIView]) {
+        let offset = CGSize(width: 1, height: 6)
+        views.forEach {
+        $0.dropShadow(color: .lightGray,
+                      opacity: 0.4,
+                      offSet: offset,
+                      radius: 10,
+                      scale: true)
+        }
+    }
 }
 
 extension MainViewController: UIScrollViewDelegate {

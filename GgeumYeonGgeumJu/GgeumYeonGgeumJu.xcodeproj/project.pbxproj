@@ -15,9 +15,12 @@
 		06C9A055246C1CA50045E623 /* StoryBoardName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A054246C1CA50045E623 /* StoryBoardName.swift */; };
 		06C9A057246C1CB00045E623 /* ViewControllerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A056246C1CB00045E623 /* ViewControllerIdentifier.swift */; };
 		06C9A05A246C550C0045E623 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A059246C550C0045E623 /* UIView+Extension.swift */; };
+		06C9A05C246C575B0045E623 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A05B246C575B0045E623 /* CALayer+Extension.swift */; };
+		8D7ADC677BEE34054E592C1D /* Pods_GgeumYeonGgeumJu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		008D661CD459A5FAEC95839F /* Pods-GgeumYeonGgeumJu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GgeumYeonGgeumJu.debug.xcconfig"; path = "Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu.debug.xcconfig"; sourceTree = "<group>"; };
 		06C9A033246C04160045E623 /* GgeumYeonGgeumJu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GgeumYeonGgeumJu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C9A036246C04160045E623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06C9A03A246C04160045E623 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +31,9 @@
 		06C9A054246C1CA50045E623 /* StoryBoardName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryBoardName.swift; sourceTree = "<group>"; };
 		06C9A056246C1CB00045E623 /* ViewControllerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerIdentifier.swift; sourceTree = "<group>"; };
 		06C9A059246C550C0045E623 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		06C9A05B246C575B0045E623 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GgeumYeonGgeumJu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B799E444DB397CAB31F37F7 /* Pods-GgeumYeonGgeumJu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GgeumYeonGgeumJu.release.xcconfig"; path = "Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D7ADC677BEE34054E592C1D /* Pods_GgeumYeonGgeumJu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +53,8 @@
 			children = (
 				06C9A035246C04160045E623 /* GgeumYeonGgeumJu */,
 				06C9A034246C04160045E623 /* Products */,
+				C885F78F45046F05C7ADD12C /* Pods */,
+				69E4CDED5A45CAE244BA023B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				06C9A059246C550C0045E623 /* UIView+Extension.swift */,
+				06C9A05B246C575B0045E623 /* CALayer+Extension.swift */,
 			);
 			path = GlobalExtension;
 			sourceTree = "<group>";
@@ -161,6 +171,24 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		69E4CDED5A45CAE244BA023B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C885F78F45046F05C7ADD12C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				008D661CD459A5FAEC95839F /* Pods-GgeumYeonGgeumJu.debug.xcconfig */,
+				8B799E444DB397CAB31F37F7 /* Pods-GgeumYeonGgeumJu.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -168,9 +196,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 06C9A047246C04170045E623 /* Build configuration list for PBXNativeTarget "GgeumYeonGgeumJu" */;
 			buildPhases = (
+				CCD1639C13CBA6BD04BBA9AC /* [CP] Check Pods Manifest.lock */,
 				06C9A02F246C04160045E623 /* Sources */,
 				06C9A030246C04160045E623 /* Frameworks */,
 				06C9A031246C04160045E623 /* Resources */,
+				6187C70293E185DBF15D16A2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -227,6 +257,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6187C70293E185DBF15D16A2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCD1639C13CBA6BD04BBA9AC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GgeumYeonGgeumJu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		06C9A02F246C04160045E623 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -237,6 +309,7 @@
 				06C9A037246C04160045E623 /* AppDelegate.swift in Sources */,
 				06C9A05A246C550C0045E623 /* UIView+Extension.swift in Sources */,
 				06C9A057246C1CB00045E623 /* ViewControllerIdentifier.swift in Sources */,
+				06C9A05C246C575B0045E623 /* CALayer+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +451,7 @@
 		};
 		06C9A048246C04170045E623 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 008D661CD459A5FAEC95839F /* Pods-GgeumYeonGgeumJu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -396,6 +470,7 @@
 		};
 		06C9A049246C04170045E623 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8B799E444DB397CAB31F37F7 /* Pods-GgeumYeonGgeumJu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
