@@ -11,6 +11,8 @@ import UIKit
 class MainViewController: UIViewController {
 
     
+    @IBOutlet weak var drinkNumberView: UIView!
+    @IBOutlet weak var drinkMoneyView: UIView!
     @IBOutlet weak var smokeNumberView: UIView!
     @IBOutlet weak var smokeMoneyView: UIView!
     @IBOutlet weak var mainTitleLabel: UILabel!
@@ -21,7 +23,7 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyCardView(views: [smokeMoneyView,smokeNumberView])
+        applyCardView(views: [smokeMoneyView, smokeNumberView, drinkMoneyView, drinkNumberView])
         scrollView.delegate = self
     }
 
