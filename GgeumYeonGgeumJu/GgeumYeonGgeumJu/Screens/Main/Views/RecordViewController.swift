@@ -21,11 +21,9 @@ class RecordViewController: UIViewController {
                                         target: self,
                                         action: nil)
     
-    let testPickerDate = ["1","2","3","4","5"]
-    let drinkgData: [String: [String]] =
-        ["소주": ["참이슬", "진로"],
-        "맥주": ["하이트", "카스"],
-        "양주": ["아그와", "앱솔"]]
+    let testDrinkNum = ["1","2","3","4","5"]
+    var pickKindDrinkIndex = 0
+    var dummyData: [GoodsList] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,17 +32,38 @@ class RecordViewController: UIViewController {
         createDatePicker()
         setupKindPickerView()
         setupNumPickerView()
+        fetchTestData()
+        
+    }
+    
+    func fetchTestData() {
+        let 참이슬 = Drink(title: "참이슬", price: 400)
+        let 진로 = Drink(title: "진로", price: 450)
+        let 처음처럼 = Drink(title: "처음처럼", price: 500)
+        let 카스 = Drink(title: "카스", price: 400)
+        let 클라우드 = Drink(title: "클라우드", price: 450)
+        let 테라 = Drink(title: "테라", price: 500)
+        let 앱솔 = Drink(title: "앱솔", price: 400)
+        let 스미노프 = Drink(title: "스미노프", price: 450)
+        let 아그와 = Drink(title: "아그와", price: 500)
+        let soju = [참이슬, 진로, 처음처럼]
+        let beer = [카스, 클라우드, 테라]
+        let liquor = [앱솔, 스미노프, 아그와]
+        
+        let sojuList = GoodsList(title: "소주", list: soju)
+        let beerList = GoodsList(title: "맥주", list: beer)
+        let liquorList = GoodsList(title: "양주", list: liquor)
+        
+        dummyData = [sojuList, beerList, liquorList]
     }
     
     func blinkTitleLabel() {
         titleLabel.alpha = 0.2
-//        let blink = CGAffineTransform(scaleX: 1.2, y: 1.2)
         UIView.animate(withDuration: 0.7, delay: 0, options: [.allowUserInteraction, .autoreverse, .repeat], animations: {
-//            self.titleLabel.transform = blink
             self.titleLabel.alpha = 1
         })
     }
-
+    
     // MARK: 날짜 PickerView
     func createDatePicker() {
         datePicker.datePickerMode = .date
@@ -63,6 +82,7 @@ class RecordViewController: UIViewController {
         
         dateTextField.inputAccessoryView = toolbar
         dateTextField.inputView = datePicker
+        dateTextField.text = Date().datePickerToString()
     }
     
     @objc func pressDateDone() {
@@ -91,6 +111,10 @@ class RecordViewController: UIViewController {
     }
     
     @objc func pressKindDone() {
+        let selectKind = kindPickerView.selectedRow(inComponent: 0)
+        let selectBrand = kindPickerView.selectedRow(inComponent: 1)
+        let drink = dummyData[selectKind].getDrink(index: selectBrand)
+        kindTextField.text = drink.title
         view.endEditing(true)
     }
     
@@ -106,18 +130,26 @@ class RecordViewController: UIViewController {
         toolbar.isUserInteractionEnabled = true
         let doneBtn = UIBarButtonItem(barButtonSystemItem: .done,
                                       target: self,
-                                      action: #selector(pressKindDone))
+                                      action: #selector(pressNumDone))
         doneBtn.tintColor = #colorLiteral(red: 0.7834629416, green: 0.237608701, blue: 0.3743506074, alpha: 1)
         toolbar.setItems([flexible, doneBtn], animated: false)
         numTextField.inputAccessoryView = toolbar
         numTextField.inputView = numPickerView
+    }
+    
+    @objc func pressNumDone() {
+        let selectRow = numPickerView.selectedRow(inComponent: 0)
+        let num = testDrinkNum[selectRow]
+        numTextField.text = "\(num) 잔"
+        view.endEditing(true)
     }
 }
 
 extension RecordViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         if pickerView == kindPickerView {
-            return drinkgData.count
+            // 술종류, 브랜드종류
+            return 2
         } else if pickerView == numPickerView {
             return 1
         } else {
@@ -127,9 +159,9 @@ extension RecordViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == kindPickerView {
-            return drinkgData[co]
+            return dummyData[component].getList().count
         } else if pickerView == numPickerView {
-            return testPickerDate.count
+            return testDrinkNum.count
         } else {
             return 0
         }
@@ -137,11 +169,70 @@ extension RecordViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView == kindPickerView {
-            if
+            // 0: 술종류, 1: 브랜드종류
+            switch component {
+            case 0:
+                return dummyData[row].title
+            case 1:
+                return dummyData[pickKindDrinkIndex].getList()[row]
+            default:
+                return nil
+            }
         } else if pickerView == numPickerView {
-            return testPickerDate.count
+            return "\(testDrinkNum[row]) 잔"
         } else {
-            return 0
+            return nil
         }
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == kindPickerView {
+            switch component {
+            case 0:
+                pickKindDrinkIndex = row
+                pickerView.reloadComponent(1)
+            default:
+                return
+            }
+        } else if pickerView == numPickerView {
+            
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        if component == 0 {
+            return 100
+        }
+        return 200
+    }
+}
+
+
+protocol GoodsListProtocol {
+    var title: String { get }
+    var list: [Drink] { set get }
+}
+
+extension GoodsListProtocol {
+    mutating func addGoods(goods: Drink) {
+        self.list.append(goods)
+    }
+    
+    func getList() -> [String] {
+        return list.map{$0.title}
+    }
+    
+    func getDrink(index: Int) -> Drink {
+        return self.list[index]
+    }
+}
+
+struct GoodsList: GoodsListProtocol {
+    var title: String
+    var list: [Drink]
+}
+
+struct Drink {
+    let title: String
+    let price: Int
 }

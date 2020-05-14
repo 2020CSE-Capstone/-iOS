@@ -38,5 +38,17 @@ class GgeumYeonGgeumJuTests: XCTestCase {
         
         XCTAssertEqual(mockDate, dateString)
     }
-
+    
+    func testPickerViewData() {
+        
+        let sojuList = [
+            Drink(title: "참이슬", price: 400),
+            Drink(title: "진로", price: 350),
+            Drink(title: "처음", price: 300)
+        ]
+        let list = GoodsList(title: "소주", list: sojuList)
+            
+        let resultData = ["참이슬", "진로", "처음"]
+        XCTAssertEqual(list.getList(), resultData)
+    }
 }
