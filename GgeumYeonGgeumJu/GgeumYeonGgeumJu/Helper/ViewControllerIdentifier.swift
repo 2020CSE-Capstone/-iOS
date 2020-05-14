@@ -9,4 +9,6 @@
 import Foundation
 enum ViewControllerIdentifier: String {
     case mainVC = "MainVC"
+    case historyVC = "HistoryVC"
+    case communityVC = "CommunityVC"
 }

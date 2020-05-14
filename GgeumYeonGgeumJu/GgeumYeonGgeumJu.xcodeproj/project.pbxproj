@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -16,6 +16,9 @@
 		06C9A057246C1CB00045E623 /* ViewControllerIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A056246C1CB00045E623 /* ViewControllerIdentifier.swift */; };
 		06C9A05A246C550C0045E623 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A059246C550C0045E623 /* UIView+Extension.swift */; };
 		06C9A05C246C575B0045E623 /* CALayer+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A05B246C575B0045E623 /* CALayer+Extension.swift */; };
+		06C9A060246D12570045E623 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06C9A05F246D12570045E623 /* TabBar.storyboard */; };
+		06C9A064246D141C0045E623 /* Community.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06C9A063246D141C0045E623 /* Community.storyboard */; };
+		06C9A067246D14350045E623 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06C9A066246D14350045E623 /* History.storyboard */; };
 		8D7ADC677BEE34054E592C1D /* Pods_GgeumYeonGgeumJu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +35,9 @@
 		06C9A056246C1CB00045E623 /* ViewControllerIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerIdentifier.swift; sourceTree = "<group>"; };
 		06C9A059246C550C0045E623 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		06C9A05B246C575B0045E623 /* CALayer+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Extension.swift"; sourceTree = "<group>"; };
+		06C9A05F246D12570045E623 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		06C9A063246D141C0045E623 /* Community.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Community.storyboard; sourceTree = "<group>"; };
+		06C9A066246D14350045E623 /* History.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
 		7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GgeumYeonGgeumJu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B799E444DB397CAB31F37F7 /* Pods-GgeumYeonGgeumJu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GgeumYeonGgeumJu.release.xcconfig"; path = "Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -71,6 +77,7 @@
 			children = (
 				06C9A04C246C041F0045E623 /* Screens */,
 				06C9A04B246C041D0045E623 /* GlobalExtension */,
+				06C9A058246C1CB60045E623 /* Helper */,
 				06C9A04A246C041C0045E623 /* Support */,
 			);
 			path = GgeumYeonGgeumJu;
@@ -98,10 +105,10 @@
 		06C9A04C246C041F0045E623 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				06C9A058246C1CB60045E623 /* Helper */,
+				06C9A05D246D123B0045E623 /* TabBar */,
+				06C9A04E246C04460045E623 /* Splash */,
 				06C9A050246C049E0045E623 /* Community */,
 				06C9A04F246C044A0045E623 /* History */,
-				06C9A04E246C04460045E623 /* Splash */,
 				06C9A04D246C043F0045E623 /* Main */,
 			);
 			path = Screens;
@@ -127,6 +134,7 @@
 		06C9A04F246C044A0045E623 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				06C9A061246D140B0045E623 /* StoryBoard */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -134,6 +142,7 @@
 		06C9A050246C049E0045E623 /* Community */ = {
 			isa = PBXGroup;
 			children = (
+				06C9A062246D140F0045E623 /* StoryBoard */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -171,6 +180,38 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		06C9A05D246D123B0045E623 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				06C9A05E246D12440045E623 /* StoryBoard */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		06C9A05E246D12440045E623 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				06C9A05F246D12570045E623 /* TabBar.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		06C9A061246D140B0045E623 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				06C9A066246D14350045E623 /* History.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		06C9A062246D140F0045E623 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				06C9A063246D141C0045E623 /* Community.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
 		69E4CDED5A45CAE244BA023B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -185,7 +226,6 @@
 				008D661CD459A5FAEC95839F /* Pods-GgeumYeonGgeumJu.debug.xcconfig */,
 				8B799E444DB397CAB31F37F7 /* Pods-GgeumYeonGgeumJu.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -249,9 +289,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06C9A060246D12570045E623 /* TabBar.storyboard in Resources */,
 				06C9A043246C04170045E623 /* LaunchScreen.storyboard in Resources */,
 				06C9A040246C04170045E623 /* Assets.xcassets in Resources */,
+				06C9A064246D141C0045E623 /* Community.storyboard in Resources */,
 				06C9A03E246C04160045E623 /* Main.storyboard in Resources */,
+				06C9A067246D14350045E623 /* History.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,7 +507,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ns.GgeumYeonGgeumJu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -483,7 +526,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ns.GgeumYeonGgeumJu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

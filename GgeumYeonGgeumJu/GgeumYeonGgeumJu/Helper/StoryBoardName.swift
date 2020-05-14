@@ -10,4 +10,7 @@ import Foundation
 
 enum StoryBoardName: String {
     case main = "Main"
+    case tabBar = "TabBar"
+    case history = "History"
+    case community = "Community"
 }
