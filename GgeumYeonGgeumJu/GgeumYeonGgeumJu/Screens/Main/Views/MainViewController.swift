@@ -10,7 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    
+    @IBOutlet weak var smokeChartButton: UIButton!
+    @IBOutlet weak var smokeRecordButton: UIButton!
     @IBOutlet weak var drinkNumberView: UIView!
     @IBOutlet weak var drinkMoneyView: UIView!
     @IBOutlet weak var smokeNumberView: UIView!
@@ -20,10 +21,15 @@ class MainViewController: UIViewController {
     @IBOutlet weak var backImgHeightLayout: NSLayoutConstraint!
     let backImgMinOriginHeight: CGFloat = 250
     var statusStyle: UIStatusBarStyle = .lightContent
+
+    // MARK: 타이틀텍스트
+    // 죽고싶어? 응 죽고싶어
+    // 담배한모금 술한모금 세금모금
+    // 오늘도 힘내세요
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyCardView(views: [smokeMoneyView, smokeNumberView, drinkMoneyView, drinkNumberView])
+        applyCardView(views: [smokeMoneyView, smokeNumberView, drinkMoneyView, drinkNumberView, smokeChartButton, smokeRecordButton])
         scrollView.delegate = self
     }
 
@@ -37,9 +43,18 @@ class MainViewController: UIViewController {
         $0.dropShadow(color: .lightGray,
                       opacity: 0.4,
                       offSet: offset,
-                      radius: 10,
+                      radius: 8,
                       scale: true)
         }
+    }
+    
+    // TODO: 술, 담배 타입구분
+    @IBAction func recordClick(_ sender: Any) {
+        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifier.recordVC.rawValue) as? RecordViewController else {
+            return
+        }
+        
+        navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
