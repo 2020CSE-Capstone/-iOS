@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06BBC13F246FCF0200BD0301 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC13E246FCF0200BD0301 /* CommunityViewController.swift */; };
+		06BBC143246FD53300BD0301 /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC141246FD53300BD0301 /* CommunityTableViewCell.swift */; };
+		06BBC144246FD53300BD0301 /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06BBC142246FD53300BD0301 /* CommunityTableViewCell.xib */; };
 		06C9A037246C04160045E623 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A036246C04160045E623 /* AppDelegate.swift */; };
 		06C9A03B246C04160045E623 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A03A246C04160045E623 /* MainViewController.swift */; };
 		06C9A03E246C04160045E623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06C9A03C246C04160045E623 /* Main.storyboard */; };
@@ -38,6 +41,9 @@
 
 /* Begin PBXFileReference section */
 		008D661CD459A5FAEC95839F /* Pods-GgeumYeonGgeumJu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GgeumYeonGgeumJu.debug.xcconfig"; path = "Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu.debug.xcconfig"; sourceTree = "<group>"; };
+		06BBC13E246FCF0200BD0301 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		06BBC141246FD53300BD0301 /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
+		06BBC142246FD53300BD0301 /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
 		06C9A033246C04160045E623 /* GgeumYeonGgeumJu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GgeumYeonGgeumJu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C9A036246C04160045E623 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06C9A03A246C04160045E623 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -81,6 +87,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		06BBC13C246FCE8200BD0301 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				06C9A061246D140B0045E623 /* StoryBoard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		06BBC13D246FCEEF00BD0301 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				06BBC140246FD51800BD0301 /* Cell */,
+				06C9A062246D140F0045E623 /* StoryBoard */,
+				06BBC13E246FCF0200BD0301 /* CommunityViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		06BBC140246FD51800BD0301 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				06BBC141246FD53300BD0301 /* CommunityTableViewCell.swift */,
+				06BBC142246FD53300BD0301 /* CommunityTableViewCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		06C9A02A246C04160045E623 = {
 			isa = PBXGroup;
 			children = (
@@ -148,7 +181,6 @@
 		06C9A04D246C043F0045E623 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				06C9A052246C05490045E623 /* StoryBoard */,
 				06C9A053246C054D0045E623 /* Views */,
 			);
 			path = Main;
@@ -165,7 +197,7 @@
 		06C9A04F246C044A0045E623 /* History */ = {
 			isa = PBXGroup;
 			children = (
-				06C9A061246D140B0045E623 /* StoryBoard */,
+				06BBC13C246FCE8200BD0301 /* Views */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -173,7 +205,7 @@
 		06C9A050246C049E0045E623 /* Community */ = {
 			isa = PBXGroup;
 			children = (
-				06C9A062246D140F0045E623 /* StoryBoard */,
+				06BBC13D246FCEEF00BD0301 /* Views */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -197,6 +229,7 @@
 		06C9A053246C054D0045E623 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				06C9A052246C05490045E623 /* StoryBoard */,
 				06C9A03A246C04160045E623 /* MainViewController.swift */,
 				06C9A068246D23AA0045E623 /* RecordViewController.swift */,
 			);
@@ -355,6 +388,7 @@
 			files = (
 				06C9A060246D12570045E623 /* TabBar.storyboard in Resources */,
 				06C9A043246C04170045E623 /* LaunchScreen.storyboard in Resources */,
+				06BBC144246FD53300BD0301 /* CommunityTableViewCell.xib in Resources */,
 				06C9A040246C04170045E623 /* Assets.xcassets in Resources */,
 				06C9A064246D141C0045E623 /* Community.storyboard in Resources */,
 				06C9A03E246C04160045E623 /* Main.storyboard in Resources */,
@@ -419,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06C9A06B246D32500045E623 /* String+Extension.swift in Sources */,
+				06BBC143246FD53300BD0301 /* CommunityTableViewCell.swift in Sources */,
 				06C9A055246C1CA50045E623 /* StoryBoardName.swift in Sources */,
 				06C9A03B246C04160045E623 /* MainViewController.swift in Sources */,
 				06C9A037246C04160045E623 /* AppDelegate.swift in Sources */,
@@ -426,6 +461,7 @@
 				06C9A05A246C550C0045E623 /* UIView+Extension.swift in Sources */,
 				06C9A057246C1CB00045E623 /* ViewControllerIdentifier.swift in Sources */,
 				06C9A05C246C575B0045E623 /* CALayer+Extension.swift in Sources */,
+				06BBC13F246FCF0200BD0301 /* CommunityViewController.swift in Sources */,
 				06C9A06D246D32890045E623 /* Date+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
