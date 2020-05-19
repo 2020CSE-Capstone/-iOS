@@ -12,6 +12,7 @@ class CommunityTableViewCell: UITableViewCell {
     static var reuseIdentifier = "CommunityCell"
     static var nibName = "CommunityTableViewCell"
     
+    @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

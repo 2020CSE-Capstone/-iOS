@@ -19,12 +19,20 @@ class CommunityViewController: UIViewController {
     
     private let originHeaderHeight: CGFloat = 200 - 44
     var tabUnderLayout: [NSLayoutConstraint] = []
-    
+    var mockData: [String] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.delegate = self
-        tableView.dataSource = self
+        setupTableView()
+        fetchMockData()
+    }
+    
+    func fetchMockData() {
+        mockData = ["abcdefgabcdefgabcdefgabcdefg",
+                    "제목입니다이건제목입니다이건제목입니다이건제목입니다이건제목입니다이건제목입니다이건",
+                    "제목입니다이건개행\n제목입니다이건",
+                    "12"
+        ]
+        tableView.reloadData()
     }
     
     func underBarAnimation(view: UIButton) {
@@ -37,6 +45,15 @@ class CommunityViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        let nib = UINib(nibName: CommunityTableViewCell.nibName, bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: CommunityTableViewCell.reuseIdentifier)
+        tableView.estimatedRowHeight = 1000
+        tableView.rowHeight = UITableView.automaticDimension
     }
     
     @IBAction func recentOrderClick(_ sender: UIButton) {
@@ -54,12 +71,17 @@ class CommunityViewController: UIViewController {
 
 extension CommunityViewController: UITableViewDataSource ,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return mockData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        return UITableViewCell(style: .default, reuseIdentifier: "")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CommunityTableViewCell.reuseIdentifier, for: indexPath) as? CommunityTableViewCell else {
+            return UITableViewCell(style: .default, reuseIdentifier: "")
+        }
+        cell.titleLabel.text = mockData[indexPath.row]
+        
+        return cell
         
     }
     
