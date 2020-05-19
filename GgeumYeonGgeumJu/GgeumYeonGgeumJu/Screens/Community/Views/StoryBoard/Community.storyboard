@@ -29,37 +29,38 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lb8-fL-WPU">
                                 <rect key="frame" x="0.0" y="200" width="414" height="42"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tDW-EI-FGb">
-                                        <rect key="frame" x="20" y="0.0" width="220" height="40"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsf-0e-eqj">
-                                                <rect key="frame" x="0.0" y="0.0" width="70" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="0IE-3e-6Jb"/>
-                                                    <constraint firstAttribute="height" constant="40" id="911-kN-cm9"/>
-                                                </constraints>
-                                                <state key="normal" title="최신글"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHt-CA-2pn">
-                                                <rect key="frame" x="75" y="0.0" width="70" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="J4m-jG-1vh"/>
-                                                    <constraint firstAttribute="height" constant="40" id="S8N-M0-G9O"/>
-                                                </constraints>
-                                                <state key="normal" title="인기글"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQo-gs-sIG">
-                                                <rect key="frame" x="150" y="0.0" width="70" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="70" id="DvH-jb-n5l"/>
-                                                    <constraint firstAttribute="height" constant="40" id="MQp-ec-dAm"/>
-                                                </constraints>
-                                                <state key="normal" title="나의글"/>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-HZ-pP7">
-                                        <rect key="frame" x="20" y="40" width="72" height="2"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsf-0e-eqj">
+                                        <rect key="frame" x="10" y="0.0" width="70" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="0IE-3e-6Jb"/>
+                                        </constraints>
+                                        <state key="normal" title="최신글"/>
+                                        <connections>
+                                            <action selector="recentOrderClick:" destination="bsQ-Bj-J8p" eventType="touchUpInside" id="V6U-QR-EET"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iHt-CA-2pn">
+                                        <rect key="frame" x="85" y="0.0" width="70" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="J4m-jG-1vh"/>
+                                        </constraints>
+                                        <state key="normal" title="인기글"/>
+                                        <connections>
+                                            <action selector="popularOrderClick:" destination="bsQ-Bj-J8p" eventType="touchUpInside" id="1UU-fx-0h3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fQo-gs-sIG">
+                                        <rect key="frame" x="160" y="0.0" width="70" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="70" id="DvH-jb-n5l"/>
+                                        </constraints>
+                                        <state key="normal" title="나의글"/>
+                                        <connections>
+                                            <action selector="myBoardClick:" destination="bsQ-Bj-J8p" eventType="touchUpInside" id="RmW-az-8v3"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-HZ-pP7">
+                                        <rect key="frame" x="10" y="40" width="70" height="2"/>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="2lb-Se-HWy"/>
@@ -68,10 +69,19 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="tDW-EI-FGb" firstAttribute="leading" secondItem="Lb8-fL-WPU" secondAttribute="leading" constant="20" id="58z-Ex-RRu"/>
+                                    <constraint firstItem="gsf-0e-eqj" firstAttribute="top" secondItem="Lb8-fL-WPU" secondAttribute="top" id="1LI-n9-StJ"/>
+                                    <constraint firstItem="iHt-CA-2pn" firstAttribute="leading" secondItem="gsf-0e-eqj" secondAttribute="trailing" constant="5" id="Tam-ez-Mxn"/>
+                                    <constraint firstAttribute="bottom" secondItem="fQo-gs-sIG" secondAttribute="bottom" id="Z3U-lU-hL6"/>
+                                    <constraint firstItem="tpm-HZ-pP7" firstAttribute="leading" secondItem="gsf-0e-eqj" secondAttribute="leading" priority="750" id="dgx-Wz-xql"/>
+                                    <constraint firstAttribute="bottom" secondItem="gsf-0e-eqj" secondAttribute="bottom" id="fLE-ev-yzC"/>
+                                    <constraint firstAttribute="bottom" secondItem="iHt-CA-2pn" secondAttribute="bottom" id="gp4-Nr-YvF"/>
                                     <constraint firstAttribute="bottom" secondItem="tpm-HZ-pP7" secondAttribute="bottom" id="hLa-34-WVw"/>
-                                    <constraint firstItem="tpm-HZ-pP7" firstAttribute="top" secondItem="tDW-EI-FGb" secondAttribute="bottom" id="kR3-wW-rfu"/>
-                                    <constraint firstItem="tDW-EI-FGb" firstAttribute="top" secondItem="Lb8-fL-WPU" secondAttribute="top" id="pFR-hL-uM5"/>
+                                    <constraint firstItem="fQo-gs-sIG" firstAttribute="top" secondItem="Lb8-fL-WPU" secondAttribute="top" id="jlN-WQ-uWS"/>
+                                    <constraint firstItem="iHt-CA-2pn" firstAttribute="top" secondItem="Lb8-fL-WPU" secondAttribute="top" id="kiY-Qx-nNO"/>
+                                    <constraint firstItem="gsf-0e-eqj" firstAttribute="leading" secondItem="Lb8-fL-WPU" secondAttribute="leading" constant="10" id="vfv-pv-4jm"/>
+                                    <constraint firstItem="tpm-HZ-pP7" firstAttribute="trailing" secondItem="gsf-0e-eqj" secondAttribute="trailing" priority="750" id="w9M-Cj-flO"/>
+                                    <constraint firstAttribute="height" constant="42" id="wdz-1G-DR2"/>
+                                    <constraint firstItem="fQo-gs-sIG" firstAttribute="leading" secondItem="iHt-CA-2pn" secondAttribute="trailing" constant="5" id="xYi-gr-9n0"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -90,6 +100,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w0H-79-UqO"/>
                     </view>
+                    <connections>
+                        <outlet property="headerView" destination="bcV-W8-FJh" id="0ns-bH-th5"/>
+                        <outlet property="headerViewTopLayout" destination="kag-lc-tPu" id="Y84-3X-wEL"/>
+                        <outlet property="tabUnderLineView" destination="tpm-HZ-pP7" id="giS-4o-HCo"/>
+                        <outlet property="tableView" destination="bmX-Vk-FKC" id="deY-Sb-x2l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5d-aQ-RB9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

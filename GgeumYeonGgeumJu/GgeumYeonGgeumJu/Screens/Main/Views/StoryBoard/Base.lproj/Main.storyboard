@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -29,7 +29,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <view contentMode="scaleToFill" restorationIdentifier="MainVC" translatesAutoresizingMaskIntoConstraints="NO" id="6VA-jH-ql7">
-                                        <rect key="frame" x="0.0" y="230" width="414" height="1488.5"/>
+                                        <rect key="frame" x="0.0" y="200" width="414" height="1488.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="흡연" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JwD-jA-Io5">
                                                 <rect key="frame" x="20" y="48" width="43.5" height="30"/>
@@ -286,7 +286,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kGM-qK-B95" userLabel="Label">
-                                        <rect key="frame" x="20" y="92.5" width="130" height="107.5"/>
+                                        <rect key="frame" x="20" y="62.5" width="130" height="107.5"/>
                                         <string key="text">담배한모금
 술한모금
 세금모금</string>
@@ -295,13 +295,14 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="SAQ-HZ-UQj" firstAttribute="leading" secondItem="9Sp-pr-uFL" secondAttribute="leading" id="0b0-sB-nju"/>
                                     <constraint firstItem="6VA-jH-ql7" firstAttribute="top" secondItem="kGM-qK-B95" secondAttribute="bottom" constant="30" id="8aL-pa-3Gh"/>
                                     <constraint firstAttribute="trailing" secondItem="6VA-jH-ql7" secondAttribute="trailing" id="8tg-Cw-uZy"/>
                                     <constraint firstItem="SAQ-HZ-UQj" firstAttribute="top" secondItem="9Sp-pr-uFL" secondAttribute="top" id="OJw-vb-n3n"/>
                                     <constraint firstAttribute="trailing" secondItem="9Sp-pr-uFL" secondAttribute="trailing" id="QYp-L4-3c9"/>
-                                    <constraint firstItem="6VA-jH-ql7" firstAttribute="top" secondItem="uBW-28-tfc" secondAttribute="top" constant="230" id="XHf-qg-1fu"/>
+                                    <constraint firstItem="6VA-jH-ql7" firstAttribute="top" secondItem="uBW-28-tfc" secondAttribute="top" constant="200" id="XHf-qg-1fu"/>
                                     <constraint firstItem="SAQ-HZ-UQj" firstAttribute="bottom" secondItem="9Sp-pr-uFL" secondAttribute="bottom" id="XoU-xE-dAI"/>
                                     <constraint firstItem="6VA-jH-ql7" firstAttribute="leading" secondItem="uBW-28-tfc" secondAttribute="leading" id="YFP-6v-yCj"/>
                                     <constraint firstItem="6VA-jH-ql7" firstAttribute="width" secondItem="uBW-28-tfc" secondAttribute="width" id="e8f-LO-LQe"/>
