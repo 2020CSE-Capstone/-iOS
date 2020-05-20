@@ -26,6 +26,8 @@ class CommunityViewController: UIViewController {
         fetchMockData()
     }
     
+    // TODO: 글자수 100자제한
+    
     func fetchMockData() {
         mockData = ["abcdefgabcdefgabcdefgabcdefg",
                     "제목입니다이건제목입니다이건제목입니다이건제목입니다이건제목입니다이건제목입니다이건",
@@ -54,6 +56,7 @@ class CommunityViewController: UIViewController {
         tableView.register(nib, forCellReuseIdentifier: CommunityTableViewCell.reuseIdentifier)
         tableView.estimatedRowHeight = 1000
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: originHeaderHeight, right: 0)
     }
     
     @IBAction func recentOrderClick(_ sender: UIButton) {
