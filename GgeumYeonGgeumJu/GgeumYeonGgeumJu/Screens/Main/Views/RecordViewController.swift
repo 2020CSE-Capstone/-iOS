@@ -10,6 +10,8 @@ import UIKit
 
 class RecordViewController: UIViewController {
     
+    @IBOutlet weak var numUnderView: UIView!
+    @IBOutlet weak var kindUnderView: UIView!
     @IBOutlet weak var numTextField: UITextField!
     @IBOutlet weak var kindTextField: UITextField!
     @IBOutlet weak var dateTextField: UITextField!
@@ -115,6 +117,7 @@ class RecordViewController: UIViewController {
         let selectBrand = kindPickerView.selectedRow(inComponent: 1)
         let drink = dummyData[selectKind].getDrink(index: selectBrand)
         kindTextField.text = drink.title
+        kindUnderView.backgroundColor = .softSky
         view.endEditing(true)
     }
     
@@ -141,8 +144,20 @@ class RecordViewController: UIViewController {
         let selectRow = numPickerView.selectedRow(inComponent: 0)
         let num = testDrinkNum[selectRow]
         numTextField.text = "\(num) 잔"
+        numUnderView.backgroundColor = .softSky
         view.endEditing(true)
     }
+    
+    @IBAction func saveClick(_ sender: Any) {
+        guard kindTextField.hasText && numTextField.hasText else {
+            simpleAlert(title: "모두 작성해주세요", message: "빈칸을 확인하세요")
+            return
+        }
+    }
+    
+    @IBAction func backClick(_ sender: Any) {
+           navigationController?.popViewController(animated: true)
+       }
 }
 
 extension RecordViewController: UIPickerViewDataSource, UIPickerViewDelegate {

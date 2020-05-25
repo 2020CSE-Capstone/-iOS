@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    @IBOutlet weak var drinkChartButton: UIButton!
+    @IBOutlet weak var drinkRecordButton: UIButton!
     @IBOutlet weak var smokeChartButton: UIButton!
     @IBOutlet weak var smokeRecordButton: UIButton!
     @IBOutlet weak var drinkNumberView: UIView!
@@ -29,7 +31,14 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        applyCardView(views: [smokeMoneyView, smokeNumberView, drinkMoneyView, drinkNumberView, smokeChartButton, smokeRecordButton])
+        applyCardView(views: [smokeMoneyView,
+                              smokeNumberView,
+                              drinkMoneyView,
+                              drinkNumberView,
+                              smokeChartButton,
+                              smokeRecordButton,
+                              drinkChartButton,
+                              drinkRecordButton])
         scrollView.delegate = self
     }
 
@@ -39,23 +48,31 @@ class MainViewController: UIViewController {
 
     func applyCardView(views: [UIView]) {
         let offset = CGSize(width: 1, height: 6)
+        let radius: CGFloat = 8
         views.forEach {
         $0.dropShadow(color: .lightGray,
                       opacity: 0.4,
                       offSet: offset,
-                      radius: 8,
+                      radius: radius,
                       scale: true)
         }
+        smokeMoneyView.setGradientBackGround(radius: radius, colorOne: .softPink, colorTwo: .softPink, colorThree: .white)
+        smokeNumberView.setGradientBackGround(radius: radius, colorOne: .softPink, colorTwo: .softPink, colorThree: .white)
+        drinkMoneyView.setGradientBackGround(radius: radius, colorOne: .softSky, colorTwo: .softSky, colorThree: .white)
+        drinkNumberView.setGradientBackGround(radius: radius, colorOne: .softSky, colorTwo: .softSky, colorThree: .white)
     }
     
     // TODO: 술, 담배 타입구분
-    @IBAction func recordClick(_ sender: Any) {
+    // 흡연: 1, 음주: 2
+    @IBAction func recordClick(_ sender: UIButton) {
         guard let nextVC = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifier.recordVC.rawValue) as? RecordViewController else {
             return
         }
         
         navigationController?.pushViewController(nextVC, animated: true)
     }
+    
+   
 }
 
 extension MainViewController: UIScrollViewDelegate {
