@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bsQ-Bj-J8p">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bsQ-Bj-J8p">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -20,9 +20,9 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bcV-W8-FJh">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="communityBg" translatesAutoresizingMaskIntoConstraints="NO" id="bcV-W8-FJh">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
-                                <color key="backgroundColor" red="0.4823529412" green="0.83529411760000005" blue="0.90588235289999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="MWO-IV-Y3u"/>
                                 </constraints>
@@ -35,7 +35,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="0IE-3e-6Jb"/>
                                         </constraints>
-                                        <state key="normal" title="최신글"/>
+                                        <state key="normal" title="최신글">
+                                            <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="recentOrderClick:" destination="bsQ-Bj-J8p" eventType="touchUpInside" id="V6U-QR-EET"/>
                                         </connections>
@@ -45,7 +47,9 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="J4m-jG-1vh"/>
                                         </constraints>
-                                        <state key="normal" title="인기글"/>
+                                        <state key="normal" title="인기글">
+                                            <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="popularOrderClick:" destination="bsQ-Bj-J8p" eventType="touchUpInside" id="1UU-fx-0h3"/>
                                         </connections>
@@ -55,14 +59,16 @@
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="DvH-jb-n5l"/>
                                         </constraints>
-                                        <state key="normal" title="나의글"/>
+                                        <state key="normal" title="나의글">
+                                            <color key="titleColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="myBoardClick:" destination="bsQ-Bj-J8p" eventType="touchUpInside" id="RmW-az-8v3"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tpm-HZ-pP7">
                                         <rect key="frame" x="10" y="40" width="70" height="2"/>
-                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" red="0.2666666667" green="0.2666666667" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="2lb-Se-HWy"/>
                                         </constraints>
@@ -113,4 +119,7 @@
             <point key="canvasLocation" x="97.101449275362327" y="-28.125"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="communityBg" width="1050" height="700"/>
+    </resources>
 </document>

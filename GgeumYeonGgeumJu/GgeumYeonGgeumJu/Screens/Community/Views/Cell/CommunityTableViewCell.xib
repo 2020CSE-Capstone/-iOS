@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,14 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="173"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목이될거임제목이될거임제목이될거임제목이될거임제목이될거임 제목이될거임 제목이될거임 제목이될거임 제목이될거임 제목이될거임" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5y-MS-Ibs">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5y-MS-Ibs">
                         <rect key="frame" x="16" y="36" width="343" height="90"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.05.19" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDT-Sl-8qY">
-                        <rect key="frame" x="289" y="12" width="70" height="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.05.19" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDT-Sl-8qY">
+                        <rect key="frame" x="16" y="12" width="70" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="0yV-bp-ZBG"/>
                             <constraint firstAttribute="width" constant="70" id="rkV-So-tnY"/>
@@ -76,8 +76,8 @@
                             <constraint firstItem="5u7-fd-uwn" firstAttribute="leading" secondItem="8Ge-t5-Fp0" secondAttribute="trailing" constant="4" id="uiR-tU-vgR"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임이지" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUW-YH-1BO">
-                        <rect key="frame" x="16" y="143.5" width="65" height="18"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUW-YH-1BO">
+                        <rect key="frame" x="16" y="143.5" width="39" height="18"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -90,10 +90,10 @@
                     <constraint firstItem="jDT-Sl-8qY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="KMP-4Y-wsZ"/>
                     <constraint firstAttribute="trailing" secondItem="jRD-zo-Tp4" secondAttribute="trailing" constant="10" id="Kkt-Es-gu1"/>
                     <constraint firstItem="L5y-MS-Ibs" firstAttribute="top" secondItem="jDT-Sl-8qY" secondAttribute="bottom" constant="10" id="OKx-pK-Rxa"/>
+                    <constraint firstItem="jDT-Sl-8qY" firstAttribute="leading" secondItem="L5y-MS-Ibs" secondAttribute="leading" id="Q6l-Jx-D6z"/>
                     <constraint firstItem="DUW-YH-1BO" firstAttribute="centerY" secondItem="jRD-zo-Tp4" secondAttribute="centerY" id="SBY-3f-mqx"/>
                     <constraint firstItem="L5y-MS-Ibs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="mJE-dG-p6Z"/>
                     <constraint firstItem="DUW-YH-1BO" firstAttribute="leading" secondItem="L5y-MS-Ibs" secondAttribute="leading" id="mtW-9m-uGc"/>
-                    <constraint firstItem="jDT-Sl-8qY" firstAttribute="trailing" secondItem="L5y-MS-Ibs" secondAttribute="trailing" id="nVL-P1-7eb"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
