@@ -121,7 +121,7 @@ class MainViewController: UIViewController {
         chart.pinchZoomEnabled = false
         chart.doubleTapToZoomEnabled = false
         chart.isUserInteractionEnabled = false
-        chart.animate(xAxisDuration: 1.0)
+//        chart.animate(xAxisDuration: 1.0)
     }
     
     // TODO: 술, 담배 타입구분

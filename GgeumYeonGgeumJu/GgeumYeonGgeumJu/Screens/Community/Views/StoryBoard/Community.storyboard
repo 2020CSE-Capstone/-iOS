@@ -118,16 +118,16 @@
             </objects>
             <point key="canvasLocation" x="97.101449275362327" y="-28.125"/>
         </scene>
-        <!--View Controller-->
+        <!--Community Detail View Controller-->
         <scene sceneID="FUn-ot-UYK">
             <objects>
-                <viewController id="my3-b6-LDn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommunityDetailVC" id="my3-b6-LDn" customClass="CommunityDetailViewController" customModule="GgeumYeonGgeumJu" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hg0-TB-z3f">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cn0-QT-dpV">
-                                <rect key="frame" x="0.0" y="828" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="812" width="414" height="34"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="가나다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ejI-Oj-tD6">
                                         <rect key="frame" x="40" y="0.0" width="288" height="34"/>
@@ -167,7 +167,7 @@
                                 <state key="normal" title="Button" image="btnBack"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jom-cG-yHj">
-                                <rect key="frame" x="0.0" y="88" width="414" height="740"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="k09-cR-Dw4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="388"/>
@@ -237,7 +237,7 @@
                             <constraint firstItem="cn0-QT-dpV" firstAttribute="leading" secondItem="hg0-TB-z3f" secondAttribute="leading" id="A23-9J-I5x"/>
                             <constraint firstItem="jom-cG-yHj" firstAttribute="top" secondItem="50r-bI-dzm" secondAttribute="bottom" id="P94-2v-Dxu"/>
                             <constraint firstItem="jom-cG-yHj" firstAttribute="leading" secondItem="lPt-rJ-Q6M" secondAttribute="leading" id="TzN-et-guy"/>
-                            <constraint firstItem="lPt-rJ-Q6M" firstAttribute="bottom" secondItem="cn0-QT-dpV" secondAttribute="bottom" id="U2h-DF-RUz"/>
+                            <constraint firstItem="lPt-rJ-Q6M" firstAttribute="bottom" secondItem="cn0-QT-dpV" secondAttribute="bottom" constant="16" id="U2h-DF-RUz"/>
                             <constraint firstItem="50r-bI-dzm" firstAttribute="top" secondItem="lPt-rJ-Q6M" secondAttribute="top" id="WJG-tn-d0F"/>
                             <constraint firstItem="50r-bI-dzm" firstAttribute="leading" secondItem="lPt-rJ-Q6M" secondAttribute="leading" id="cEP-Cb-1rs"/>
                             <constraint firstItem="lPt-rJ-Q6M" firstAttribute="trailing" secondItem="jom-cG-yHj" secondAttribute="trailing" id="oWZ-oZ-0K9"/>

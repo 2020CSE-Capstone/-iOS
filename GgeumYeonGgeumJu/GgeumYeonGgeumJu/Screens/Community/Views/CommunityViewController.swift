@@ -85,7 +85,13 @@ extension CommunityViewController: UITableViewDataSource ,UITableViewDelegate {
         cell.titleLabel.text = mockData[indexPath.row]
         
         return cell
-        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifier.communityDetailVC.rawValue) else {
+            return
+        }
+        navigationController?.pushViewController(nextVC, animated: true)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
