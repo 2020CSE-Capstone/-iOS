@@ -11,5 +11,8 @@ target 'GgeumYeonGgeumJu' do
   pod 'RxCocoa', '~> 5.1.1'
   pod 'Kingfisher', '~> 5.13.0'
   pod 'SnapKit', '~> 5.0.1'
+  pod 'Macaw', '0.9.6'
+  pod 'Charts'
+  pod 'Alamofire', '~> 5.1'
 
 end

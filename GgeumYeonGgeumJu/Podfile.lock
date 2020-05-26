@@ -1,7 +1,13 @@
 PODS:
+  - Alamofire (5.2.1)
+  - Charts (3.5.0):
+    - Charts/Core (= 3.5.0)
+  - Charts/Core (3.5.0)
   - Kingfisher (5.13.4):
     - Kingfisher/Core (= 5.13.4)
   - Kingfisher/Core (5.13.4)
+  - Macaw (0.9.6):
+    - SWXMLHash
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -9,28 +15,40 @@ PODS:
     - RxSwift (~> 5)
   - RxSwift (5.1.1)
   - SnapKit (5.0.1)
+  - SWXMLHash (5.0.1)
 
 DEPENDENCIES:
+  - Alamofire (~> 5.1)
+  - Charts
   - Kingfisher (~> 5.13.0)
+  - Macaw (= 0.9.6)
   - RxCocoa (~> 5.1.1)
   - RxSwift (~> 5.1.1)
   - SnapKit (~> 5.0.1)
 
 SPEC REPOS:
   trunk:
+    - Alamofire
+    - Charts
     - Kingfisher
+    - Macaw
     - RxCocoa
     - RxRelay
     - RxSwift
     - SnapKit
+    - SWXMLHash
 
 SPEC CHECKSUMS:
+  Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  Charts: 40a08591df1f8ad5c223ddedfb1a06da92f24f7c
   Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
+  Macaw: 8306d775625ba003beee4186b9533fd7cf284024
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SWXMLHash: 9cc0c2e4807926c74377724aa8722ee5707a0485
 
-PODFILE CHECKSUM: 7e21facb6ab2422a2a8d5660cfc973d2df84afaf
+PODFILE CHECKSUM: 5bc1e48139712bd8ac40280008d80fc90e7dd827
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.1
