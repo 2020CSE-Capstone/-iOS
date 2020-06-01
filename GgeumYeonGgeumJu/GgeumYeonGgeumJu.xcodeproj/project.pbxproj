@@ -10,6 +10,9 @@
 		062A3117247D6706002BF51C /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3116247D6706002BF51C /* CommunityDetailViewController.swift */; };
 		0660D67E247C00AF0081A8C0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D67D247C00AF0081A8C0 /* UIColor+Extension.swift */; };
 		0660D680247C0A150081A8C0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */; };
+		0684FC542484F6B600532B77 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */; };
+		0684FC562484FD9A00532B77 /* tesview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0684FC552484FD9A00532B77 /* tesview.xib */; };
+		0684FC582485459C00532B77 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC572485459C00532B77 /* HistoryViewController.swift */; };
 		06BBC13F246FCF0200BD0301 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC13E246FCF0200BD0301 /* CommunityViewController.swift */; };
 		06BBC143246FD53300BD0301 /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC141246FD53300BD0301 /* CommunityTableViewCell.swift */; };
 		06BBC144246FD53300BD0301 /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06BBC142246FD53300BD0301 /* CommunityTableViewCell.xib */; };
@@ -47,6 +50,9 @@
 		062A3116247D6706002BF51C /* CommunityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewController.swift; sourceTree = "<group>"; };
 		0660D67D247C00AF0081A8C0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		0684FC552484FD9A00532B77 /* tesview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = tesview.xib; sourceTree = "<group>"; };
+		0684FC572485459C00532B77 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		06BBC13E246FCF0200BD0301 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		06BBC141246FD53300BD0301 /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		06BBC142246FD53300BD0301 /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
@@ -93,10 +99,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0684FC522484F6A000532B77 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */,
+				0684FC552484FD9A00532B77 /* tesview.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		06BBC13C246FCE8200BD0301 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0684FC522484F6A000532B77 /* Cell */,
 				06C9A061246D140B0045E623 /* StoryBoard */,
+				0684FC572485459C00532B77 /* HistoryViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -398,6 +415,7 @@
 				06C9A060246D12570045E623 /* TabBar.storyboard in Resources */,
 				06C9A043246C04170045E623 /* LaunchScreen.storyboard in Resources */,
 				06BBC144246FD53300BD0301 /* CommunityTableViewCell.xib in Resources */,
+				0684FC562484FD9A00532B77 /* tesview.xib in Resources */,
 				06C9A040246C04170045E623 /* Assets.xcassets in Resources */,
 				06C9A064246D141C0045E623 /* Community.storyboard in Resources */,
 				06C9A03E246C04160045E623 /* Main.storyboard in Resources */,
@@ -468,8 +486,10 @@
 				0660D67E247C00AF0081A8C0 /* UIColor+Extension.swift in Sources */,
 				06C9A03B246C04160045E623 /* MainViewController.swift in Sources */,
 				06C9A037246C04160045E623 /* AppDelegate.swift in Sources */,
+				0684FC582485459C00532B77 /* HistoryViewController.swift in Sources */,
 				06C9A069246D23AA0045E623 /* RecordViewController.swift in Sources */,
 				06C9A05A246C550C0045E623 /* UIView+Extension.swift in Sources */,
+				0684FC542484F6B600532B77 /* HistoryTableViewCell.swift in Sources */,
 				062A3117247D6706002BF51C /* CommunityDetailViewController.swift in Sources */,
 				06C9A057246C1CB00045E623 /* ViewControllerIdentifier.swift in Sources */,
 				06C9A05C246C575B0045E623 /* CALayer+Extension.swift in Sources */,

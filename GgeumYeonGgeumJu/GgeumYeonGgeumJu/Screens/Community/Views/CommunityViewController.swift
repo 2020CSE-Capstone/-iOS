@@ -29,11 +29,18 @@ class CommunityViewController: UIViewController {
     // TODO: 글자수 100자제한
     
     func fetchMockData() {
-        mockData = ["abcdefgabcdefgabcdefgabcdefg",
-                    "제목입니다이건제목입니다이건제목입니다이건제목입니다이건제목입니다이건제목입니다이건",
-                    "제목입니다이건개행\n제목입니다이건",
-                    "12"
-        ]
+        mockData = ["하... 금연하기 힘드네요",
+                    "다신 술안먹을거에요",
+                    "윗사람 어제도 저말했어요",
+                    "나는 나를 믿지않는다",
+                    "하... 금연하기 힘드네요",
+                    "다신 술안먹을거에요",
+                    "윗사람 어제도 저말했어요",
+                    "나는 나를 믿지않는다",
+                    "하... 금연하기 힘드네요",
+                    "다신 술안먹을거에요",
+                    "윗사람 어제도 저말했어요",
+                    "나는 나를 믿지않는다"]
         tableView.reloadData()
     }
     
