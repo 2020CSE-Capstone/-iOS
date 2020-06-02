@@ -25,6 +25,7 @@ class HistoryViewController: UIViewController {
         tableView.register(HistoryTableViewCell.self, forCellReuseIdentifier: HistoryTableViewCell.reuseIdentifier)
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.separatorColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
 
     }
     
@@ -122,7 +123,13 @@ extension HistoryViewController: UITableViewDelegate {
         
         let underView: UIView = {
             let view = UIView()
-            view.backgroundColor = .lightGray
+            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+            return view
+        }()
+        
+        let topView: UIView = {
+            let view = UIView()
+            view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
             return view
         }()
         
@@ -135,6 +142,7 @@ extension HistoryViewController: UITableViewDelegate {
         
         headerView.addSubview(dateLabel)
         headerView.addSubview(underView)
+        headerView.addSubview(topView)
         
         dateLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
@@ -143,7 +151,12 @@ extension HistoryViewController: UITableViewDelegate {
         
         underView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
-            $0.height.equalTo(1)
+            $0.height.equalTo(0.3)
+        }
+        
+        topView.snp.makeConstraints {
+            $0.leading.trailing.top.equalToSuperview()
+            $0.height.equalTo(0.3)
         }
         
         return headerView
