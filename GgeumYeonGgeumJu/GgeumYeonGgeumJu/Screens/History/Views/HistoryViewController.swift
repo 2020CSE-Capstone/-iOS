@@ -11,6 +11,7 @@ import UIKit
 class HistoryViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tabUnderView: UIView!
     
     var testData: [HistorySectionListModel] = []
     
@@ -29,9 +30,9 @@ class HistoryViewController: UIViewController {
     
     func fetchMockData() {
         let mock: [HistoryListModel] = [
-            HistoryListModel(date: "06.01", percent: "10%", amount: "1잔", overAmount: "1잔"),
+            HistoryListModel(date: "06.02", percent: "10%", amount: "1잔", overAmount: "1잔"),
             HistoryListModel(date: "06.02", percent: "15%", amount: "2잔", overAmount: "2잔"),
-            HistoryListModel(date: "06.02", percent: "20%", amount: "3잔", overAmount: "3잔"),
+            HistoryListModel(date: "06.01", percent: "20%", amount: "3잔", overAmount: "3잔"),
             HistoryListModel(date: "06.03", percent: "30%", amount: "4잔", overAmount: "4잔"),
             HistoryListModel(date: "06.03", percent: "40%", amount: "5잔", overAmount: "5잔"),
         ]
@@ -65,6 +66,32 @@ class HistoryViewController: UIViewController {
         tableView.reloadData()
     }
     
+    func moveUnderView(view: UIButton, color: UIColor) {
+        DispatchQueue.main.async {
+            self.tabUnderView.snp.removeConstraints()
+            self.tabUnderView.snp.makeConstraints {
+                $0.leading.equalTo(view.snp.leading)
+                $0.trailing.equalTo(view.snp.trailing)
+            }
+            
+            UIView.animate(withDuration: 0.4) {
+                self.view.layoutIfNeeded()
+                self.tabUnderView.backgroundColor = color
+            }
+        }
+        
+    }
+    
+    @IBAction func tabTypeClick(_ sender: UIButton) {
+        let type: RecordType = sender.tag == 1 ? .smoke : .drink
+        
+        switch type {
+        case .smoke:
+            moveUnderView(view: sender, color: .softPink)
+        case .drink:
+            moveUnderView(view: sender, color: .softSky)
+        }
+    }
 }
 
 extension HistoryViewController: UITableViewDataSource {

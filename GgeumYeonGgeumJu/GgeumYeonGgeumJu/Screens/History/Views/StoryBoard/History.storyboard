@@ -21,17 +21,23 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lt2-ge-0Jj">
                                         <rect key="frame" x="0.0" y="0.0" width="404" height="43"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeR-QZ-Ap3">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DeR-QZ-Ap3">
                                                 <rect key="frame" x="0.0" y="0.0" width="202" height="43"/>
                                                 <state key="normal" title="흡연">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tabTypeClick:" destination="Qyz-E7-qE7" eventType="touchUpInside" id="H3l-G1-PD5"/>
+                                                </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a33-KZ-x5j">
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a33-KZ-x5j">
                                                 <rect key="frame" x="202" y="0.0" width="202" height="43"/>
                                                 <state key="normal" title="음주">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="tabTypeClick:" destination="Qyz-E7-qE7" eventType="touchUpInside" id="la8-j6-X6E"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -51,14 +57,14 @@
                                     <constraint firstAttribute="trailing" secondItem="lt2-ge-0Jj" secondAttribute="trailing" id="Dp8-lK-2g2"/>
                                     <constraint firstItem="4FS-JU-33P" firstAttribute="top" secondItem="lt2-ge-0Jj" secondAttribute="bottom" id="L7w-sc-jad"/>
                                     <constraint firstItem="lt2-ge-0Jj" firstAttribute="leading" secondItem="pPX-7M-da0" secondAttribute="leading" id="Whb-Rd-jvp"/>
-                                    <constraint firstItem="4FS-JU-33P" firstAttribute="trailing" secondItem="DeR-QZ-Ap3" secondAttribute="trailing" id="ati-Qj-r0L"/>
+                                    <constraint firstItem="4FS-JU-33P" firstAttribute="trailing" secondItem="DeR-QZ-Ap3" secondAttribute="trailing" priority="750" id="ati-Qj-r0L"/>
                                     <constraint firstItem="lt2-ge-0Jj" firstAttribute="top" secondItem="pPX-7M-da0" secondAttribute="top" id="fIO-gn-png"/>
-                                    <constraint firstItem="4FS-JU-33P" firstAttribute="leading" secondItem="DeR-QZ-Ap3" secondAttribute="leading" id="h8G-de-82N"/>
+                                    <constraint firstItem="4FS-JU-33P" firstAttribute="leading" secondItem="DeR-QZ-Ap3" secondAttribute="leading" priority="750" id="h8G-de-82N"/>
                                     <constraint firstAttribute="bottom" secondItem="4FS-JU-33P" secondAttribute="bottom" id="vA1-T1-7Fp"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="80" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NnC-Nq-W5U">
-                                <rect key="frame" x="0.0" y="89" width="414" height="773"/>
+                                <rect key="frame" x="0.0" y="119" width="414" height="743"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
@@ -67,7 +73,7 @@
                             <constraint firstItem="0Sj-BD-i5N" firstAttribute="trailing" secondItem="NnC-Nq-W5U" secondAttribute="trailing" id="H3a-DC-MvO"/>
                             <constraint firstItem="0Sj-BD-i5N" firstAttribute="trailing" secondItem="pPX-7M-da0" secondAttribute="trailing" constant="5" id="I2x-sP-LLE"/>
                             <constraint firstItem="pPX-7M-da0" firstAttribute="top" secondItem="0Sj-BD-i5N" secondAttribute="top" id="JzT-sO-93g"/>
-                            <constraint firstItem="NnC-Nq-W5U" firstAttribute="top" secondItem="pPX-7M-da0" secondAttribute="bottom" id="Wl0-1k-8i8"/>
+                            <constraint firstItem="NnC-Nq-W5U" firstAttribute="top" secondItem="pPX-7M-da0" secondAttribute="bottom" constant="30" id="Wl0-1k-8i8"/>
                             <constraint firstItem="0Sj-BD-i5N" firstAttribute="bottom" secondItem="NnC-Nq-W5U" secondAttribute="bottom" id="bx5-EU-7w9"/>
                             <constraint firstItem="pPX-7M-da0" firstAttribute="leading" secondItem="0Sj-BD-i5N" secondAttribute="leading" constant="5" id="jRa-rb-LVT"/>
                             <constraint firstItem="NnC-Nq-W5U" firstAttribute="leading" secondItem="0Sj-BD-i5N" secondAttribute="leading" id="zue-We-WmH"/>
@@ -75,6 +81,7 @@
                         <viewLayoutGuide key="safeArea" id="0Sj-BD-i5N"/>
                     </view>
                     <connections>
+                        <outlet property="tabUnderView" destination="4FS-JU-33P" id="ard-lS-faj"/>
                         <outlet property="tableView" destination="NnC-Nq-W5U" id="BKn-vi-pDD"/>
                     </connections>
                 </viewController>
