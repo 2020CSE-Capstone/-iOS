@@ -16,7 +16,7 @@ class HistoryTableViewCell: UITableViewCell {
     let percentLabel = UILabel()
     let overAmountLabel = UILabel()
     let kindImageView = UIImageView()
-//    let underLine = UIView()
+    let underLine = UIView()
     
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,7 +27,7 @@ class HistoryTableViewCell: UITableViewCell {
         self.addSubview(percentLabel)
         self.addSubview(kindImageView)
         self.addSubview(overAmountLabel)
-//        self.addSubview(underLine)
+        self.addSubview(underLine)
         
         setupLayout()
         setupUI()
@@ -62,11 +62,11 @@ class HistoryTableViewCell: UITableViewCell {
             $0.top.equalTo(amountLabel.snp.bottom).offset(2)
         }
         
-//        underLine.snp.makeConstraints {
-//            $0.leading.trailing.equalToSuperview().offset(20)
-//            $0.bottom.equalToSuperview()
-//            $0.height.equalTo(1)
-//        }
+        underLine.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview().offset(20)
+            $0.top.equalTo(self.snp.bottom)
+            $0.height.equalTo(0.4)
+        }
     }
     
     func setupUI() {
@@ -76,7 +76,7 @@ class HistoryTableViewCell: UITableViewCell {
         overAmountLabel.font = .systemFont(ofSize: 12)
         overAmountLabel.textColor = #colorLiteral(red: 0.7834629416, green: 0.237608701, blue: 0.3743506074, alpha: 1)
         
-//        underLine.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        underLine.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     
     // TODO: 모델바인딩
