@@ -51,4 +51,26 @@ class GgeumYeonGgeumJuTests: XCTestCase {
         let resultData = ["참이슬", "진로", "처음"]
         XCTAssertEqual(list.getList(), resultData)
     }
+    
+    func test리스트날짜별섹션구분() {
+        let mock: [HistoryListModel] = [
+            HistoryListModel(date: "06.01", percent: "20%", amount: "3잔", overAmount: "3잔"),
+            HistoryListModel(date: "06.02", percent: "15%", amount: "2잔", overAmount: "2잔"),
+            HistoryListModel(date: "06.02", percent: "20%", amount: "3잔", overAmount: "3잔"),
+            HistoryListModel(date: "06.03", percent: "30%", amount: "4잔", overAmount: "4잔"),
+            HistoryListModel(date: "06.03", percent: "40%", amount: "5잔", overAmount: "5잔"),
+        ]
+        
+        let data: [HistoryListModel] = [
+            HistoryListModel(date: "06.02", percent: "15%", amount: "2잔", overAmount: "2잔"),
+            HistoryListModel(date: "06.02", percent: "20%", amount: "3잔", overAmount: "3잔"),
+            HistoryListModel(date: "06.01", percent: "20%", amount: "3잔", overAmount: "3잔"),
+            HistoryListModel(date: "06.03", percent: "30%", amount: "4잔", overAmount: "4잔"),
+            HistoryListModel(date: "06.03", percent: "40%", amount: "5잔", overAmount: "5잔"),
+        ]
+        
+        let sortList = data.sorted { $0.date < $1.date }
+        print(sortList)
+        XCTAssertEqual(sortList, mock)
+    }
 }
