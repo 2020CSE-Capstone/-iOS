@@ -22,13 +22,16 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
     }
     
     func setupTableView() {
+        tableView.delegate = self
+        tableView.dataSource = self
         let commentNib = UINib(nibName: CommentTableViewCell.nibName, bundle: nil)
         tableView.register(commentNib,
                            forCellReuseIdentifier: CommentTableViewCell.reuseIdentifier)
         tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.delegate = self
-        tableView.dataSource = self
+        tableView.estimatedSectionHeaderHeight = 400
+        tableView.sectionHeaderHeight = UITableView.automaticDimension
+        
         
     }
     
@@ -55,6 +58,9 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
+    @IBAction func backClick(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 extension CommunityDetailViewController: UITableViewDataSource {
@@ -75,8 +81,6 @@ extension CommunityDetailViewController: UITableViewDataSource {
 }
 
 extension CommunityDetailViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
-    }
+   
 }
 
