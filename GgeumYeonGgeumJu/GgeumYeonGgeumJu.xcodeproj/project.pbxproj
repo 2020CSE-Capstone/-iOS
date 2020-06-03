@@ -21,6 +21,8 @@
 		0684FC6B2487AA6700532B77 /* CommunityListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC6A2487AA6700532B77 /* CommunityListModel.swift */; };
 		0684FC6D2487B72900532B77 /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC6C2487B72900532B77 /* DependencyContainer.swift */; };
 		0684FC6F2487B75700532B77 /* DependencyPool.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC6E2487B75700532B77 /* DependencyPool.swift */; };
+		0684FC722487BF0A00532B77 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC702487BF0A00532B77 /* CommentTableViewCell.swift */; };
+		0684FC732487BF0A00532B77 /* CommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0684FC712487BF0A00532B77 /* CommentTableViewCell.xib */; };
 		06BBC13F246FCF0200BD0301 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC13E246FCF0200BD0301 /* CommunityViewController.swift */; };
 		06BBC143246FD53300BD0301 /* CommunityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06BBC141246FD53300BD0301 /* CommunityTableViewCell.swift */; };
 		06BBC144246FD53300BD0301 /* CommunityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06BBC142246FD53300BD0301 /* CommunityTableViewCell.xib */; };
@@ -69,6 +71,8 @@
 		0684FC6A2487AA6700532B77 /* CommunityListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityListModel.swift; sourceTree = "<group>"; };
 		0684FC6C2487B72900532B77 /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		0684FC6E2487B75700532B77 /* DependencyPool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyPool.swift; sourceTree = "<group>"; };
+		0684FC702487BF0A00532B77 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		0684FC712487BF0A00532B77 /* CommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentTableViewCell.xib; sourceTree = "<group>"; };
 		06BBC13E246FCF0200BD0301 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		06BBC141246FD53300BD0301 /* CommunityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityTableViewCell.swift; sourceTree = "<group>"; };
 		06BBC142246FD53300BD0301 /* CommunityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityTableViewCell.xib; sourceTree = "<group>"; };
@@ -195,6 +199,8 @@
 			children = (
 				06BBC141246FD53300BD0301 /* CommunityTableViewCell.swift */,
 				06BBC142246FD53300BD0301 /* CommunityTableViewCell.xib */,
+				0684FC702487BF0A00532B77 /* CommentTableViewCell.swift */,
+				0684FC712487BF0A00532B77 /* CommentTableViewCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -483,6 +489,7 @@
 				06C9A064246D141C0045E623 /* Community.storyboard in Resources */,
 				06C9A03E246C04160045E623 /* Main.storyboard in Resources */,
 				06C9A067246D14350045E623 /* History.storyboard in Resources */,
+				0684FC732487BF0A00532B77 /* CommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,6 +570,7 @@
 				062A3117247D6706002BF51C /* CommunityDetailViewController.swift in Sources */,
 				06C9A057246C1CB00045E623 /* ViewControllerIdentifier.swift in Sources */,
 				06C9A05C246C575B0045E623 /* CALayer+Extension.swift in Sources */,
+				0684FC722487BF0A00532B77 /* CommentTableViewCell.swift in Sources */,
 				0684FC5E2487A19B00532B77 /* CommunityServiceProtocol.swift in Sources */,
 				06BBC13F246FCF0200BD0301 /* CommunityViewController.swift in Sources */,
 				0684FC642487A3E100532B77 /* BaseAPI.swift in Sources */,
