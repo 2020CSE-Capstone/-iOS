@@ -9,7 +9,7 @@
 import Foundation
 
 struct HistoryListModel: Equatable {
-    let kind: RecordType = .drink
+    var kind: RecordType = .drink
     let date: String
     let percent: String
     let amount: String

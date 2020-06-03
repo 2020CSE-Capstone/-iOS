@@ -31,7 +31,7 @@ class HistoryViewController: UIViewController {
     
     func fetchMockData() {
         let mock: [HistoryListModel] = [
-            HistoryListModel(date: "06.02", percent: "10%", amount: "1잔", overAmount: "1잔"),
+            HistoryListModel(kind: .smoke, date: "06.02", percent: "10%", amount: "1개비", overAmount: "1개비"),
             HistoryListModel(date: "06.02", percent: "15%", amount: "2잔", overAmount: "2잔"),
             HistoryListModel(date: "06.01", percent: "20%", amount: "3잔", overAmount: "3잔"),
             HistoryListModel(date: "06.03", percent: "30%", amount: "4잔", overAmount: "4잔"),

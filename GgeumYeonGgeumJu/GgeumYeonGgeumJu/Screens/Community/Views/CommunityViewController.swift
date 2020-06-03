@@ -9,9 +9,14 @@
 import UIKit
 import SnapKit
 
+enum CommunityListType: String {
+    case recent = "recent"
+    case popular = "popular"
+    case myBoard
+}
+
 class CommunityViewController: UIViewController {
 
-    
     @IBOutlet weak var tabUnderLineView: UIView!
     @IBOutlet weak var headerViewTopLayout: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
@@ -25,7 +30,8 @@ class CommunityViewController: UIViewController {
         setupTableView()
         fetchMockData()
         
-        CommunityServiceImp().requestCommunityList(sortString: "recent") {
+        let testType: CommunityListType = .recent
+        CommunityServiceImp().requestCommunityList(sortString: testType.rawValue) { _ in
             
         }
     }
