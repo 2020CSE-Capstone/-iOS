@@ -24,6 +24,10 @@ class CommunityViewController: UIViewController {
         super.viewDidLoad()
         setupTableView()
         fetchMockData()
+        
+        CommunityServiceImp().requestCommunityList(sortString: "recent") {
+            
+        }
     }
     
     // TODO: 글자수 100자제한
