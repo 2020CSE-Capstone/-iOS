@@ -127,35 +127,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cn0-QT-dpV">
-                                <rect key="frame" x="0.0" y="812" width="414" height="34"/>
+                                <rect key="frame" x="0.0" y="801" width="414" height="61"/>
                                 <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="가나다" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ejI-Oj-tD6">
-                                        <rect key="frame" x="40" y="0.0" width="288" height="34"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ejI-Oj-tD6">
+                                        <rect key="frame" x="30" y="5" width="300" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="kQf-MY-ioU"/>
+                                            <constraint firstAttribute="height" constant="36" id="kQf-MY-ioU"/>
                                         </constraints>
                                         <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                                <real key="value" value="7"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                                <color key="value" red="0.80392158030000005" green="0.80392158030000005" blue="0.80392158030000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xWM-wl-uEH">
-                                        <rect key="frame" x="344" y="0.0" width="70" height="34"/>
+                                        <rect key="frame" x="340" y="5" width="60" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="70" id="81z-r7-avg"/>
+                                            <constraint firstAttribute="width" constant="60" id="81z-r7-avg"/>
                                         </constraints>
-                                        <state key="normal" title="등록"/>
+                                        <state key="normal" image="paperplane" catalog="system"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                                <real key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color" red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="xWM-wl-uEH" firstAttribute="top" secondItem="cn0-QT-dpV" secondAttribute="top" id="75N-g4-PIx"/>
-                                    <constraint firstAttribute="trailing" secondItem="xWM-wl-uEH" secondAttribute="trailing" id="Hh0-B5-Q3x"/>
-                                    <constraint firstAttribute="bottom" secondItem="xWM-wl-uEH" secondAttribute="bottom" id="QOH-nb-z3m"/>
-                                    <constraint firstItem="ejI-Oj-tD6" firstAttribute="top" secondItem="cn0-QT-dpV" secondAttribute="top" id="YPH-iO-abT"/>
-                                    <constraint firstItem="ejI-Oj-tD6" firstAttribute="leading" secondItem="cn0-QT-dpV" secondAttribute="leading" constant="40" id="chL-rv-LoR"/>
-                                    <constraint firstItem="xWM-wl-uEH" firstAttribute="leading" secondItem="ejI-Oj-tD6" secondAttribute="trailing" constant="16" id="oNp-08-vOv"/>
-                                    <constraint firstAttribute="bottom" secondItem="ejI-Oj-tD6" secondAttribute="bottom" id="zek-zB-Vc4"/>
+                                    <constraint firstAttribute="trailing" secondItem="xWM-wl-uEH" secondAttribute="trailing" constant="14" id="Hh0-B5-Q3x"/>
+                                    <constraint firstItem="xWM-wl-uEH" firstAttribute="centerY" secondItem="ejI-Oj-tD6" secondAttribute="centerY" id="XC2-Pa-eaS"/>
+                                    <constraint firstItem="ejI-Oj-tD6" firstAttribute="top" secondItem="cn0-QT-dpV" secondAttribute="top" constant="5" id="YPH-iO-abT"/>
+                                    <constraint firstItem="xWM-wl-uEH" firstAttribute="bottom" secondItem="ejI-Oj-tD6" secondAttribute="bottom" id="Z37-92-5bE"/>
+                                    <constraint firstItem="ejI-Oj-tD6" firstAttribute="leading" secondItem="cn0-QT-dpV" secondAttribute="leading" constant="30" id="chL-rv-LoR"/>
+                                    <constraint firstItem="xWM-wl-uEH" firstAttribute="top" secondItem="ejI-Oj-tD6" secondAttribute="top" id="ivs-rn-tDR"/>
+                                    <constraint firstItem="xWM-wl-uEH" firstAttribute="leading" secondItem="ejI-Oj-tD6" secondAttribute="trailing" constant="10" id="oNp-08-vOv"/>
+                                    <constraint firstAttribute="bottom" secondItem="ejI-Oj-tD6" secondAttribute="bottom" constant="20" id="zek-zB-Vc4"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="50r-bI-dzm">
@@ -167,7 +185,7 @@
                                 <state key="normal" title="Button" image="btnBack"/>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="jom-cG-yHj">
-                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="713"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="k09-cR-Dw4">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="388"/>
@@ -248,7 +266,7 @@
                             <constraint firstItem="cn0-QT-dpV" firstAttribute="leading" secondItem="hg0-TB-z3f" secondAttribute="leading" id="A23-9J-I5x"/>
                             <constraint firstItem="jom-cG-yHj" firstAttribute="top" secondItem="50r-bI-dzm" secondAttribute="bottom" id="P94-2v-Dxu"/>
                             <constraint firstItem="jom-cG-yHj" firstAttribute="leading" secondItem="lPt-rJ-Q6M" secondAttribute="leading" id="TzN-et-guy"/>
-                            <constraint firstItem="lPt-rJ-Q6M" firstAttribute="bottom" secondItem="cn0-QT-dpV" secondAttribute="bottom" constant="16" id="U2h-DF-RUz"/>
+                            <constraint firstItem="lPt-rJ-Q6M" firstAttribute="bottom" secondItem="cn0-QT-dpV" secondAttribute="bottom" id="U2h-DF-RUz"/>
                             <constraint firstItem="50r-bI-dzm" firstAttribute="top" secondItem="lPt-rJ-Q6M" secondAttribute="top" id="WJG-tn-d0F"/>
                             <constraint firstItem="50r-bI-dzm" firstAttribute="leading" secondItem="lPt-rJ-Q6M" secondAttribute="leading" id="cEP-Cb-1rs"/>
                             <constraint firstItem="lPt-rJ-Q6M" firstAttribute="trailing" secondItem="jom-cG-yHj" secondAttribute="trailing" id="oWZ-oZ-0K9"/>
@@ -257,6 +275,7 @@
                         <viewLayoutGuide key="safeArea" id="lPt-rJ-Q6M"/>
                     </view>
                     <connections>
+                        <outlet property="commentTextView" destination="ejI-Oj-tD6" id="oha-2e-s6c"/>
                         <outlet property="tableView" destination="jom-cG-yHj" id="h3y-WY-eyD"/>
                     </connections>
                 </viewController>
@@ -269,5 +288,6 @@
         <image name="btnBack" width="44" height="44"/>
         <image name="communityBg" width="1050" height="700"/>
         <image name="heart" catalog="system" width="128" height="109"/>
+        <image name="paperplane" catalog="system" width="128" height="121"/>
     </resources>
 </document>

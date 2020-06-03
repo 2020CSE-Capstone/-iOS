@@ -8,19 +8,23 @@
 
 import UIKit
 
-class CommunityDetailViewController: UIViewController {
+class CommunityDetailViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupCommentTextView()
         setupTableView()
+        
     }
     
     func setupTableView() {
         let commentNib = UINib(nibName: CommentTableViewCell.nibName, bundle: nil)
-        tableView.register(commentNib, forCellReuseIdentifier: CommentTableViewCell.reuseIdentifier)
+        tableView.register(commentNib,
+                           forCellReuseIdentifier: CommentTableViewCell.reuseIdentifier)
         tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableView.automaticDimension
         tableView.delegate = self
@@ -28,6 +32,29 @@ class CommunityDetailViewController: UIViewController {
         
     }
     
+    func setupCommentTextView() {
+        commentTextView.delegate = self
+        resizeTextView()
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(resizeTextView),
+                                               name: UITextView.textDidChangeNotification,
+                                               object: nil)
+    }
+    
+    @objc
+    func resizeTextView() {
+        let estimateSize = CGSize(width: commentTextView.frame.width, height: .greatestFiniteMagnitude)
+        let size = commentTextView.sizeThatFits(estimateSize)
+        
+        if size.height > 200 {
+            return
+        }
+        commentTextView.constraints.forEach {
+            if $0.firstAttribute == .height {
+                $0.constant = size.height
+            }
+        }
+    }
 }
 
 extension CommunityDetailViewController: UITableViewDataSource {
@@ -36,7 +63,8 @@ extension CommunityDetailViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.reuseIdentifier, for: indexPath) as? CommentTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: CommentTableViewCell.reuseIdentifier,
+                                                       for: indexPath) as? CommentTableViewCell else {
             return .init(style: .default, reuseIdentifier: "")
         }
         
