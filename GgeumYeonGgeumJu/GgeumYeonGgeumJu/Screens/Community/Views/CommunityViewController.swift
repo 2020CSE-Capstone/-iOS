@@ -17,13 +17,27 @@ enum CommunityListType {
 
 class CommunityViewController: UIViewController {
 
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var tabUnderLineView: UIView!
     @IBOutlet weak var headerViewTopLayout: NSLayoutConstraint!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var headerView: UIImageView!
-    
+    private let service: CommunityServiceProtocol
+        = DependencyContainer.shared.getDependency(key: .communityService)
     private let originHeaderHeight: CGFloat = 200 - 44
-    private var isLoading = false
+    private var isLoading = false {
+        willSet {
+            if newValue {
+                DispatchQueue.main.async {
+                    self.indicator.startAnimating()
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.indicator.stopAnimating()
+                }
+            }
+        }
+    }
     
     private var tabUnderLayout: [NSLayoutConstraint] = []
     private var communityList: [CommunityListModel] = []
@@ -36,7 +50,7 @@ class CommunityViewController: UIViewController {
     
     func requestList(type: CommunityListType) {
         isLoading = true
-        CommunityServiceImp().requestCommunityList(type: type) { [weak self] list in
+        service.requestCommunityList(type: type) { [weak self] list in
             guard let list = list else {
                 return
             }
@@ -102,11 +116,30 @@ extension CommunityViewController: UITableViewDataSource ,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifier.communityDetailVC.rawValue) else {
+        
+        guard let cell = tableView.cellForRow(at: indexPath) as? CommunityTableViewCell else {
+            return
+        }
+        let boardIdx = cell.model.boardIdx
+        
+        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifier.communityDetailVC.rawValue) as? CommunityDetailViewController else {
             return
         }
         nextVC.hidesBottomBarWhenPushed = true
-        navigationController?.pushViewController(nextVC, animated: true)
+        isLoading = true
+        service.requestCommunityWithBoardIdx(boardIdx: boardIdx) { [weak self] data in
+            guard let data = data,
+                let self = self else {
+                    return
+            }
+            nextVC.model = data
+            self.isLoading = false
+            DispatchQueue.main.async {
+                self.navigationController?.pushViewController(nextVC, animated: true)
+                
+            }
+        }
+        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

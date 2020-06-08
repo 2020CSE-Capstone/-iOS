@@ -18,6 +18,8 @@ class CommunityTableViewCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
+    var model: CommunityListModel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -30,9 +32,10 @@ class CommunityTableViewCell: UITableViewCell {
     }
     
     func bind(model: CommunityListModel) {
+        self.model = model
         nickNameLabel.text = model.nickName
         titleLabel.text = model.title
-        dateLabel.text = model.writeDate.communityDate()
+        dateLabel.text = model.writeDate?.communityDate()
         likeNumLabel.text = String(model.likeCount)
         commentNumLabel.text = String(model.commentCount)
     }

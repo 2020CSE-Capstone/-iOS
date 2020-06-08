@@ -10,15 +10,31 @@ import UIKit
 
 class CommunityDetailViewController: UIViewController, UITextViewDelegate {
 
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var nickNameLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
     
+    var model: CommunityListModel?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupContentView()
         setupCommentTextView()
         setupTableView()
         
+    }
+    
+    func setupContentView() {
+        guard let model = model else {
+            return
+        }
+        dateLabel.text = model.writeDate?.communityDate()
+        titleLabel.text = model.title
+        nickNameLabel.text = model.nickName
+        contentLabel.text = model.content
     }
     
     func setupTableView() {

@@ -91,6 +91,15 @@
                                     <constraint firstItem="fQo-gs-sIG" firstAttribute="leading" secondItem="iHt-CA-2pn" secondAttribute="trailing" constant="5" id="xYi-gr-9n0"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="BMh-yQ-6Xo">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -98,18 +107,21 @@
                             <constraint firstItem="Lb8-fL-WPU" firstAttribute="trailing" secondItem="w0H-79-UqO" secondAttribute="trailing" id="Dds-kl-hXT"/>
                             <constraint firstItem="Lb8-fL-WPU" firstAttribute="top" secondItem="bcV-W8-FJh" secondAttribute="bottom" id="GaB-hC-1zi"/>
                             <constraint firstItem="bcV-W8-FJh" firstAttribute="leading" secondItem="w0H-79-UqO" secondAttribute="leading" id="HBq-Qh-1Ca"/>
+                            <constraint firstItem="BMh-yQ-6Xo" firstAttribute="centerY" secondItem="k87-D1-rTU" secondAttribute="centerY" id="KXw-XZ-fKC"/>
                             <constraint firstItem="bmX-Vk-FKC" firstAttribute="bottom" secondItem="w0H-79-UqO" secondAttribute="bottom" id="Lgy-E7-FBc"/>
                             <constraint firstItem="bmX-Vk-FKC" firstAttribute="top" secondItem="Lb8-fL-WPU" secondAttribute="bottom" id="NIk-rB-vUj"/>
                             <constraint firstItem="bcV-W8-FJh" firstAttribute="trailing" secondItem="w0H-79-UqO" secondAttribute="trailing" id="PZr-iv-piO"/>
                             <constraint firstItem="bmX-Vk-FKC" firstAttribute="leading" secondItem="w0H-79-UqO" secondAttribute="leading" id="WyR-0b-Zxs"/>
                             <constraint firstItem="bmX-Vk-FKC" firstAttribute="trailing" secondItem="w0H-79-UqO" secondAttribute="trailing" id="jXT-7i-A2R"/>
                             <constraint firstItem="bcV-W8-FJh" firstAttribute="top" secondItem="k87-D1-rTU" secondAttribute="top" id="kag-lc-tPu"/>
+                            <constraint firstItem="BMh-yQ-6Xo" firstAttribute="centerX" secondItem="k87-D1-rTU" secondAttribute="centerX" id="rm1-vB-XFD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w0H-79-UqO"/>
                     </view>
                     <connections>
                         <outlet property="headerView" destination="bcV-W8-FJh" id="0ns-bH-th5"/>
                         <outlet property="headerViewTopLayout" destination="kag-lc-tPu" id="Y84-3X-wEL"/>
+                        <outlet property="indicator" destination="BMh-yQ-6Xo" id="Ael-Zg-Mlj"/>
                         <outlet property="tabUnderLineView" destination="tpm-HZ-pP7" id="giS-4o-HCo"/>
                         <outlet property="tableView" destination="bmX-Vk-FKC" id="deY-Sb-x2l"/>
                     </connections>
@@ -199,7 +211,8 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFk-gh-S0x">
                                                     <rect key="frame" x="20" y="112" width="370" height="59"/>
-                                                    <string key="text">내용</string>
+                                                    <string key="text">내용
+</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
@@ -310,7 +323,11 @@
                     </view>
                     <connections>
                         <outlet property="commentTextView" destination="ejI-Oj-tD6" id="oha-2e-s6c"/>
+                        <outlet property="contentLabel" destination="zFk-gh-S0x" id="R7A-XO-WeK"/>
+                        <outlet property="dateLabel" destination="1YU-PA-LBG" id="leB-SH-Bvh"/>
+                        <outlet property="nickNameLabel" destination="kRj-3G-eFC" id="NUh-2i-fgy"/>
                         <outlet property="tableView" destination="jom-cG-yHj" id="h3y-WY-eyD"/>
+                        <outlet property="titleLabel" destination="urv-YP-WTh" id="xkZ-IE-Scy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I59-qY-BUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

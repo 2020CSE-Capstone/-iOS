@@ -75,8 +75,8 @@ class GgeumYeonGgeumJuTests: XCTestCase {
     }
     
     func test커뮤니티작성일포맷() {
-        let mockTime = "2020-06-08 21:30:13"
-        let mockDate = "16 분전"
+        let mockTime = "2020-06-07 21:30:13"
+        let mockDate = "2020.06.07"
         let date: String = mockTime.communityDate()
         
         XCTAssertEqual(date, mockDate)

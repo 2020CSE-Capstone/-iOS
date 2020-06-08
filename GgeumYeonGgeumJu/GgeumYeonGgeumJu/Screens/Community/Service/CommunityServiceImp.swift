@@ -43,10 +43,24 @@ struct CommunityServiceImp: CommunityServiceProtocol {
         }
     }
     
-    func requestMyCommunityList(completion: @escaping ()->()) {
+    func requestCommunityWithBoardIdx(boardIdx: Int, completion: @escaping (CommunityListModel?) -> Void) {
         var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
-        let userId = "test"
-        urlComponent?.path = RequestURL.myCommunity(userId: userId).getString
+        urlComponent?.path = RequestURL.community(sortString: String(boardIdx)).getString
         
+        guard let url = urlComponent?.url else {
+            return
+        }
+        
+        let request = AF.request(url)
+        request
+            .validate(statusCode: 200...500)
+            .responseDecodable(of: SimpleResponse<CommunityListModel>.self) { response in
+                switch response.result {
+                case .success(let object):
+                    completion(object.data)
+                case .failure(let err):
+                    print(err)
+                }
+        }
     }
 }

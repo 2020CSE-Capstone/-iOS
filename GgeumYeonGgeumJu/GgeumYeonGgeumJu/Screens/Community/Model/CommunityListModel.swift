@@ -10,14 +10,14 @@ import Foundation
 
 struct CommunityListModel: Codable {
     let boardIdx: Int
-    let title, writeDate: String
+    let title, content, writeDate: String?
     let likeCount, userId: Int
     let nickName: String
     let commentCount: Int
     
     enum CodingKeys: String, CodingKey {
         case boardIdx = "board_no"
-        case title
+        case title, content
         case writeDate = "write_date"
         case likeCount = "like_count"
         case userId = "user_id"
