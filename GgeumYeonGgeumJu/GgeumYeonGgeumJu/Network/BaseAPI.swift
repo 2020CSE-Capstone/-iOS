@@ -12,7 +12,7 @@ struct BaseAPI {
     
     private init() { }
     static let shared = BaseAPI()
-    private let baseURLString = "http://13.125.162.225/api"
+    private let baseURLString = "http://13.125.162.225:8080"
     
     func getBaseString() -> String {
         return baseURLString

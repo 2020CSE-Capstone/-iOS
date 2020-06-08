@@ -9,9 +9,9 @@
 import UIKit
 import SnapKit
 
-enum CommunityListType: String {
-    case recent = "recent"
-    case popular = "popular"
+enum CommunityListType {
+    case recent
+    case popular
     case myBoard
 }
 
@@ -23,35 +23,29 @@ class CommunityViewController: UIViewController {
     @IBOutlet weak var headerView: UIImageView!
     
     private let originHeaderHeight: CGFloat = 200 - 44
-    var tabUnderLayout: [NSLayoutConstraint] = []
-    var mockData: [String] = []
+    private var isLoading = false
+    
+    private var tabUnderLayout: [NSLayoutConstraint] = []
+    private var communityList: [CommunityListModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        fetchMockData()
-        
-        let testType: CommunityListType = .recent
-        CommunityServiceImp().requestCommunityList(sortString: testType.rawValue) { _ in
-            
-        }
+        requestList(type: .recent)
     }
     
-    // TODO: 글자수 100자제한
-    
-    func fetchMockData() {
-        mockData = ["하... 금연하기 힘드네요",
-                    "다신 술안먹을거에요",
-                    "윗사람 어제도 저말했어요",
-                    "나는 나를 믿지않는다",
-                    "하... 금연하기 힘드네요",
-                    "다신 술안먹을거에요",
-                    "윗사람 어제도 저말했어요",
-                    "나는 나를 믿지않는다",
-                    "하... 금연하기 힘드네요",
-                    "다신 술안먹을거에요",
-                    "윗사람 어제도 저말했어요",
-                    "나는 나를 믿지않는다"]
-        tableView.reloadData()
+    func requestList(type: CommunityListType) {
+        isLoading = true
+        CommunityServiceImp().requestCommunityList(type: type) { [weak self] list in
+            guard let list = list else {
+                return
+            }
+            self?.communityList = list
+            self?.isLoading = false
+            DispatchQueue.main.async {
+                self?.tableView.reloadData()
+            }
+        }
     }
     
     func underBarAnimation(view: UIButton) {
@@ -78,20 +72,23 @@ class CommunityViewController: UIViewController {
     
     @IBAction func recentOrderClick(_ sender: UIButton) {
         underBarAnimation(view: sender)
+        requestList(type: .recent)
     }
     
     @IBAction func popularOrderClick(_ sender: UIButton) {
         underBarAnimation(view: sender)
+        requestList(type: .popular)
     }
     
     @IBAction func myBoardClick(_ sender: UIButton) {
         underBarAnimation(view: sender)
+        requestList(type: .myBoard)
     }
 }
 
 extension CommunityViewController: UITableViewDataSource ,UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockData.count
+        return communityList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,7 +96,7 @@ extension CommunityViewController: UITableViewDataSource ,UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CommunityTableViewCell.reuseIdentifier, for: indexPath) as? CommunityTableViewCell else {
             return UITableViewCell(style: .default, reuseIdentifier: "")
         }
-        cell.titleLabel.text = mockData[indexPath.row]
+        cell.bind(model: communityList[indexPath.row])
         
         return cell
     }
@@ -108,6 +105,7 @@ extension CommunityViewController: UITableViewDataSource ,UITableViewDelegate {
         guard let nextVC = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifier.communityDetailVC.rawValue) else {
             return
         }
+        nextVC.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(nextVC, animated: true)
     }
     

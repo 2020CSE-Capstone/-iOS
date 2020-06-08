@@ -12,7 +12,12 @@ class CommunityTableViewCell: UITableViewCell {
     static var reuseIdentifier = "CommunityCell"
     static var nibName = "CommunityTableViewCell"
     
+    @IBOutlet weak var commentNumLabel: UILabel!
+    @IBOutlet weak var likeNumLabel: UILabel!
+    @IBOutlet weak var nickNameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -22,6 +27,14 @@ class CommunityTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func bind(model: CommunityListModel) {
+        nickNameLabel.text = model.nickName
+        titleLabel.text = model.title
+        dateLabel.text = model.writeDate.communityDate()
+        likeNumLabel.text = String(model.likeCount)
+        commentNumLabel.text = String(model.commentCount)
     }
     
 }

@@ -8,6 +8,6 @@
 
 import Foundation
 protocol CommunityServiceProtocol {
-    func requestCommunityList(sortString: String, completion: @escaping (CommunityListModel) -> Void)
+    func requestCommunityList(type: CommunityListType, completion: @escaping ([CommunityListModel]?) -> Void)
     
 }

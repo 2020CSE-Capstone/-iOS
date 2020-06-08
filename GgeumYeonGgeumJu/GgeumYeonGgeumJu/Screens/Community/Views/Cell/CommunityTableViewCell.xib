@@ -23,10 +23,9 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2020.05.19" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jDT-Sl-8qY">
-                        <rect key="frame" x="16" y="12" width="70" height="14"/>
+                        <rect key="frame" x="16" y="12" width="59" height="14"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="14" id="0yV-bp-ZBG"/>
-                            <constraint firstAttribute="width" constant="70" id="rkV-So-tnY"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -98,6 +97,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="commentNumLabel" destination="5u7-fd-uwn" id="eEG-hQ-gb6"/>
+                <outlet property="dateLabel" destination="jDT-Sl-8qY" id="I87-l5-nMj"/>
+                <outlet property="likeNumLabel" destination="3M0-r8-xxc" id="fZF-uj-ecR"/>
+                <outlet property="nickNameLabel" destination="DUW-YH-1BO" id="jmB-LA-5J5"/>
                 <outlet property="titleLabel" destination="L5y-MS-Ibs" id="rXA-3h-kPc"/>
             </connections>
             <point key="canvasLocation" x="174.63768115942031" y="115.51339285714285"/>

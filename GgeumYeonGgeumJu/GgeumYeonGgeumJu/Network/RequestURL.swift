@@ -14,9 +14,7 @@ enum RequestURL {
     var getString: String {
         switch self {
         case .community(let sort):
-            return "/community/\(sort)"
-        case .myCommunity(let userId):
-            return "/community/mypage/\(userId)"
+            return "/api/community/\(sort)"
         default:
             return ""
         }
