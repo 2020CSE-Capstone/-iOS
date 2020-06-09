@@ -45,6 +45,7 @@
 		06D3E6FD248F686A00360CCD /* CommunityHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D3E6FC248F686A00360CCD /* CommunityHeader.xib */; };
 		06D3E701248F6D3500360CCD /* CommunityHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E700248F6D3500360CCD /* CommunityHeader.swift */; };
 		06D3E703248F7D1700360CCD /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E702248F7D1700360CCD /* CommentModel.swift */; };
+		06D3E705248F992C00360CCD /* CommunityWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E704248F992C00360CCD /* CommunityWriteViewController.swift */; };
 		8D7ADC677BEE34054E592C1D /* Pods_GgeumYeonGgeumJu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		06D3E6FC248F686A00360CCD /* CommunityHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityHeader.xib; sourceTree = "<group>"; };
 		06D3E700248F6D3500360CCD /* CommunityHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityHeader.swift; sourceTree = "<group>"; };
 		06D3E702248F7D1700360CCD /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		06D3E704248F992C00360CCD /* CommunityWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityWriteViewController.swift; sourceTree = "<group>"; };
 		7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GgeumYeonGgeumJu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B799E444DB397CAB31F37F7 /* Pods-GgeumYeonGgeumJu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GgeumYeonGgeumJu.release.xcconfig"; path = "Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -197,6 +199,7 @@
 				06C9A062246D140F0045E623 /* StoryBoard */,
 				06BBC13E246FCF0200BD0301 /* CommunityViewController.swift */,
 				062A3116247D6706002BF51C /* CommunityDetailViewController.swift */,
+				06D3E704248F992C00360CCD /* CommunityWriteViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -571,6 +574,7 @@
 				06C9A03B246C04160045E623 /* MainViewController.swift in Sources */,
 				06C9A037246C04160045E623 /* AppDelegate.swift in Sources */,
 				0684FC582485459C00532B77 /* HistoryViewController.swift in Sources */,
+				06D3E705248F992C00360CCD /* CommunityWriteViewController.swift in Sources */,
 				06C9A069246D23AA0045E623 /* RecordViewController.swift in Sources */,
 				0684FC6F2487B75700532B77 /* DependencyPool.swift in Sources */,
 				06C9A05A246C550C0045E623 /* UIView+Extension.swift in Sources */,

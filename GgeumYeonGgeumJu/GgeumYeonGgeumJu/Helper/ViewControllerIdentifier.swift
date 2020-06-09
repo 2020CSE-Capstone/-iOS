@@ -13,4 +13,5 @@ enum ViewControllerIdentifier: String {
     case communityVC = "CommunityVC"
     case recordVC = "RecordVC"
     case communityDetailVC = "CommunityDetailVC"
+    case communityWriteVC = "CommunityWriteVC"
 }

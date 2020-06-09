@@ -98,6 +98,14 @@ class CommunityViewController: UIViewController {
         underBarAnimation(view: sender)
         requestList(type: .myBoard)
     }
+    
+    @IBAction func writeClick(_ sender: Any) {
+        guard let nextVC = storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifier.communityWriteVC.rawValue) as? CommunityWriteViewController else {
+            return
+        }
+        
+        navigationController?.pushViewController(nextVC, animated: true)
+    }
 }
 
 extension CommunityViewController: UITableViewDataSource ,UITableViewDelegate {
