@@ -15,7 +15,6 @@ class CommunityHeader: UITableViewHeaderFooterView {
     @IBOutlet weak var nickNameLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     
-    
     func bind(model: CommunityListModel) {
         dateLabel.text = model.writeDate?.communityDate()
         titleLabel.text = model.title

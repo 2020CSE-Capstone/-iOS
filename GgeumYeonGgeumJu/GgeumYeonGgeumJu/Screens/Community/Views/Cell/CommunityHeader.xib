@@ -16,7 +16,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내용" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T6x-12-9hk">
                     <rect key="frame" x="20" y="102" width="374" height="38"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <color key="textColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L3O-m7-iTE">
@@ -47,7 +47,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="kOD-9v-ZHe" firstAttribute="leading" secondItem="L3O-m7-iTE" secondAttribute="leading" id="19a-5P-Zzb"/>
                         <constraint firstItem="bdh-HX-5Va" firstAttribute="leading" secondItem="kOD-9v-ZHe" secondAttribute="leading" id="5hr-rB-tvo"/>
@@ -80,7 +80,6 @@
                     </state>
                 </button>
             </subviews>
-            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
                 <constraint firstItem="L3O-m7-iTE" firstAttribute="leading" secondItem="u4Q-FL-Pc1" secondAttribute="leading" constant="20" id="AQE-3Y-wLL"/>
                 <constraint firstItem="T6x-12-9hk" firstAttribute="top" secondItem="L3O-m7-iTE" secondAttribute="bottom" constant="16" id="Eu7-fR-r51"/>

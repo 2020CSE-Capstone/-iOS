@@ -44,6 +44,7 @@
 		06C9A077246D342E0045E623 /* GgeumYeonGgeumJuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A076246D342E0045E623 /* GgeumYeonGgeumJuTests.swift */; };
 		06D3E6FD248F686A00360CCD /* CommunityHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D3E6FC248F686A00360CCD /* CommunityHeader.xib */; };
 		06D3E701248F6D3500360CCD /* CommunityHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E700248F6D3500360CCD /* CommunityHeader.swift */; };
+		06D3E703248F7D1700360CCD /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E702248F7D1700360CCD /* CommentModel.swift */; };
 		8D7ADC677BEE34054E592C1D /* Pods_GgeumYeonGgeumJu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,7 @@
 		06C9A078246D342E0045E623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06D3E6FC248F686A00360CCD /* CommunityHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityHeader.xib; sourceTree = "<group>"; };
 		06D3E700248F6D3500360CCD /* CommunityHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityHeader.swift; sourceTree = "<group>"; };
+		06D3E702248F7D1700360CCD /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GgeumYeonGgeumJu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B799E444DB397CAB31F37F7 /* Pods-GgeumYeonGgeumJu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GgeumYeonGgeumJu.release.xcconfig"; path = "Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				0684FC6A2487AA6700532B77 /* CommunityListModel.swift */,
+				06D3E702248F7D1700360CCD /* CommentModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -581,6 +584,7 @@
 				0684FC722487BF0A00532B77 /* CommentTableViewCell.swift in Sources */,
 				0684FC5E2487A19B00532B77 /* CommunityServiceProtocol.swift in Sources */,
 				06BBC13F246FCF0200BD0301 /* CommunityViewController.swift in Sources */,
+				06D3E703248F7D1700360CCD /* CommentModel.swift in Sources */,
 				0684FC642487A3E100532B77 /* BaseAPI.swift in Sources */,
 				06C9A06D246D32890045E623 /* Date+Extension.swift in Sources */,
 			);

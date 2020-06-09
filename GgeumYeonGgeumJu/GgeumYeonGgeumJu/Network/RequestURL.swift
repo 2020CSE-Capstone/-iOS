@@ -9,14 +9,15 @@
 import Foundation
 enum RequestURL {
     case community(sortString: String)
-    case myCommunity(userId: String)
+    case comment(boardIdx: Int)
     
     var getString: String {
         switch self {
         case .community(let sort):
             return "/api/community/\(sort)"
-        default:
-            return ""
+        case .comment(let boardIdx):
+            return "/api/comment/\(boardIdx)"
+        
         }
     }
 }

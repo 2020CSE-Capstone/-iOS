@@ -63,4 +63,25 @@ struct CommunityServiceImp: CommunityServiceProtocol {
                 }
         }
     }
+    // MARK: 댓글리스트
+    func requestComment(boardIdx: Int, completion: @escaping ([CommentModel]?) -> Void) {
+        var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
+        
+        urlComponent?.path = RequestURL.comment(boardIdx: boardIdx).getString
+        
+        guard let url = urlComponent?.url else {
+            return
+        }
+        let request = AF.request(url)
+        request
+            .validate(statusCode: 200...500)
+            .responseDecodable(of: ArrayResponse<CommentModel>.self) { response in
+                switch response.result {
+                case .success(let object):
+                    completion(object.data)
+                case .failure(let err):
+                    print(err)
+                }
+        }
+    }
 }

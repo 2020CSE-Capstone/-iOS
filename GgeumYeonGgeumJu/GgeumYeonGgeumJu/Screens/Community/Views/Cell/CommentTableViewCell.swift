@@ -13,7 +13,10 @@ class CommentTableViewCell: UITableViewCell {
     static let nibName = "CommentTableViewCell"
     @IBOutlet weak var leadingLayout: NSLayoutConstraint!
     
-    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var commentImg: UIImageView!
+    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var nickNameLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,6 +27,17 @@ class CommentTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
+    }
+    
+    func bind(model: CommentModel) {
+        nickNameLabel.text = model.nickname
+        dateLabel.text = model.commentDate.communityDate()
+        contentLabel.text = model.content
+        
+        if model.seq != 1 {
+            self.commentMargin()
+            self.commentImg.isHidden = false
+        }
     }
     
     func commentMargin() {

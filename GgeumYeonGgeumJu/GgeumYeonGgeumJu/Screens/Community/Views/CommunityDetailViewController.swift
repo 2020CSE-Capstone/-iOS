@@ -14,13 +14,37 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var tableView: UITableView!
     
     var model: CommunityListModel?
+    var commentModelList: [CommentModel] = [] {
+        willSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    private let service: CommunityServiceProtocol
+    = DependencyContainer.shared.getDependency(key: .communityService)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestComment()
         setupCommentTextView()
         setupTableView()
+        
     }
-   
+    
+    func requestComment() {
+        guard let boardIdx = model?.boardIdx else {
+            return
+        }
+        service.requestComment(boardIdx: boardIdx) { list in
+            guard let list = list else {
+                return
+            }
+            self.commentModelList = list
+        }
+    }
+    
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -60,6 +84,7 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
+    
     @IBAction func backClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -68,7 +93,7 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
 extension CommunityDetailViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return commentModelList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,7 +102,7 @@ extension CommunityDetailViewController: UITableViewDataSource {
             return .init(style: .default, reuseIdentifier: "")
         }
         
-        cell.commentMargin()
+        cell.bind(model: commentModelList[indexPath.row])
         
         return cell
     }
@@ -90,6 +115,8 @@ extension CommunityDetailViewController: UITableViewDelegate {
             let model = model else {
             return nil
         }
+
+        header.contentView.backgroundColor = .clear
         header.bind(model: model)
         return header
     }

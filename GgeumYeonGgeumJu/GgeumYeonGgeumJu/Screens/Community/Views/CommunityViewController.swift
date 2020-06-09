@@ -127,19 +127,21 @@ extension CommunityViewController: UITableViewDataSource ,UITableViewDelegate {
         }
         nextVC.hidesBottomBarWhenPushed = true
         isLoading = true
-        service.requestCommunityWithBoardIdx(boardIdx: boardIdx) { [weak self] data in
-            guard let data = data,
-                let self = self else {
-                    return
-            }
-            nextVC.model = data
-            self.isLoading = false
-            DispatchQueue.main.async {
-                self.navigationController?.pushViewController(nextVC, animated: true)
-                
+        DispatchQueue.global().async {
+
+            self.service.requestCommunityWithBoardIdx(boardIdx: boardIdx) { [weak self] data in
+                guard let data = data,
+                    let self = self else {
+                        return
+                }
+                nextVC.model = data
+                self.isLoading = false
+                DispatchQueue.main.async {
+                    self.navigationController?.pushViewController(nextVC, animated: true)
+                    
+                }
             }
         }
-        
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
