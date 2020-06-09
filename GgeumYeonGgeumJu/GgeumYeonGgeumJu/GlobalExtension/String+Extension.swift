@@ -32,14 +32,14 @@ extension String {
                                 if second < 10 {
                                     return "몇 초전"
                                 } else {
-                                    return "\(second) 초전"
+                                    return "\(second)초 전"
                                 }
                             }
                         } else {
                             if let writeM = compareCalendar.minute,
                                 let curM = curCalendar.minute {
                                 let min = curM - writeM
-                                return "\(min) 분전"
+                                return "\(min)분 전"
                             } else {
                                 return "몇 분전"
                             }
@@ -48,9 +48,9 @@ extension String {
                         if let writeH = compareCalendar.hour,
                             let curH = curCalendar.hour {
                             let hour = curH - writeH
-                            return "\(hour) 시간전"
+                            return "\(hour)시간 전"
                         } else {
-                            return "몇 시간전"
+                            return "몇시간 전"
                         }
                     }
                 }
