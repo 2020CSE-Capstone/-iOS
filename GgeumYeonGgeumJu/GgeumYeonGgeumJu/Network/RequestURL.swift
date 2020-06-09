@@ -10,6 +10,7 @@ import Foundation
 enum RequestURL {
     case community(sortString: String)
     case comment(boardIdx: Int)
+    case commentWrite
     
     var getString: String {
         switch self {
@@ -17,7 +18,8 @@ enum RequestURL {
             return "/api/community/\(sort)"
         case .comment(let boardIdx):
             return "/api/comment/\(boardIdx)"
-        
+        case .commentWrite:
+            return "/api/comment"
         }
     }
 }

@@ -29,6 +29,12 @@ class CommentTableViewCell: UITableViewCell {
 
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.commentImg.isHidden = true
+        leadingLayout.constant = 0
+    }
+    
     func bind(model: CommentModel) {
         nickNameLabel.text = model.nickname
         dateLabel.text = model.commentDate.communityDate()

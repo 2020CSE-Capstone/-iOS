@@ -26,6 +26,17 @@ extension UIViewController {
         present(alert, animated: true)
     }
     
+    //확인 Handler팝업
+    func alertWithHandler(title: String?,
+                                message: String?,
+                                okHandler : ((UIAlertAction) -> Void)?){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "확인", style: .default, handler: okHandler)
+        alert.addAction(okAction)
+        alert.modalPresentationStyle = .fullScreen
+        present(alert, animated: false, completion: nil)
+    }
+    
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

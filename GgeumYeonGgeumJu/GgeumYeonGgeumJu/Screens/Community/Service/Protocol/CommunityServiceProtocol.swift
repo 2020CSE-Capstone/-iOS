@@ -9,6 +9,7 @@
 import Foundation
 protocol CommunityServiceProtocol {
     func requestCommunityList(type: CommunityListType, completion: @escaping ([CommunityListModel]?) -> Void)
-     func requestCommunityWithBoardIdx(boardIdx: Int, completion: @escaping (CommunityListModel?) -> Void)
-     func requestComment(boardIdx: Int, completion: @escaping ([CommentModel]?) -> Void)
+    func requestCommunityWithBoardIdx(boardIdx: Int, completion: @escaping (CommunityListModel?) -> Void)
+    func requestComment(boardIdx: Int, completion: @escaping ([CommentModel]?) -> Void)
+    func requestWriteComment(boardIdx: Int, content: String, completion: @escaping (Bool) -> Void)
 }

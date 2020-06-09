@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zfg-Zm-wXE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Zfg-Zm-wXE">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -45,10 +45,10 @@
             </objects>
             <point key="canvasLocation" x="-288" y="404"/>
         </scene>
-        <!--Community-->
+        <!--CommunityVC-->
         <scene sceneID="CXG-yZ-7lH">
             <objects>
-                <viewControllerPlaceholder storyboardName="Community" id="VKy-c5-NIm" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Community" referencedIdentifier="CommunityVC" id="VKy-c5-NIm" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="1DN-UC-3Ye"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dOn-yk-xCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -111,8 +111,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="list.dash" catalog="system" width="64" height="42"/>
-        <image name="person.3" catalog="system" width="72" height="35"/>
-        <image name="plus" catalog="system" width="64" height="56"/>
+        <image name="list.dash" catalog="system" width="128" height="85"/>
+        <image name="person.3" catalog="system" width="128" height="62"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

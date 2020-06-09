@@ -85,6 +85,19 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    @IBAction func writeComment(_ sender: Any) {
+        guard let boardIdx = model?.boardIdx else {
+            return
+        }
+        service.requestWriteComment(boardIdx: boardIdx, content: commentTextView.text) { isSuccess in
+            if isSuccess {
+                self.alertWithHandler(title: "작성완료", message: "작성되었습니다.") { _ in
+                    self.requestComment()
+                }
+            }
+        }
+    }
+    
     @IBAction func backClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
@@ -122,4 +135,3 @@ extension CommunityDetailViewController: UITableViewDelegate {
     }
     
 }
-
