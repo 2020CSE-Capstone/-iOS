@@ -42,6 +42,8 @@
 		06C9A06B246D32500045E623 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A06A246D32500045E623 /* String+Extension.swift */; };
 		06C9A06D246D32890045E623 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A06C246D32890045E623 /* Date+Extension.swift */; };
 		06C9A077246D342E0045E623 /* GgeumYeonGgeumJuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06C9A076246D342E0045E623 /* GgeumYeonGgeumJuTests.swift */; };
+		06D3E6FD248F686A00360CCD /* CommunityHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06D3E6FC248F686A00360CCD /* CommunityHeader.xib */; };
+		06D3E701248F6D3500360CCD /* CommunityHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E700248F6D3500360CCD /* CommunityHeader.swift */; };
 		8D7ADC677BEE34054E592C1D /* Pods_GgeumYeonGgeumJu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,8 @@
 		06C9A074246D342E0045E623 /* GgeumYeonGgeumJuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GgeumYeonGgeumJuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		06C9A076246D342E0045E623 /* GgeumYeonGgeumJuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GgeumYeonGgeumJuTests.swift; sourceTree = "<group>"; };
 		06C9A078246D342E0045E623 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		06D3E6FC248F686A00360CCD /* CommunityHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommunityHeader.xib; sourceTree = "<group>"; };
+		06D3E700248F6D3500360CCD /* CommunityHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityHeader.swift; sourceTree = "<group>"; };
 		7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GgeumYeonGgeumJu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B799E444DB397CAB31F37F7 /* Pods-GgeumYeonGgeumJu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GgeumYeonGgeumJu.release.xcconfig"; path = "Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +205,8 @@
 				06BBC142246FD53300BD0301 /* CommunityTableViewCell.xib */,
 				0684FC702487BF0A00532B77 /* CommentTableViewCell.swift */,
 				0684FC712487BF0A00532B77 /* CommentTableViewCell.xib */,
+				06D3E6FC248F686A00360CCD /* CommunityHeader.xib */,
+				06D3E700248F6D3500360CCD /* CommunityHeader.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 				06C9A040246C04170045E623 /* Assets.xcassets in Resources */,
 				06C9A064246D141C0045E623 /* Community.storyboard in Resources */,
 				06C9A03E246C04160045E623 /* Main.storyboard in Resources */,
+				06D3E6FD248F686A00360CCD /* CommunityHeader.xib in Resources */,
 				06C9A067246D14350045E623 /* History.storyboard in Resources */,
 				0684FC732487BF0A00532B77 /* CommentTableViewCell.xib in Resources */,
 			);
@@ -566,6 +573,7 @@
 				06C9A05A246C550C0045E623 /* UIView+Extension.swift in Sources */,
 				0684FC662487A47300532B77 /* RequestURL.swift in Sources */,
 				0684FC542484F6B600532B77 /* HistoryTableViewCell.swift in Sources */,
+				06D3E701248F6D3500360CCD /* CommunityHeader.swift in Sources */,
 				0684FC5B24862EBC00532B77 /* HistoryListModel.swift in Sources */,
 				062A3117247D6706002BF51C /* CommunityDetailViewController.swift in Sources */,
 				06C9A057246C1CB00045E623 /* ViewControllerIdentifier.swift in Sources */,

@@ -10,10 +10,6 @@ import UIKit
 
 class CommunityDetailViewController: UIViewController, UITextViewDelegate {
 
-    @IBOutlet weak var contentLabel: UILabel!
-    @IBOutlet weak var nickNameLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,33 +17,23 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupContentView()
         setupCommentTextView()
         setupTableView()
-        
     }
-    
-    func setupContentView() {
-        guard let model = model else {
-            return
-        }
-        dateLabel.text = model.writeDate?.communityDate()
-        titleLabel.text = model.title
-        nickNameLabel.text = model.nickName
-        contentLabel.text = model.content
-    }
-    
+   
     func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        let headerNib = UINib(nibName: "CommunityHeader", bundle: .main)
+        tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "CommunityHeader")
         let commentNib = UINib(nibName: CommentTableViewCell.nibName, bundle: nil)
+        
         tableView.register(commentNib,
                            forCellReuseIdentifier: CommentTableViewCell.reuseIdentifier)
         tableView.estimatedRowHeight = 500
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedSectionHeaderHeight = 400
+        tableView.estimatedSectionHeaderHeight = 500
         tableView.sectionHeaderHeight = UITableView.automaticDimension
-        
         
     }
     
@@ -80,6 +66,7 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
 }
 
 extension CommunityDetailViewController: UITableViewDataSource {
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -97,6 +84,15 @@ extension CommunityDetailViewController: UITableViewDataSource {
 }
 
 extension CommunityDetailViewController: UITableViewDelegate {
-   
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "CommunityHeader") as? CommunityHeader,
+            let model = model else {
+            return nil
+        }
+        header.bind(model: model)
+        return header
+    }
+    
 }
 
