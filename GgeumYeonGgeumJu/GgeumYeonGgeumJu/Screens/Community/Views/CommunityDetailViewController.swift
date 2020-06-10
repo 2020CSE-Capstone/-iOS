@@ -116,6 +116,7 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
             nextVC.titleText = model.title
             nextVC.contentText = model.content
             nextVC.isModify = true
+            nextVC.boardIdx = model.boardIdx
             
             self.navigationController?.pushViewController(nextVC, animated: true)
         }

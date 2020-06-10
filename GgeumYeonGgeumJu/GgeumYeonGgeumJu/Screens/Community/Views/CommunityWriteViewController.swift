@@ -30,6 +30,7 @@ class CommunityWriteViewController: UIViewController, UITextViewDelegate {
         }
     }
     var isModify = false
+    var boardIdx = -1
     var titleText: String? = ""
     var contentText: String? = ""
     
@@ -90,7 +91,20 @@ class CommunityWriteViewController: UIViewController, UITextViewDelegate {
         let content = contentTextView.text!
         
         if isModify {
-            
+            isLoading = true
+            service.requestModifyCommunity(boardIdx: boardIdx,title: title, content: content) { [weak self] isSuccess in
+                guard let self = self else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    if isSuccess {
+                        self.alertWithHandler(title: "수정 완료", message: "수정 되었습니다.") { _ in
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                    }
+                }
+                self.isLoading = false
+            }
         } else {
             isLoading = true
             service.requestWriteCommunity(title: title, content: content) { [weak self] isSuccess in

@@ -13,4 +13,6 @@ protocol CommunityServiceProtocol {
     func requestComment(boardIdx: Int, completion: @escaping ([CommentModel]?) -> Void)
     func requestWriteComment(boardIdx: Int, content: String, completion: @escaping (Bool) -> Void)
     func requestWriteCommunity(title: String, content: String, completion: @escaping (Bool) -> Void)
+    func requestModifyCommunity(boardIdx: Int, title: String, content: String, completion: @escaping (Bool) -> Void)
+    func requestDeleteCommunity(boardIdx: Int, title: String, content: String, completion: @escaping (Bool) -> Void)
 }

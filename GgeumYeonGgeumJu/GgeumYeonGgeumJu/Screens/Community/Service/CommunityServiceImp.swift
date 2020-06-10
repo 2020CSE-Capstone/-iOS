@@ -139,4 +139,54 @@ struct CommunityServiceImp: CommunityServiceProtocol {
                 }
         }
     }
+    
+    // MARK: 커뮤니티 글수정
+    func requestModifyCommunity(boardIdx: Int, title: String, content: String, completion: @escaping (Bool) -> Void) {
+        var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
+        urlComponent?.path = RequestURL.communityModify(boardIdx: boardIdx).getString
+        
+        guard let url = urlComponent?.url else {
+            return
+        }
+        
+        let body: Parameters = [
+            "title" : title,
+            "content" : content
+        ]
+        let request = AF.request(url, method: .put, parameters: body, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        request
+            .validate(statusCode: 200...500)
+            .responseDecodable(of: SimpleResponse<Bool>.self) { response in
+                switch response.result {
+                case .success:
+                    completion(true)
+                case .failure(let err):
+                    print(err)
+                    completion(false)
+                }
+        }
+    }
+    
+    // MARK: 커뮤니티 글삭제
+    func requestDeleteCommunity(boardIdx: Int, title: String, content: String, completion: @escaping (Bool) -> Void) {
+        var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
+        urlComponent?.path = RequestURL.communityDelete(boardIdx: boardIdx).getString
+        
+        guard let url = urlComponent?.url else {
+            return
+        }
+       
+        let request = AF.request(url, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        request
+            .validate(statusCode: 200...500)
+            .responseDecodable(of: SimpleResponse<Bool>.self) { response in
+                switch response.result {
+                case .success:
+                    completion(true)
+                case .failure(let err):
+                    print(err)
+                    completion(false)
+                }
+        }
+    }
 }
