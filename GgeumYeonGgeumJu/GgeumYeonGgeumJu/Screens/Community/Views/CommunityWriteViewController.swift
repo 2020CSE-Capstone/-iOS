@@ -99,7 +99,7 @@ class CommunityWriteViewController: UIViewController, UITextViewDelegate {
                 DispatchQueue.main.async {
                     if isSuccess {
                         self.alertWithHandler(title: "수정완료", message: "수정되었습니다.") { _ in
-                            self.navigationController?.popViewController(animated: true)
+                            self.navigationController?.popToRootViewController(animated: true)
                         }
                     }
                 }
