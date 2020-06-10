@@ -29,6 +29,9 @@ class CommunityWriteViewController: UIViewController, UITextViewDelegate {
             }
         }
     }
+    var isModify = false
+    var titleText: String? = ""
+    var contentText: String? = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +42,9 @@ class CommunityWriteViewController: UIViewController, UITextViewDelegate {
     func setupTextView() {
         titleTextView.delegate = self
         contentTextView.delegate = self
+        titleTextView.text = titleText
+        contentTextView.text = contentText
+        
         resizeTitleTextView()
         resizeContentTextView()
         
@@ -82,19 +88,24 @@ class CommunityWriteViewController: UIViewController, UITextViewDelegate {
         }
         let title = titleTextView.text!
         let content = contentTextView.text!
-        isLoading = true
-        service.requestWriteCommunity(title: title, content: content) { [weak self] isSuccess in
-            guard let self = self else {
-                return
-            }
-            DispatchQueue.main.async {
-                if isSuccess {
-                    self.alertWithHandler(title: "작성 완료", message: "작성 되었습니다.") { _ in
-                        self.navigationController?.popViewController(animated: true)
+        
+        if isModify {
+            
+        } else {
+            isLoading = true
+            service.requestWriteCommunity(title: title, content: content) { [weak self] isSuccess in
+                guard let self = self else {
+                    return
+                }
+                DispatchQueue.main.async {
+                    if isSuccess {
+                        self.alertWithHandler(title: "작성 완료", message: "작성 되었습니다.") { _ in
+                            self.navigationController?.popViewController(animated: true)
+                        }
                     }
                 }
+                self.isLoading = false
             }
-            self.isLoading = false
         }
     }
     

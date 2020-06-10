@@ -105,6 +105,41 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    func myBoardOption() {
+        let modify = UIAlertAction(title: "수정", style: .default) { _ in
+            guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifier.communityWriteVC.rawValue) as? CommunityWriteViewController else {
+                return
+            }
+            guard let model = self.model else {
+                return
+            }
+            nextVC.titleText = model.title
+            nextVC.contentText = model.content
+            nextVC.isModify = true
+            
+            self.navigationController?.pushViewController(nextVC, animated: true)
+        }
+        
+        let delete = UIAlertAction(title: "삭제", style: .destructive) { _ in
+           
+//            self.service
+            
+        }
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+            
+        
+        simpleActionSheet(title: "옵션", actions: [modify, delete, cancel])
+    }
+    
+    func otherBoardOption() {
+        
+    }
+    
+    @IBAction func moreButton(_ sender: Any) {
+        myBoardOption()
+    }
+    
     @IBAction func backClick(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }

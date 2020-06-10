@@ -228,11 +228,28 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARh-wh-GZ6">
+                                <rect key="frame" x="362" y="44" width="44" height="44"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="LBy-s2-z5K"/>
+                                    <constraint firstAttribute="height" constant="44" id="wn3-va-lgq"/>
+                                </constraints>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="ellipsis" catalog="system">
+                                    <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="moreButton:" destination="my3-b6-LDn" eventType="touchUpInside" id="tLx-we-VQj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="cn0-QT-dpV" secondAttribute="trailing" id="1lM-QO-jEa"/>
                             <constraint firstItem="cn0-QT-dpV" firstAttribute="leading" secondItem="hg0-TB-z3f" secondAttribute="leading" id="A23-9J-I5x"/>
+                            <constraint firstItem="ARh-wh-GZ6" firstAttribute="top" secondItem="lPt-rJ-Q6M" secondAttribute="top" id="B2e-PD-FN0"/>
+                            <constraint firstItem="lPt-rJ-Q6M" firstAttribute="trailing" secondItem="ARh-wh-GZ6" secondAttribute="trailing" constant="8" id="DfY-k7-qsT"/>
                             <constraint firstItem="jom-cG-yHj" firstAttribute="top" secondItem="50r-bI-dzm" secondAttribute="bottom" id="P94-2v-Dxu"/>
                             <constraint firstItem="jom-cG-yHj" firstAttribute="leading" secondItem="lPt-rJ-Q6M" secondAttribute="leading" id="TzN-et-guy"/>
                             <constraint firstItem="lPt-rJ-Q6M" firstAttribute="bottom" secondItem="cn0-QT-dpV" secondAttribute="bottom" id="U2h-DF-RUz"/>
@@ -264,7 +281,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2v-EF-rMg">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="374"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하고싶은 말을 써주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d71-42-al8">
                                                 <rect key="frame" x="14" y="107" width="206.5" height="21"/>
@@ -332,7 +349,7 @@
                                             <constraint firstItem="iw2-By-cfp" firstAttribute="leading" secondItem="9id-5a-eaf" secondAttribute="leading" id="4HL-tL-9Sf"/>
                                             <constraint firstItem="dEq-76-bcA" firstAttribute="leading" secondItem="d71-42-al8" secondAttribute="leading" id="9FQ-u5-jAM"/>
                                             <constraint firstAttribute="trailing" secondItem="iw2-By-cfp" secondAttribute="trailing" constant="14" id="DOg-O8-IZF"/>
-                                            <constraint firstAttribute="bottom" secondItem="dEq-76-bcA" secondAttribute="bottom" constant="160" id="FZI-io-Z2K"/>
+                                            <constraint firstAttribute="bottom" secondItem="dEq-76-bcA" secondAttribute="bottom" constant="200" id="FZI-io-Z2K"/>
                                             <constraint firstItem="dEq-76-bcA" firstAttribute="top" secondItem="d71-42-al8" secondAttribute="bottom" constant="8" id="N3h-rI-UlE"/>
                                             <constraint firstAttribute="trailing" secondItem="dEq-76-bcA" secondAttribute="trailing" constant="14" id="Rgn-wi-DnL"/>
                                             <constraint firstItem="9id-5a-eaf" firstAttribute="top" secondItem="F2v-EF-rMg" secondAttribute="top" constant="4" id="Rh6-Lx-IOk"/>
@@ -412,6 +429,7 @@
     <resources>
         <image name="btnBack" width="44" height="44"/>
         <image name="communityBg" width="1050" height="700"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="paperplane" catalog="system" width="128" height="121"/>
         <image name="square.and.pencil" catalog="system" width="128" height="118"/>
     </resources>
