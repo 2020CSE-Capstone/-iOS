@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import RxCocoa
+import RxSwift
 
 extension UIViewController {
     func simpleActionSheet(title: String?, actions: [UIAlertAction]) {
@@ -39,5 +41,26 @@ extension UIViewController {
     
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    func keyboardHeight() -> Observable<(CGFloat, Double)> {
+        return Observable
+            .from([
+                NotificationCenter
+                    .default
+                    .rx
+                    .notification(UIResponder.keyboardWillShowNotification)
+                    .map { notification -> (CGFloat, Double) in
+                        ((notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height ?? 0,
+                         (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double) ?? 0)
+                },
+                NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+                    .map { notification -> (CGFloat, Double) in
+                        let hideHeight: CGFloat = 0
+                        let duration = (notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double) ?? 0
+                        return (hideHeight, duration)
+                }
+            ])
+            .merge()
     }
 }

@@ -264,6 +264,7 @@
                         <outlet property="commentTextView" destination="ejI-Oj-tD6" id="oha-2e-s6c"/>
                         <outlet property="optionButton" destination="ARh-wh-GZ6" id="TS8-tr-gN3"/>
                         <outlet property="tableView" destination="jom-cG-yHj" id="h3y-WY-eyD"/>
+                        <outlet property="textViewBotLayout" destination="U2h-DF-RUz" id="9xQ-jB-MIs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I59-qY-BUW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -29,10 +29,12 @@ class CommunityViewController: UIViewController {
         willSet {
             if newValue {
                 DispatchQueue.main.async {
+                    self.tableView.isUserInteractionEnabled = false
                     self.indicator.startAnimating()
                 }
             } else {
                 DispatchQueue.main.async {
+                    self.tableView.isUserInteractionEnabled = true
                     self.indicator.stopAnimating()
                 }
             }
@@ -131,7 +133,7 @@ extension CommunityViewController: UITableViewDataSource ,UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
         guard let cell = tableView.cellForRow(at: indexPath) as? CommunityTableViewCell else {
             return
         }

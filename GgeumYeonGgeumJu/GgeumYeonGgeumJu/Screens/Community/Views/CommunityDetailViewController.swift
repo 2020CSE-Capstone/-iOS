@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class CommunityDetailViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var optionButton: UIButton!
+    @IBOutlet weak var textViewBotLayout: NSLayoutConstraint!
     
     var model: CommunityListModel?
     var commentModelList: [CommentModel] = [] {
@@ -26,6 +29,7 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
     private let service: CommunityServiceProtocol
     = DependencyContainer.shared.getDependency(key: .communityService)
     private var isLoading = false
+    private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +41,19 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
         if userId == model?.userId {
             optionButton.isHidden = false
         }
+        bind()
+    }
+    
+    func bind() {
+        keyboardHeight()
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] height, duration in
+                self?.textViewBotLayout.constant = height
+                UIView.animate(withDuration: duration) {
+                    self?.view.layoutIfNeeded()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     func requestComment() {
@@ -93,6 +110,9 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func writeComment(_ sender: Any) {
         guard let boardIdx = model?.boardIdx, !isLoading else {
+            return
+        }
+        guard commentTextView.hasText else {
             return
         }
         isLoading = true
