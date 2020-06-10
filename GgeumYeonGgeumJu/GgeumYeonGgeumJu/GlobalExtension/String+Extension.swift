@@ -62,4 +62,17 @@ extension String {
         
         return formatter.string(from: writeDate)
     }
+    
+    func recordDate() -> String {
+        var format = "yyyy-MM-dd HH:mm:ss"
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.locale = Locale(identifier: "ko")
+        guard let tempDate = formatter.date(from: self) else {
+            return ""
+        }
+        format = "yyyy.MM.dd"
+        formatter.dateFormat = format
+        return formatter.string(from: tempDate)
+    }
 }

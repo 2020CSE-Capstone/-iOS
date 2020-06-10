@@ -13,11 +13,19 @@ class HistoryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tabUnderView: UIView!
     
-    var testData: [HistorySectionListModel] = []
+    var recordList: [RecordSectionListModel] = [] {
+        willSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    private let service: RecordServiceProtocol
+        = DependencyContainer.shared.getDependency(key: .recordService)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchMockData()
+        requestRecordList()
         setupTableView()
     }
     
@@ -29,42 +37,40 @@ class HistoryViewController: UIViewController {
 
     }
     
-    func fetchMockData() {
-        let mock: [HistoryListModel] = [
-            HistoryListModel(kind: .smoke, date: "06.02", percent: "10%", amount: "1개비", overAmount: "1개비"),
-            HistoryListModel(date: "06.02", percent: "15%", amount: "2잔", overAmount: "2잔"),
-            HistoryListModel(date: "06.01", percent: "20%", amount: "3잔", overAmount: "3잔"),
-            HistoryListModel(date: "06.03", percent: "30%", amount: "4잔", overAmount: "4잔"),
-            HistoryListModel(date: "06.03", percent: "40%", amount: "5잔", overAmount: "5잔"),
-        ]
-        listSortByDate(list: mock)
+    func requestRecordList() {
+        service.requestRecordList { [weak self] list in
+            guard let list = list,
+                let self = self else {
+                return
+            }
+            self.listSortByDate(list: list)
+        }
     }
     
-    func listSortByDate(list: [HistoryListModel]) {
+    func listSortByDate(list: [RecordModel]) {
         if list.isEmpty {
             return
         }
         
-        var tempList: [HistorySectionListModel] = []
+        var tempList: [RecordSectionListModel] = []
         
-        let sortList = list.sorted { $0.date < $1.date }
+        let sortList = list.sorted { $0.getDate() < $1.getDate() }
         
-        var temp = HistorySectionListModel(sectionText: sortList[0].date)
+        var temp = RecordSectionListModel(sectionText: sortList[0].getDate())
         temp.addItem(item: sortList[0])
         for index in 1..<sortList.count {
-            let title = sortList[index].date
+            let title = sortList[index].getDate()
             if temp.sectionText == title {
                 temp.addItem(item: sortList[index])
             } else {
                 tempList.append(temp)
-                temp = HistorySectionListModel(sectionText: title)
+                temp = RecordSectionListModel(sectionText: title)
                 temp.addItem(item: sortList[index])
             }
         }
         tempList.append(temp)
         
-        testData = tempList
-        tableView.reloadData()
+        recordList = tempList
     }
     
     func moveUnderView(view: UIButton, color: UIColor) {
@@ -97,21 +103,21 @@ class HistoryViewController: UIViewController {
 
 extension HistoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testData[section].item.count
+        return recordList[section].item.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.reuseIdentifier, for: indexPath) as? HistoryTableViewCell else {
             return .init(style: .default, reuseIdentifier: "")
         }
-        cell.bind(model: testData[indexPath.section].item[indexPath.row])
+        cell.bind(model: recordList[indexPath.section].item[indexPath.row])
         return cell
     }
 }
 
 extension HistoryViewController: UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return testData.count
+        return recordList.count
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -135,7 +141,7 @@ extension HistoryViewController: UITableViewDelegate {
         
         let dateLabel: UILabel = {
             let label = UILabel()
-            label.text = testData[section].sectionText
+            label.text = recordList[section].sectionText
             label.font = .systemFont(ofSize: 14)
             return label
         }()

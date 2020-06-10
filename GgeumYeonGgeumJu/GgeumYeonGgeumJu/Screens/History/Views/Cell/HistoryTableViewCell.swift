@@ -16,21 +16,15 @@ class HistoryTableViewCell: UITableViewCell {
     let percentLabel = UILabel()
     let overAmountLabel = UILabel()
     let kindImageView = UIImageView()
-    let underLine = UIView()
+//    let underLine = UIView()
     
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-//        self.addSubview(dateLabel)
-        self.addSubview(amountLabel)
-        self.addSubview(percentLabel)
-        self.addSubview(kindImageView)
-        self.addSubview(overAmountLabel)
-        self.addSubview(underLine)
-        
-        setupLayout()
-        setupUI()
     }
     
     func setupLayout() {
@@ -62,11 +56,11 @@ class HistoryTableViewCell: UITableViewCell {
             $0.top.equalTo(amountLabel.snp.bottom).offset(2)
         }
         
-        underLine.snp.makeConstraints {
-            $0.leading.trailing.equalToSuperview().offset(20)
-            $0.top.equalTo(self.snp.bottom)
-            $0.height.equalTo(0.4)
-        }
+//        underLine.snp.makeConstraints {
+//            $0.leading.trailing.equalToSuperview().offset(20)
+//            $0.bottom.equalTo(self.snp.bottom)
+//            $0.height.equalTo(0.3)
+//        }
     }
     
     func setupUI() {
@@ -76,22 +70,32 @@ class HistoryTableViewCell: UITableViewCell {
         overAmountLabel.font = .systemFont(ofSize: 12)
         overAmountLabel.textColor = #colorLiteral(red: 0.7834629416, green: 0.237608701, blue: 0.3743506074, alpha: 1)
         
-        underLine.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+//        underLine.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     
     // TODO: 모델바인딩
-    func bind(model: HistoryListModel) {
+    func bind(model: RecordModel) {
 //        dateLabel.text = model.date
-        amountLabel.text = model.amount
-        percentLabel.text = model.percent
-        overAmountLabel.text =  model.overAmount
+        self.addSubview(amountLabel)
+        self.addSubview(percentLabel)
+        self.addSubview(kindImageView)
+        self.addSubview(overAmountLabel)
+//        self.addSubview(underLine)
+        
+        setupLayout()
+        setupUI()
+        
+        amountLabel.text = "\(model.glass)잔"
+        if model.figure == 0 {
+            percentLabel.text = "-"
+        } else {
+            percentLabel.text = "\(model.figure)%"
+        }
+        
+        overAmountLabel.text =  "1잔"
         kindImageView.image = model.kind == .drink ?
             UIImage(named: "soju") :
             UIImage(named: "smoke")
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     override func awakeFromNib() {
@@ -104,5 +108,8 @@ class HistoryTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+    }
 }

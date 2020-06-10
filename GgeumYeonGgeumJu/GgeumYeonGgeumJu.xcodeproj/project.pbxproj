@@ -46,6 +46,9 @@
 		06D3E701248F6D3500360CCD /* CommunityHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E700248F6D3500360CCD /* CommunityHeader.swift */; };
 		06D3E703248F7D1700360CCD /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E702248F7D1700360CCD /* CommentModel.swift */; };
 		06D3E705248F992C00360CCD /* CommunityWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E704248F992C00360CCD /* CommunityWriteViewController.swift */; };
+		06D3E70D2490C54800360CCD /* RecordServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E70C2490C54800360CCD /* RecordServiceImp.swift */; };
+		06D3E70F2490C55300360CCD /* RecordServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E70E2490C55300360CCD /* RecordServiceProtocol.swift */; };
+		06D3E7122490C89D00360CCD /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E7112490C89C00360CCD /* RecordModel.swift */; };
 		8D7ADC677BEE34054E592C1D /* Pods_GgeumYeonGgeumJu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,6 +107,9 @@
 		06D3E700248F6D3500360CCD /* CommunityHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityHeader.swift; sourceTree = "<group>"; };
 		06D3E702248F7D1700360CCD /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
 		06D3E704248F992C00360CCD /* CommunityWriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityWriteViewController.swift; sourceTree = "<group>"; };
+		06D3E70C2490C54800360CCD /* RecordServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordServiceImp.swift; sourceTree = "<group>"; };
+		06D3E70E2490C55300360CCD /* RecordServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordServiceProtocol.swift; sourceTree = "<group>"; };
+		06D3E7112490C89C00360CCD /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
 		7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GgeumYeonGgeumJu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B799E444DB397CAB31F37F7 /* Pods-GgeumYeonGgeumJu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GgeumYeonGgeumJu.release.xcconfig"; path = "Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -337,6 +343,8 @@
 		06C9A053246C054D0045E623 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				06D3E7102490C89200360CCD /* Model */,
+				06D3E70A2490C53700360CCD /* Service */,
 				06C9A052246C05490045E623 /* StoryBoard */,
 				06C9A03A246C04160045E623 /* MainViewController.swift */,
 				06C9A068246D23AA0045E623 /* RecordViewController.swift */,
@@ -392,6 +400,31 @@
 				06C9A078246D342E0045E623 /* Info.plist */,
 			);
 			path = GgeumYeonGgeumJuTests;
+			sourceTree = "<group>";
+		};
+		06D3E70A2490C53700360CCD /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				06D3E70B2490C53900360CCD /* Protocol */,
+				06D3E70C2490C54800360CCD /* RecordServiceImp.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		06D3E70B2490C53900360CCD /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				06D3E70E2490C55300360CCD /* RecordServiceProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		06D3E7102490C89200360CCD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				06D3E7112490C89C00360CCD /* RecordModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		69E4CDED5A45CAE244BA023B /* Frameworks */ = {
@@ -566,6 +599,7 @@
 				06C9A06B246D32500045E623 /* String+Extension.swift in Sources */,
 				0660D680247C0A150081A8C0 /* UIViewController+Extension.swift in Sources */,
 				06BBC143246FD53300BD0301 /* CommunityTableViewCell.swift in Sources */,
+				06D3E70D2490C54800360CCD /* RecordServiceImp.swift in Sources */,
 				06C9A055246C1CA50045E623 /* StoryBoardName.swift in Sources */,
 				0684FC682487A9A300532B77 /* ResponseModel.swift in Sources */,
 				0660D67E247C00AF0081A8C0 /* UIColor+Extension.swift in Sources */,
@@ -589,8 +623,10 @@
 				0684FC5E2487A19B00532B77 /* CommunityServiceProtocol.swift in Sources */,
 				06BBC13F246FCF0200BD0301 /* CommunityViewController.swift in Sources */,
 				06D3E703248F7D1700360CCD /* CommentModel.swift in Sources */,
+				06D3E7122490C89D00360CCD /* RecordModel.swift in Sources */,
 				0684FC642487A3E100532B77 /* BaseAPI.swift in Sources */,
 				06C9A06D246D32890045E623 /* Date+Extension.swift in Sources */,
+				06D3E70F2490C55300360CCD /* RecordServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

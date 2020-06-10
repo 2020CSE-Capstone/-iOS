@@ -26,6 +26,9 @@ class RecordViewController: UIViewController {
     let testDrinkNum = ["1","2","3","4","5"]
     var pickKindDrinkIndex = 0
     var dummyData: [GoodsList] = []
+
+    private let service: RecordServiceProtocol
+        = DependencyContainer.shared.getDependency(key: .recordService)
     
     override func viewDidLoad() {
         super.viewDidLoad()

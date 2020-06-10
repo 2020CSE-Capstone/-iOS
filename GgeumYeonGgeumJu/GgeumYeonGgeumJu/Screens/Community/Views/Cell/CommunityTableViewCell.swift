@@ -39,5 +39,4 @@ class CommunityTableViewCell: UITableViewCell {
         likeNumLabel.text = String(model.likeCount)
         commentNumLabel.text = String(model.commentCount)
     }
-    
 }

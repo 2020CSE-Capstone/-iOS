@@ -53,31 +53,39 @@ class GgeumYeonGgeumJuTests: XCTestCase {
     }
     
     func test리스트날짜별섹션구분() {
-        let mock: [HistoryListModel] = [
-            HistoryListModel(date: "06.01", percent: "20%", amount: "3잔", overAmount: "3잔"),
-            HistoryListModel(date: "06.02", percent: "15%", amount: "2잔", overAmount: "2잔"),
-            HistoryListModel(date: "06.02", percent: "20%", amount: "3잔", overAmount: "3잔"),
-            HistoryListModel(date: "06.03", percent: "30%", amount: "4잔", overAmount: "4잔"),
-            HistoryListModel(date: "06.03", percent: "40%", amount: "5잔", overAmount: "5잔"),
-        ]
+//        let mock: [HistoryListModel] = [
+//            HistoryListModel(date: "06.01", percent: "20%", amount: "3잔", overAmount: "3잔"),
+//            HistoryListModel(date: "06.02", percent: "15%", amount: "2잔", overAmount: "2잔"),
+//            HistoryListModel(date: "06.02", percent: "20%", amount: "3잔", overAmount: "3잔"),
+//            HistoryListModel(date: "06.03", percent: "30%", amount: "4잔", overAmount: "4잔"),
+//            HistoryListModel(date: "06.03", percent: "40%", amount: "5잔", overAmount: "5잔"),
+//        ]
+//
+//        let data: [HistoryListModel] = [
+//            HistoryListModel(date: "06.02", percent: "15%", amount: "2잔", overAmount: "2잔"),
+//            HistoryListModel(date: "06.02", percent: "20%", amount: "3잔", overAmount: "3잔"),
+//            HistoryListModel(date: "06.01", percent: "20%", amount: "3잔", overAmount: "3잔"),
+//            HistoryListModel(date: "06.03", percent: "30%", amount: "4잔", overAmount: "4잔"),
+//            HistoryListModel(date: "06.03", percent: "40%", amount: "5잔", overAmount: "5잔"),
+//        ]
         
-        let data: [HistoryListModel] = [
-            HistoryListModel(date: "06.02", percent: "15%", amount: "2잔", overAmount: "2잔"),
-            HistoryListModel(date: "06.02", percent: "20%", amount: "3잔", overAmount: "3잔"),
-            HistoryListModel(date: "06.01", percent: "20%", amount: "3잔", overAmount: "3잔"),
-            HistoryListModel(date: "06.03", percent: "30%", amount: "4잔", overAmount: "4잔"),
-            HistoryListModel(date: "06.03", percent: "40%", amount: "5잔", overAmount: "5잔"),
-        ]
-        
-        let sortList = data.sorted { $0.date < $1.date }
-        print(sortList)
-        XCTAssertEqual(sortList, mock)
+//        let sortList = data.sorted { $0.date < $1.date }
+//        print(sortList)
+//        XCTAssertEqual(sortList, mock)
     }
     
     func test커뮤니티작성일포맷() {
         let mockTime = "2020-06-07 21:30:13"
         let mockDate = "2020.06.07"
         let date: String = mockTime.communityDate()
+        
+        XCTAssertEqual(date, mockDate)
+    }
+    
+    func test기록리스트헤더뷰날짜() {
+        let mockTime = "2020-06-07 21:30:13"
+        let mockDate = "2020.06.07"
+        let date = mockTime.recordDate()
         
         XCTAssertEqual(date, mockDate)
     }

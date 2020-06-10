@@ -8,6 +8,8 @@
 
 import Foundation
 
+// DELETE
+/*
 struct HistoryListModel: Equatable {
     var kind: RecordType = .drink
     let date: String
@@ -24,3 +26,4 @@ struct HistorySectionListModel {
         self.item.append(item)
     }
 }
+*/

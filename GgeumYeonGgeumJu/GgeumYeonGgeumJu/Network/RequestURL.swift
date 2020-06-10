@@ -14,6 +14,7 @@ enum RequestURL {
     case communityWrite
     case communityModify(boardIdx: Int)
     case communityDelete(boardIdx: Int)
+    case record(userId: Int)
     
     var getString: String {
         switch self {
@@ -28,6 +29,8 @@ enum RequestURL {
         case .communityModify(let boardIdx),
              .communityDelete(let boardIdx):
             return "/api/community/\(boardIdx)"
+        case .record(let userId):
+            return "/api/record/\(userId)"
         }
     }
 }
