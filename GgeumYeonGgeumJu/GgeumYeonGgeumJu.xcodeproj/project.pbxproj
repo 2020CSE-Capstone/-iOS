@@ -12,7 +12,6 @@
 		0660D680247C0A150081A8C0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */; };
 		0684FC542484F6B600532B77 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */; };
 		0684FC582485459C00532B77 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC572485459C00532B77 /* HistoryViewController.swift */; };
-		0684FC5B24862EBC00532B77 /* HistoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC5A24862EBC00532B77 /* HistoryListModel.swift */; };
 		0684FC5E2487A19B00532B77 /* CommunityServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC5D2487A19A00532B77 /* CommunityServiceProtocol.swift */; };
 		0684FC612487A1AB00532B77 /* CommunityServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC602487A1AB00532B77 /* CommunityServiceImp.swift */; };
 		0684FC642487A3E100532B77 /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC632487A3E100532B77 /* BaseAPI.swift */; };
@@ -69,7 +68,6 @@
 		0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		0684FC572485459C00532B77 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		0684FC5A24862EBC00532B77 /* HistoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListModel.swift; sourceTree = "<group>"; };
 		0684FC5D2487A19A00532B77 /* CommunityServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityServiceProtocol.swift; sourceTree = "<group>"; };
 		0684FC602487A1AB00532B77 /* CommunityServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityServiceImp.swift; sourceTree = "<group>"; };
 		0684FC632487A3E100532B77 /* BaseAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseAPI.swift; sourceTree = "<group>"; };
@@ -144,7 +142,7 @@
 		0684FC5924862EA400532B77 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0684FC5A24862EBC00532B77 /* HistoryListModel.swift */,
+				06D3E7112490C89C00360CCD /* RecordModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -191,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				0684FC5924862EA400532B77 /* Model */,
+				06D3E70A2490C53700360CCD /* Service */,
 				0684FC522484F6A000532B77 /* Cell */,
 				06C9A061246D140B0045E623 /* StoryBoard */,
 				0684FC572485459C00532B77 /* HistoryViewController.swift */,
@@ -344,7 +343,6 @@
 			isa = PBXGroup;
 			children = (
 				06D3E7102490C89200360CCD /* Model */,
-				06D3E70A2490C53700360CCD /* Service */,
 				06C9A052246C05490045E623 /* StoryBoard */,
 				06C9A03A246C04160045E623 /* MainViewController.swift */,
 				06C9A068246D23AA0045E623 /* RecordViewController.swift */,
@@ -422,7 +420,6 @@
 		06D3E7102490C89200360CCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				06D3E7112490C89C00360CCD /* RecordModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -615,7 +612,6 @@
 				0684FC662487A47300532B77 /* RequestURL.swift in Sources */,
 				0684FC542484F6B600532B77 /* HistoryTableViewCell.swift in Sources */,
 				06D3E701248F6D3500360CCD /* CommunityHeader.swift in Sources */,
-				0684FC5B24862EBC00532B77 /* HistoryListModel.swift in Sources */,
 				062A3117247D6706002BF51C /* CommunityDetailViewController.swift in Sources */,
 				06C9A057246C1CB00045E623 /* ViewControllerIdentifier.swift in Sources */,
 				06C9A05C246C575B0045E623 /* CALayer+Extension.swift in Sources */,
