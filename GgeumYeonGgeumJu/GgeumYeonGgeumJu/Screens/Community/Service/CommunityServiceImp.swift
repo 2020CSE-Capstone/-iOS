@@ -168,7 +168,7 @@ struct CommunityServiceImp: CommunityServiceProtocol {
     }
     
     // MARK: 커뮤니티 글삭제
-    func requestDeleteCommunity(boardIdx: Int, title: String, content: String, completion: @escaping (Bool) -> Void) {
+    func requestDeleteCommunity(boardIdx: Int, completion: @escaping (Bool) -> Void) {
         var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
         urlComponent?.path = RequestURL.communityDelete(boardIdx: boardIdx).getString
         

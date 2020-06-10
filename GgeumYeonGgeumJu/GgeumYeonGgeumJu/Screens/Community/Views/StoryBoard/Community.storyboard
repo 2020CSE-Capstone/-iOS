@@ -228,7 +228,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARh-wh-GZ6">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARh-wh-GZ6">
                                 <rect key="frame" x="362" y="44" width="44" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -262,6 +262,7 @@
                     </view>
                     <connections>
                         <outlet property="commentTextView" destination="ejI-Oj-tD6" id="oha-2e-s6c"/>
+                        <outlet property="optionButton" destination="ARh-wh-GZ6" id="TS8-tr-gN3"/>
                         <outlet property="tableView" destination="jom-cG-yHj" id="h3y-WY-eyD"/>
                     </connections>
                 </viewController>

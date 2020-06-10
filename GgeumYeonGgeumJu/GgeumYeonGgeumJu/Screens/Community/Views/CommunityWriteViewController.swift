@@ -98,7 +98,7 @@ class CommunityWriteViewController: UIViewController, UITextViewDelegate {
                 }
                 DispatchQueue.main.async {
                     if isSuccess {
-                        self.alertWithHandler(title: "수정 완료", message: "수정 되었습니다.") { _ in
+                        self.alertWithHandler(title: "수정완료", message: "수정되었습니다.") { _ in
                             self.navigationController?.popViewController(animated: true)
                         }
                     }
@@ -113,7 +113,7 @@ class CommunityWriteViewController: UIViewController, UITextViewDelegate {
                 }
                 DispatchQueue.main.async {
                     if isSuccess {
-                        self.alertWithHandler(title: "작성 완료", message: "작성 되었습니다.") { _ in
+                        self.alertWithHandler(title: "작성완료", message: "작성되었습니다.") { _ in
                             self.navigationController?.popViewController(animated: true)
                         }
                     }

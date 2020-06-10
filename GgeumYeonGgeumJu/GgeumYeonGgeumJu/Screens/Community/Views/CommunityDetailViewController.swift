@@ -12,6 +12,7 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
 
     @IBOutlet weak var commentTextView: UITextView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var optionButton: UIButton!
     
     var model: CommunityListModel?
     var commentModelList: [CommentModel] = [] {
@@ -32,6 +33,10 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
         setupCommentTextView()
         setupTableView()
         
+        let userId = 1
+        if userId == model?.userId {
+            optionButton.isHidden = false
+        }
     }
     
     func requestComment() {
@@ -105,12 +110,12 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    func myBoardOption() {
+    func boardOption() {
+        guard let model = self.model else {
+            return
+        }
         let modify = UIAlertAction(title: "수정", style: .default) { _ in
             guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifier.communityWriteVC.rawValue) as? CommunityWriteViewController else {
-                return
-            }
-            guard let model = self.model else {
                 return
             }
             nextVC.titleText = model.title
@@ -123,22 +128,21 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
         
         let delete = UIAlertAction(title: "삭제", style: .destructive) { _ in
            
-//            self.service
-            
+            self.service.requestDeleteCommunity(boardIdx: model.boardIdx) { isSuccess in
+                if isSuccess {
+                    self.alertWithHandler(title: "삭제완료", message: "삭제되었습니다.") { _ in
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                }
+            }
         }
         
         let cancel = UIAlertAction(title: "취소", style: .cancel)
-            
-        
-        simpleActionSheet(title: "옵션", actions: [modify, delete, cancel])
-    }
-    
-    func otherBoardOption() {
-        
+        simpleActionSheet(title: "실행할 옵션을 선택해주세요", actions: [modify, delete, cancel])
     }
     
     @IBAction func moreButton(_ sender: Any) {
-        myBoardOption()
+        boardOption()
     }
     
     @IBAction func backClick(_ sender: Any) {
