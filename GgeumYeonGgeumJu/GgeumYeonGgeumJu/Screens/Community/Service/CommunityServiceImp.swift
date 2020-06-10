@@ -87,7 +87,6 @@ struct CommunityServiceImp: CommunityServiceProtocol {
     // MARK: 댓글작성
     func requestWriteComment(boardIdx: Int, content: String, completion: @escaping (Bool) -> Void) {
         var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
-        
         urlComponent?.path = RequestURL.commentWrite.getString
         
         guard let url = urlComponent?.url else {
@@ -98,6 +97,34 @@ struct CommunityServiceImp: CommunityServiceProtocol {
             "content" : content,
             "user_id" : userId,
             "community_board_no" : boardIdx
+        ]
+        let request = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        request
+            .validate(statusCode: 200...500)
+            .responseDecodable(of: SimpleResponse<Bool>.self) { response in
+                switch response.result {
+                case .success:
+                    completion(true)
+                case .failure(let err):
+                    print(err)
+                    completion(false)
+                }
+        }
+    }
+    
+    // MARK: 커뮤니티 글작성
+    func requestWriteCommunity(title: String, content: String, completion: @escaping (Bool) -> Void) {
+        var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
+        urlComponent?.path = RequestURL.communityWrite.getString
+        
+        guard let url = urlComponent?.url else {
+            return
+        }
+        let userId = 1
+        let body: Parameters = [
+            "title" : title,
+            "content" : content,
+            "user_id" : userId
         ]
         let request = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
         request

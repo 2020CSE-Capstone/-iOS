@@ -24,6 +24,7 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
     
     private let service: CommunityServiceProtocol
     = DependencyContainer.shared.getDependency(key: .communityService)
+    private var isLoading = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,15 +87,21 @@ class CommunityDetailViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func writeComment(_ sender: Any) {
-        guard let boardIdx = model?.boardIdx else {
+        guard let boardIdx = model?.boardIdx, !isLoading else {
             return
         }
-        service.requestWriteComment(boardIdx: boardIdx, content: commentTextView.text) { isSuccess in
+        isLoading = true
+        service.requestWriteComment(boardIdx: boardIdx, content: commentTextView.text) { [weak self] isSuccess in
+            guard let self = self else {
+                return
+            }
             if isSuccess {
+                self.commentTextView.text = ""
                 self.alertWithHandler(title: "작성완료", message: "작성되었습니다.") { _ in
                     self.requestComment()
                 }
             }
+            self.isLoading = false
         }
     }
     

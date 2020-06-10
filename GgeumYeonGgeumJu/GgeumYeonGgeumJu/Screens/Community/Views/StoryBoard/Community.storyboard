@@ -259,13 +259,154 @@
                     <view key="view" contentMode="scaleToFill" id="z9Q-tc-RGk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fj-0T-7rF">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2v-EF-rMg">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="334"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="하고싶은 말을 써주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d71-42-al8">
+                                                <rect key="frame" x="14" y="107" width="206.5" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="fbE-fh-ho9"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dEq-76-bcA">
+                                                <rect key="frame" x="14" y="136" width="386" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="38" id="bpM-g5-QMt"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                                        <real key="value" value="0.29999999999999999"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                                        <real key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iw2-By-cfp">
+                                                <rect key="frame" x="14" y="33" width="386" height="38"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="38" id="40A-Ed-e84"/>
+                                                </constraints>
+                                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                                        <color key="value" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidthV">
+                                                        <real key="value" value="0.29999999999999999"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadiusV">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목을 써주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9id-5a-eaf">
+                                                <rect key="frame" x="14" y="4" width="144.5" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="bio-hq-q1m"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="iw2-By-cfp" firstAttribute="leading" secondItem="9id-5a-eaf" secondAttribute="leading" id="4HL-tL-9Sf"/>
+                                            <constraint firstItem="dEq-76-bcA" firstAttribute="leading" secondItem="d71-42-al8" secondAttribute="leading" id="9FQ-u5-jAM"/>
+                                            <constraint firstAttribute="trailing" secondItem="iw2-By-cfp" secondAttribute="trailing" constant="14" id="DOg-O8-IZF"/>
+                                            <constraint firstAttribute="bottom" secondItem="dEq-76-bcA" secondAttribute="bottom" constant="160" id="FZI-io-Z2K"/>
+                                            <constraint firstItem="dEq-76-bcA" firstAttribute="top" secondItem="d71-42-al8" secondAttribute="bottom" constant="8" id="N3h-rI-UlE"/>
+                                            <constraint firstAttribute="trailing" secondItem="dEq-76-bcA" secondAttribute="trailing" constant="14" id="Rgn-wi-DnL"/>
+                                            <constraint firstItem="9id-5a-eaf" firstAttribute="top" secondItem="F2v-EF-rMg" secondAttribute="top" constant="4" id="Rh6-Lx-IOk"/>
+                                            <constraint firstItem="d71-42-al8" firstAttribute="leading" secondItem="9id-5a-eaf" secondAttribute="leading" id="Ve9-fD-SAn"/>
+                                            <constraint firstItem="iw2-By-cfp" firstAttribute="top" secondItem="9id-5a-eaf" secondAttribute="bottom" constant="8" id="gYP-hN-08H"/>
+                                            <constraint firstItem="d71-42-al8" firstAttribute="top" secondItem="iw2-By-cfp" secondAttribute="bottom" constant="36" id="wUO-5N-lS1"/>
+                                            <constraint firstItem="9id-5a-eaf" firstAttribute="leading" secondItem="F2v-EF-rMg" secondAttribute="leading" constant="14" id="xmK-tH-L25"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="F2v-EF-rMg" secondAttribute="bottom" id="MUs-DT-X3w"/>
+                                    <constraint firstItem="F2v-EF-rMg" firstAttribute="leading" secondItem="6fj-0T-7rF" secondAttribute="leading" id="NKQ-Ay-CVG"/>
+                                    <constraint firstItem="F2v-EF-rMg" firstAttribute="top" secondItem="6fj-0T-7rF" secondAttribute="top" id="V8s-l7-A8E"/>
+                                    <constraint firstAttribute="trailing" secondItem="F2v-EF-rMg" secondAttribute="trailing" id="a2d-wn-Kc8"/>
+                                    <constraint firstItem="F2v-EF-rMg" firstAttribute="width" secondItem="6fj-0T-7rF" secondAttribute="width" id="wCb-mt-54V"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbv-cG-j8S">
+                                <rect key="frame" x="0.0" y="44" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="44" id="2RP-qt-JAy"/>
+                                    <constraint firstAttribute="height" constant="44" id="wcj-7f-iSu"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="btnBack"/>
+                                <connections>
+                                    <action selector="backClick:" destination="eIr-Dr-D1b" eventType="touchUpInside" id="JTm-CO-vWK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h2v-r8-fYo">
+                                <rect key="frame" x="356" y="44" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="68C-gE-HbL"/>
+                                    <constraint firstAttribute="width" constant="44" id="lec-SQ-Rcj"/>
+                                </constraints>
+                                <state key="normal" title="완료"/>
+                                <connections>
+                                    <action selector="writeClick:" destination="eIr-Dr-D1b" eventType="touchUpInside" id="gVn-Xi-rln"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="PLn-hW-wMT">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColorV">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wbv-cG-j8S" firstAttribute="leading" secondItem="jbM-FS-h74" secondAttribute="leading" id="00t-mh-dJy"/>
+                            <constraint firstItem="h2v-r8-fYo" firstAttribute="top" secondItem="jbM-FS-h74" secondAttribute="top" id="Dbz-d1-LG2"/>
+                            <constraint firstItem="jbM-FS-h74" firstAttribute="trailing" secondItem="6fj-0T-7rF" secondAttribute="trailing" id="F3E-HO-1zp"/>
+                            <constraint firstItem="jbM-FS-h74" firstAttribute="trailing" secondItem="h2v-r8-fYo" secondAttribute="trailing" constant="14" id="KXD-Nv-xOl"/>
+                            <constraint firstItem="6fj-0T-7rF" firstAttribute="leading" secondItem="z9Q-tc-RGk" secondAttribute="leading" id="ONd-9t-7uK"/>
+                            <constraint firstItem="jbM-FS-h74" firstAttribute="bottom" secondItem="6fj-0T-7rF" secondAttribute="bottom" id="VhL-0a-ueV"/>
+                            <constraint firstItem="6fj-0T-7rF" firstAttribute="top" secondItem="wbv-cG-j8S" secondAttribute="bottom" id="gtB-RZ-GUs"/>
+                            <constraint firstItem="PLn-hW-wMT" firstAttribute="centerX" secondItem="z9Q-tc-RGk" secondAttribute="centerX" id="kdc-Ip-GCn"/>
+                            <constraint firstItem="wbv-cG-j8S" firstAttribute="top" secondItem="jbM-FS-h74" secondAttribute="top" id="lVf-BO-nCM"/>
+                            <constraint firstItem="PLn-hW-wMT" firstAttribute="centerY" secondItem="z9Q-tc-RGk" secondAttribute="centerY" id="vNk-Z8-G9E"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="jbM-FS-h74"/>
                     </view>
+                    <connections>
+                        <outlet property="contentTextView" destination="dEq-76-bcA" id="BYI-g9-bsP"/>
+                        <outlet property="indicator" destination="PLn-hW-wMT" id="Zd7-Mv-b2T"/>
+                        <outlet property="titleTextView" destination="iw2-By-cfp" id="v0d-Gr-g2Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uyL-ZV-l80" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1378" y="-28"/>
+            <point key="canvasLocation" x="1376.8115942028987" y="-28.125"/>
         </scene>
     </scenes>
     <resources>

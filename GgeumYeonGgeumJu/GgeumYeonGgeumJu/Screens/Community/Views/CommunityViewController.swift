@@ -38,6 +38,7 @@ class CommunityViewController: UIViewController {
             }
         }
     }
+    private var type: CommunityListType = .recent
     
     private var tabUnderLayout: [NSLayoutConstraint] = []
     private var communityList: [CommunityListModel] = []
@@ -45,7 +46,10 @@ class CommunityViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableView()
-        requestList(type: .recent)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        requestList(type: type)
     }
     
     func requestList(type: CommunityListType) {
@@ -86,16 +90,19 @@ class CommunityViewController: UIViewController {
     
     @IBAction func recentOrderClick(_ sender: UIButton) {
         underBarAnimation(view: sender)
+        type = .recent
         requestList(type: .recent)
     }
     
     @IBAction func popularOrderClick(_ sender: UIButton) {
         underBarAnimation(view: sender)
+        type = .popular
         requestList(type: .popular)
     }
     
     @IBAction func myBoardClick(_ sender: UIButton) {
         underBarAnimation(view: sender)
+        type = .myBoard
         requestList(type: .myBoard)
     }
     

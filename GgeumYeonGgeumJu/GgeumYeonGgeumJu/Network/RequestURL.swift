@@ -11,6 +11,7 @@ enum RequestURL {
     case community(sortString: String)
     case comment(boardIdx: Int)
     case commentWrite
+    case communityWrite
     
     var getString: String {
         switch self {
@@ -20,6 +21,8 @@ enum RequestURL {
             return "/api/comment/\(boardIdx)"
         case .commentWrite:
             return "/api/comment"
+        case .communityWrite:
+            return "/api/community"
         }
     }
 }
