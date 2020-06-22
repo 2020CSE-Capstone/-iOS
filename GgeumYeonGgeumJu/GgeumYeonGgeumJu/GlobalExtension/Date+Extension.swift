@@ -16,4 +16,12 @@ extension Date {
         let dateString = formatter.string(from: self)
         return dateString
     }
+    
+    func getMonth() -> Int {
+        let calendar = Calendar.current.dateComponents([.month], from: self)
+        guard let month = calendar.month else {
+            return 1
+        }
+        return month
+    }
 }

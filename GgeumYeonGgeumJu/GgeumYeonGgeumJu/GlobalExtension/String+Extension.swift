@@ -75,4 +75,20 @@ extension String {
         formatter.dateFormat = format
         return formatter.string(from: tempDate)
     }
+    
+    func getDay() -> Int {
+        let format = "yyyy-MM-dd"
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        formatter.locale = Locale(identifier: "ko")
+        guard let tempDate = formatter.date(from: self) else {
+                return 0
+        }
+        let calendar = Calendar.current.dateComponents([.day], from: tempDate)
+        guard let day = calendar.day else {
+            return 0
+        }
+        
+        return day
+    }
 }

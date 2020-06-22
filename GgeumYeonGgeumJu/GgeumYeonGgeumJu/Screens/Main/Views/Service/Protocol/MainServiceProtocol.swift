@@ -12,4 +12,6 @@ import Alamofire
 protocol MainServiceProtocol {
     func requestTotalDrink(completion: @escaping (AFResult<TotalDrinkModel>) -> Void)
     func requestTotalSmoke(completion: @escaping (AFResult<TotalSmokeModel>) -> Void)
+    
+    func requestMonthTotal(type: RecordType, month: Int, completion: @escaping (AFResult<[MonthTotalModel]>) -> Void)
 }

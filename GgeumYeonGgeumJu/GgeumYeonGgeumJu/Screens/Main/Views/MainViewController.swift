@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
         willSet {
             if let newValue = newValue {
                 convertMoneyImg(money: newValue.total_price, label: smokeMoneyLabel)
-                convertAmountImg(amonut: newValue.total_piece, label: smokeAmountLabel)
+                convertAmountImg(amount: newValue.total_piece, label: smokeAmountLabel)
                 
             }
         }
@@ -53,7 +53,7 @@ class MainViewController: UIViewController {
         willSet {
             if let newValue = newValue {
                 convertMoneyImg(money: newValue.total_price, label: drinkMoneyLabel)
-                convertAmountImg(amonut: newValue.total_glass, label: drinkAmountLabel)
+                convertAmountImg(amount: newValue.total_glass, label: drinkAmountLabel)
             }
         }
     }
@@ -70,9 +70,7 @@ class MainViewController: UIViewController {
                               drinkNumberView,
                               drinkChartEmbedView])
         scrollView.delegate = self
-        setupChartView(type: .smoke, chart: smokeChartView)
-        setupChartView(type: .drink, chart: drinkChartView)
-     
+       
     }
     
     func requestMainInfo() {
@@ -93,6 +91,25 @@ class MainViewController: UIViewController {
                 print(err)
             }
         }
+        
+        let month = Date().getMonth()
+        // TODO: 월별 리스트
+        service.requestMonthTotal(type: .drink, month: month) { result in
+            switch result {
+            case .success(let list):
+                self.setupChartView(type: .drink, chart: self.drinkChartView, list: list)
+            case .failure(let err):
+                print(err)
+            }
+        }
+        service.requestMonthTotal(type: .smoke, month: month) { result in
+            switch result {
+            case .success(let list):
+                self.setupChartView(type: .smoke, chart: self.smokeChartView, list: list)
+            case .failure(let err):
+                print(err)
+            }
+        }
     }
     
     func convertMoneyImg(money: Int, label: UILabel) {
@@ -104,9 +121,9 @@ class MainViewController: UIViewController {
         label.text = tempImg[index]
     }
     
-    func convertAmountImg(amonut: Int, label: UILabel) {
-        let tempImg = ["✏️","✏️✏️","✂️","📕","📕📕","📦","🗑","🛒","🛀","🚗","⛺️","🏡","🚃","⛰","🇰🇷","🗺"]
-        var index = amonut
+    func convertAmountImg(amount: Int, label: UILabel) {
+        let tempImg = ["🎱","⚾️","⚽️","🏀","📦","🗑","🛢","🛒","🛀","🚗","⛺️","🏡","🚃","⛰","🇰🇷","🗺"]
+        var index = amount/10
         if index >= tempImg.count - 1 {
             index = tempImg.count - 1
         }
@@ -133,32 +150,45 @@ class MainViewController: UIViewController {
         drinkNumberView.setGradientBackGround(radius: radius, colorOne: .softSky, colorTwo: .softSky, colorThree: .white)
     }
     
-    func fetchMockData() -> [Double] {
-        var mockData: [Double] = []
-        for _ in 0..<31 {
-            let randomValue = Double.random(in: 0..<10)
-            mockData.append(randomValue)
+    func fetchChartData(list: [MonthTotalModel]) -> [Double] {
+        var mockData: [Double] = Array(repeating: 0, count: 31)
+        var index = 0
+        for i in 0...mockData.count {
+            let day = list[index].date.getDay()
+            if i == day {
+                let value = Double(list[index].total_amount)
+                mockData[i] = value
+                index += 1
+                if index >= list.count - 1 {
+                    break
+                }
+            }
         }
         return mockData
     }
     
-    func setupChartView(type: RecordType, chart: LineChartView) {
-        let mockData = fetchMockData()
+    func setupChartView(type: RecordType, chart: LineChartView, list: [MonthTotalModel]) {
+        let mockData = fetchChartData(list: list)
         var tempArray: [ChartDataEntry] = []
-        for i in 0..<mockData.count {
-            let value = ChartDataEntry(x: Double(i), y: mockData[i])
+        for i in 0...30 {
+            let value = ChartDataEntry(x: Double(i+1), y: mockData[i])
             tempArray.append(value)
         }
+        
         if type == .smoke {
             smokeDataList = tempArray
         } else {
             drinkDataList = tempArray
         }
         
-        
+        if type == .smoke {
+            
+        } else {
+            
+        }
         let lableText = type == .smoke ? "흡연" : "음주"
         let pointColor: NSUIColor = type == .smoke ? .softPink : .softSky
-        let line = LineChartDataSet(entries: smokeDataList, label: lableText)
+        let line = LineChartDataSet(entries: tempArray, label: lableText)
         line.setColor(pointColor)
         line.mode = .linear
 //        line.fill = Fill(color: .softPink)

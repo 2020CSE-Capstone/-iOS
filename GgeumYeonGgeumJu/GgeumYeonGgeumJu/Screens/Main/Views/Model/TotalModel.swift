@@ -15,3 +15,8 @@ struct TotalDrinkModel: Codable {
 struct TotalSmokeModel: Codable {
     let total_piece, total_price: Int
 }
+
+struct MonthTotalModel: Codable {
+    let date: String
+    let total_amount: Int
+}

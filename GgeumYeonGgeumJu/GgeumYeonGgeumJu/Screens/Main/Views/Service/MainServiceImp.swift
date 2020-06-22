@@ -64,4 +64,37 @@ struct MainServiceImp: MainServiceProtocol {
                 }
          }
     }
+    
+    func requestMonthTotal(type: RecordType, month: Int, completion: @escaping (AFResult<[MonthTotalModel]>) -> Void) {
+    
+        var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
+        let userId = 1
+        let path = type == .drink ?
+            RequestURL.monthDrinkTotal.getString :
+            RequestURL.monthSmokeTotal.getString
+        
+        urlComponent?.path = path
+        let header: HTTPHeaders = [
+            "Authorization": testToken
+        ]
+        guard let url = urlComponent?.url else {
+            return
+        }
+        let body: Parameters = [
+            "user_id" : userId,
+            "month" : month
+        ]
+        let request = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
+        request
+            .validate(statusCode: 200...500)
+            .responseDecodable(of: ArrayResponse<MonthTotalModel>.self) { response in
+                switch response.result {
+                case .success(let object):
+                    completion(.success(object.data!))
+                case .failure(let err):
+                    print(err)
+                    completion(.failure(err))
+                }
+         }
+    }
 }
