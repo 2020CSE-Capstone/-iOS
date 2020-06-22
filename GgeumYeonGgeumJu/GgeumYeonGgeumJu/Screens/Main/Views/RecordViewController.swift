@@ -10,6 +10,7 @@ import UIKit
 
 class RecordViewController: UIViewController {
     
+    @IBOutlet weak var figureLabel: UILabel!
     @IBOutlet weak var numUnderView: UIView!
     @IBOutlet weak var kindUnderView: UIView!
     @IBOutlet weak var numTextField: UITextField!
@@ -146,7 +147,7 @@ class RecordViewController: UIViewController {
     @objc func pressNumDone() {
         let selectRow = numPickerView.selectedRow(inComponent: 0)
         let num = testDrinkNum[selectRow]
-        numTextField.text = "\(num) 잔"
+        numTextField.text = "\(num)"
         numUnderView.backgroundColor = .softSky
         view.endEditing(true)
     }
@@ -155,6 +156,20 @@ class RecordViewController: UIViewController {
         guard kindTextField.hasText && numTextField.hasText else {
             simpleAlert(title: "모두 작성해주세요", message: "빈칸을 확인하세요")
             return
+        }
+        var figure: Double = 0
+        if var tempFigure = figureLabel.text {
+            tempFigure.removeLast()
+            figure = Double(tempFigure)!
+        }
+        var glass = 0
+        if let tempGlass = numTextField.text {
+            glass = Int(tempGlass)!
+        }
+        let record = RecordModel(id: -1, figure: figure, glass: glass, drinkDate: dateTextField.text!, drinkName: kindTextField.text!)
+
+        service.requestRecordSave(record: record) { isSuccess in
+            // TODO: 서버응답
         }
     }
     

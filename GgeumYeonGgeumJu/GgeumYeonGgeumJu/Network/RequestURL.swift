@@ -15,6 +15,9 @@ enum RequestURL {
     case communityModify(boardIdx: Int)
     case communityDelete(boardIdx: Int)
     case record(userId: Int)
+    case recordSave
+    case totalDrink(userId: Int)
+    case totalSmoke(userId: Int)
     
     var getString: String {
         switch self {
@@ -31,6 +34,12 @@ enum RequestURL {
             return "/api/community/\(boardIdx)"
         case .record(let userId):
             return "/api/record/\(userId)"
+        case .recordSave:
+            return "/api/record"
+        case .totalDrink(let userId):
+            return "/api/record/drink/total/\(userId)"
+        case .totalSmoke(let userId):
+            return "/api/record/smoke/total/\(userId)"
         }
     }
 }

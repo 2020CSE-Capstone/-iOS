@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 import Charts
 
 enum RecordType {
@@ -14,7 +15,10 @@ enum RecordType {
 }
 
 class MainViewController: UIViewController {
-
+    @IBOutlet weak var drinkMoneyLabel: UILabel!
+    @IBOutlet weak var drinkAmountLabel: UILabel!
+    @IBOutlet weak var smokeMoneyLabel: UILabel!
+    @IBOutlet weak var smokeAmountLabel: UILabel!
     @IBOutlet weak var smokeChartEmbedView: UIView!
     @IBOutlet weak var drinkChartEmbedView: UIView!
     @IBOutlet weak var smokeChartView: LineChartView!
@@ -33,13 +37,30 @@ class MainViewController: UIViewController {
     var statusStyle: UIStatusBarStyle = .lightContent
     private var smokeDataList: [ChartDataEntry] = []
     private var drinkDataList: [ChartDataEntry] = []
-    // MARK: 타이틀텍스트
-    // 죽고싶어? 응 죽고싶어
-    // 담배한모금 술한모금 세금모금
-    // 오늘도 힘내세요
+    
+    private let service: MainServiceProtocol = DependencyContainer.shared.getDependency(key: .mainService)
+    private var smokeTotalData: TotalSmokeModel? {
+        willSet {
+            if let newValue = newValue {
+                convertMoneyImg(money: newValue.total_price, label: smokeMoneyLabel)
+                convertAmountImg(amonut: newValue.total_piece, label: smokeAmountLabel)
+                
+            }
+        }
+    }
+    
+    private var drinkTotalData: TotalDrinkModel? {
+        willSet {
+            if let newValue = newValue {
+                convertMoneyImg(money: newValue.total_price, label: drinkMoneyLabel)
+                convertAmountImg(amonut: newValue.total_glass, label: drinkAmountLabel)
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestMainInfo()
         applyCardView(views: [smokeMoneyView,
                               smokeNumberView,
                               smokeRecordButton,
@@ -51,6 +72,45 @@ class MainViewController: UIViewController {
         scrollView.delegate = self
         setupChartView(type: .smoke, chart: smokeChartView)
         setupChartView(type: .drink, chart: drinkChartView)
+     
+    }
+    
+    func requestMainInfo() {
+        service.requestTotalSmoke { result in
+            switch result {
+            case .success(let data):
+                self.smokeTotalData = data
+            case .failure(let err):
+                print(err)
+            }
+        }
+        
+        service.requestTotalDrink { result in
+            switch result {
+            case .success(let data):
+                self.drinkTotalData = data
+            case .failure(let err):
+                print(err)
+            }
+        }
+    }
+    
+    func convertMoneyImg(money: Int, label: UILabel) {
+        let tempImg = ["☕️","☕️☕️","🍔","🍔🍔","🍝","🍝🍝","🪒","🍣","🍣🍣","👕","👖","👟","✈️","📱","🖥","🤢",]
+        var index = money/4000
+        if index >= tempImg.count - 1 {
+            index = tempImg.count - 1
+        }
+        label.text = tempImg[index]
+    }
+    
+    func convertAmountImg(amonut: Int, label: UILabel) {
+        let tempImg = ["✏️","✏️✏️","✂️","📕","📕📕","📦","🗑","🛒","🛀","🚗","⛺️","🏡","🚃","⛰","🇰🇷","🗺"]
+        var index = amonut
+        if index >= tempImg.count - 1 {
+            index = tempImg.count - 1
+        }
+        label.text = tempImg[index]
     }
 
     override var preferredStatusBarStyle: UIStatusBarStyle {

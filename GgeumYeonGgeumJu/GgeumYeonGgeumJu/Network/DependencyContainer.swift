@@ -17,12 +17,15 @@ class DependencyContainer {
        
         let communityService: CommunityServiceProtocol = CommunityServiceImp()
         let recordService: RecordServiceProtocol = RecordServiceImp()
+        let mainService: MainServiceProtocol = MainServiceImp()
         
         do {
             try dependencyPool.register(key: .communityService,
                                         dependency: communityService)
             try dependencyPool.register(key: .recordService,
                                         dependency: recordService)
+            try dependencyPool.register(key: .mainService,
+                                        dependency: mainService)
             
         } catch {
             fatalError("register Fail")
@@ -48,4 +51,5 @@ class DependencyContainer {
 enum DependencyKey {
     case communityService
     case recordService
+    case mainService
 }

@@ -48,6 +48,9 @@
 		06D3E70D2490C54800360CCD /* RecordServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E70C2490C54800360CCD /* RecordServiceImp.swift */; };
 		06D3E70F2490C55300360CCD /* RecordServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E70E2490C55300360CCD /* RecordServiceProtocol.swift */; };
 		06D3E7122490C89D00360CCD /* RecordModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D3E7112490C89C00360CCD /* RecordModel.swift */; };
+		06FE86F324A096C400F770F4 /* MainServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE86F224A096C400F770F4 /* MainServiceProtocol.swift */; };
+		06FE86F624A096D100F770F4 /* MainServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE86F524A096D100F770F4 /* MainServiceImp.swift */; };
+		06FE86F824A09D9500F770F4 /* TotalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE86F724A09D9500F770F4 /* TotalModel.swift */; };
 		8D7ADC677BEE34054E592C1D /* Pods_GgeumYeonGgeumJu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +111,9 @@
 		06D3E70C2490C54800360CCD /* RecordServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordServiceImp.swift; sourceTree = "<group>"; };
 		06D3E70E2490C55300360CCD /* RecordServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordServiceProtocol.swift; sourceTree = "<group>"; };
 		06D3E7112490C89C00360CCD /* RecordModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordModel.swift; sourceTree = "<group>"; };
+		06FE86F224A096C400F770F4 /* MainServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServiceProtocol.swift; sourceTree = "<group>"; };
+		06FE86F524A096D100F770F4 /* MainServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainServiceImp.swift; sourceTree = "<group>"; };
+		06FE86F724A09D9500F770F4 /* TotalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalModel.swift; sourceTree = "<group>"; };
 		7507494FFC756790FA5BFBFE /* Pods_GgeumYeonGgeumJu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GgeumYeonGgeumJu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B799E444DB397CAB31F37F7 /* Pods-GgeumYeonGgeumJu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GgeumYeonGgeumJu.release.xcconfig"; path = "Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -342,6 +348,7 @@
 		06C9A053246C054D0045E623 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				06FE86F124A0964600F770F4 /* Service */,
 				06D3E7102490C89200360CCD /* Model */,
 				06C9A052246C05490045E623 /* StoryBoard */,
 				06C9A03A246C04160045E623 /* MainViewController.swift */,
@@ -420,8 +427,26 @@
 		06D3E7102490C89200360CCD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				06FE86F724A09D9500F770F4 /* TotalModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		06FE86F124A0964600F770F4 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				06FE86F424A096C600F770F4 /* Protocol */,
+				06FE86F524A096D100F770F4 /* MainServiceImp.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		06FE86F424A096C600F770F4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				06FE86F224A096C400F770F4 /* MainServiceProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		69E4CDED5A45CAE244BA023B /* Frameworks */ = {
@@ -594,6 +619,7 @@
 			files = (
 				0684FC6D2487B72900532B77 /* DependencyContainer.swift in Sources */,
 				06C9A06B246D32500045E623 /* String+Extension.swift in Sources */,
+				06FE86F624A096D100F770F4 /* MainServiceImp.swift in Sources */,
 				0660D680247C0A150081A8C0 /* UIViewController+Extension.swift in Sources */,
 				06BBC143246FD53300BD0301 /* CommunityTableViewCell.swift in Sources */,
 				06D3E70D2490C54800360CCD /* RecordServiceImp.swift in Sources */,
@@ -612,6 +638,7 @@
 				0684FC662487A47300532B77 /* RequestURL.swift in Sources */,
 				0684FC542484F6B600532B77 /* HistoryTableViewCell.swift in Sources */,
 				06D3E701248F6D3500360CCD /* CommunityHeader.swift in Sources */,
+				06FE86F824A09D9500F770F4 /* TotalModel.swift in Sources */,
 				062A3117247D6706002BF51C /* CommunityDetailViewController.swift in Sources */,
 				06C9A057246C1CB00045E623 /* ViewControllerIdentifier.swift in Sources */,
 				06C9A05C246C575B0045E623 /* CALayer+Extension.swift in Sources */,
@@ -620,6 +647,7 @@
 				06BBC13F246FCF0200BD0301 /* CommunityViewController.swift in Sources */,
 				06D3E703248F7D1700360CCD /* CommentModel.swift in Sources */,
 				06D3E7122490C89D00360CCD /* RecordModel.swift in Sources */,
+				06FE86F324A096C400F770F4 /* MainServiceProtocol.swift in Sources */,
 				0684FC642487A3E100532B77 /* BaseAPI.swift in Sources */,
 				06C9A06D246D32890045E623 /* Date+Extension.swift in Sources */,
 				06D3E70F2490C55300360CCD /* RecordServiceProtocol.swift in Sources */,

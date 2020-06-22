@@ -10,4 +10,5 @@ import Foundation
 
 protocol RecordServiceProtocol {
     func requestRecordList(completion: @escaping ([RecordModel]?) -> Void)
+    func requestRecordSave(record: RecordModel, completion: @escaping (Bool) -> Void)
 }
