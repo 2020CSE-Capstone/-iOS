@@ -13,4 +13,5 @@ enum StoryBoardName: String {
     case tabBar = "TabBar"
     case history = "History"
     case community = "Community"
+    case login = "Login"
 }

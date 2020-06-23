@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		062A3117247D6706002BF51C /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3116247D6706002BF51C /* CommunityDetailViewController.swift */; };
+		0654370324A0EF9D00210383 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0654370224A0EF9D00210383 /* Login.storyboard */; };
+		0654370624A0F05B00210383 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654370524A0F05B00210383 /* LoginViewController.swift */; };
 		0660D67E247C00AF0081A8C0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D67D247C00AF0081A8C0 /* UIColor+Extension.swift */; };
 		0660D680247C0A150081A8C0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */; };
 		0684FC542484F6B600532B77 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		008D661CD459A5FAEC95839F /* Pods-GgeumYeonGgeumJu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GgeumYeonGgeumJu.debug.xcconfig"; path = "Target Support Files/Pods-GgeumYeonGgeumJu/Pods-GgeumYeonGgeumJu.debug.xcconfig"; sourceTree = "<group>"; };
 		062A3116247D6706002BF51C /* CommunityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewController.swift; sourceTree = "<group>"; };
+		0654370224A0EF9D00210383 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		0654370524A0F05B00210383 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0660D67D247C00AF0081A8C0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -137,6 +141,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0654370124A0EF8800210383 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0654370424A0EF9F00210383 /* StoryBoard */,
+				0654370524A0F05B00210383 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		0654370424A0EF9F00210383 /* StoryBoard */ = {
+			isa = PBXGroup;
+			children = (
+				0654370224A0EF9D00210383 /* Login.storyboard */,
+			);
+			path = StoryBoard;
+			sourceTree = "<group>";
+		};
 		0684FC522484F6A000532B77 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -286,6 +307,7 @@
 		06C9A04C246C041F0045E623 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				0654370124A0EF8800210383 /* Login */,
 				06C9A05D246D123B0045E623 /* TabBar */,
 				06C9A04E246C04460045E623 /* Splash */,
 				06C9A050246C049E0045E623 /* Community */,
@@ -557,6 +579,7 @@
 				06C9A03E246C04160045E623 /* Main.storyboard in Resources */,
 				06D3E6FD248F686A00360CCD /* CommunityHeader.xib in Resources */,
 				06C9A067246D14350045E623 /* History.storyboard in Resources */,
+				0654370324A0EF9D00210383 /* Login.storyboard in Resources */,
 				0684FC732487BF0A00532B77 /* CommentTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -645,6 +668,7 @@
 				0684FC722487BF0A00532B77 /* CommentTableViewCell.swift in Sources */,
 				0684FC5E2487A19B00532B77 /* CommunityServiceProtocol.swift in Sources */,
 				06BBC13F246FCF0200BD0301 /* CommunityViewController.swift in Sources */,
+				0654370624A0F05B00210383 /* LoginViewController.swift in Sources */,
 				06D3E703248F7D1700360CCD /* CommentModel.swift in Sources */,
 				06D3E7122490C89D00360CCD /* RecordModel.swift in Sources */,
 				06FE86F324A096C400F770F4 /* MainServiceProtocol.swift in Sources */,
