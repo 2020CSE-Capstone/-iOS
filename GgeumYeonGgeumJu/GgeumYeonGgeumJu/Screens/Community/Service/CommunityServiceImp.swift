@@ -29,8 +29,10 @@ struct CommunityServiceImp: CommunityServiceProtocol {
         guard let url = urlComponent?.url else {
             return
         }
-        
-        let request = AF.request(url)
+        let header: HTTPHeaders = [
+            "Authorization": UserInfo.shared.token
+        ]
+        let request = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
         request
             .validate(statusCode: 200...500)
             .responseDecodable(of: ArrayResponse<CommunityListModel>.self) { response in
@@ -51,7 +53,10 @@ struct CommunityServiceImp: CommunityServiceProtocol {
             return
         }
         
-        let request = AF.request(url)
+        let header: HTTPHeaders = [
+            "Authorization": UserInfo.shared.token
+        ]
+        let request = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
         request
             .validate(statusCode: 200...500)
             .responseDecodable(of: SimpleResponse<CommunityListModel>.self) { response in
@@ -72,7 +77,10 @@ struct CommunityServiceImp: CommunityServiceProtocol {
         guard let url = urlComponent?.url else {
             return
         }
-        let request = AF.request(url)
+        let header: HTTPHeaders = [
+            "Authorization": UserInfo.shared.token
+        ]
+        let request = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
         request
             .validate(statusCode: 200...500)
             .responseDecodable(of: ArrayResponse<CommentModel>.self) { response in
@@ -98,7 +106,10 @@ struct CommunityServiceImp: CommunityServiceProtocol {
             "user_id" : userId,
             "community_board_no" : boardIdx
         ]
-        let request = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        let header: HTTPHeaders = [
+            "Authorization": UserInfo.shared.token
+        ]
+        let request = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
         request
             .validate(statusCode: 200...500)
             .responseDecodable(of: SimpleResponse<Bool>.self) { response in
@@ -126,7 +137,10 @@ struct CommunityServiceImp: CommunityServiceProtocol {
             "content" : content,
             "user_id" : userId
         ]
-        let request = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        let header: HTTPHeaders = [
+            "Authorization": UserInfo.shared.token
+        ]
+        let request = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
         request
             .validate(statusCode: 200...500)
             .responseDecodable(of: SimpleResponse<Bool>.self) { response in
@@ -153,7 +167,11 @@ struct CommunityServiceImp: CommunityServiceProtocol {
             "title" : title,
             "content" : content
         ]
-        let request = AF.request(url, method: .put, parameters: body, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        let header: HTTPHeaders = [
+            "Authorization": UserInfo.shared.token
+        ]
+        
+        let request = AF.request(url, method: .put, parameters: body, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
         request
             .validate(statusCode: 200...500)
             .responseDecodable(of: SimpleResponse<Bool>.self) { response in
@@ -175,8 +193,10 @@ struct CommunityServiceImp: CommunityServiceProtocol {
         guard let url = urlComponent?.url else {
             return
         }
-       
-        let request = AF.request(url, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        let header: HTTPHeaders = [
+            "Authorization": UserInfo.shared.token
+        ]
+        let request = AF.request(url, method: .delete, parameters: nil, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
         request
             .validate(statusCode: 200...500)
             .responseDecodable(of: SimpleResponse<Bool>.self) { response in

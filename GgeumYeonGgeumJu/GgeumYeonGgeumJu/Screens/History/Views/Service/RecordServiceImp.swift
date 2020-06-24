@@ -19,8 +19,10 @@ struct RecordServiceImp: RecordServiceProtocol {
         guard let url = urlComponent?.url else {
             return
         }
-       
-        let request = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        let header: HTTPHeaders = [
+            "Authorization": UserInfo.shared.token
+        ]
+        let request = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
         request
             .validate(statusCode: 200...500)
             .responseDecodable(of: SimpleResponse<[RecordModel]>.self) { response in
@@ -50,9 +52,12 @@ struct RecordServiceImp: RecordServiceProtocol {
             "drink_name" : record.drinkName,
             "user_id" : userId
         ]
+        let header: HTTPHeaders = [
+            "Authorization": UserInfo.shared.token
+        ]
         print(body)
         print(url)
-        let request = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: nil, interceptor: nil, requestModifier: nil)
+        let request = AF.request(url, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
         request
             .validate(statusCode: 200...500)
             .responseDecodable(of: SimpleResponse<Bool>.self) { response in
