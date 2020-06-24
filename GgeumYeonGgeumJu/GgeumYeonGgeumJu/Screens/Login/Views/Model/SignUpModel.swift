@@ -9,5 +9,6 @@
 import Foundation
 
 class SignUpModel {
-    var email, pw, nickName, age, drinkAmount, smokeAmount, determine: String?
+    var email, pw, nickName, determine: String?
+    var age, drinkAmount, smokeAmount: Int?
 }

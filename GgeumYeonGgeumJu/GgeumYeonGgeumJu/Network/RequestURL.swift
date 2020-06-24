@@ -22,6 +22,8 @@ enum RequestURL {
     case monthSmokeTotal
     case checkEmail(email: String)
     case checkName(name: String)
+    case signUp
+    case login
     
     
     var getString: String {
@@ -53,6 +55,10 @@ enum RequestURL {
             return "/api/user/email/\(email)"
         case .checkName(let nickname):
             return "/api/user/nickname/\(nickname)"
+        case .signUp:
+            return "/api/user/signup"
+        case .login:
+            return "/api/user/login"
         }
     }
 }

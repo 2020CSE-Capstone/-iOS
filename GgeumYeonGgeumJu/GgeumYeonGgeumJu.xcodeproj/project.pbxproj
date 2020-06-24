@@ -16,6 +16,7 @@
 		0654371524A31C4600210383 /* LoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654371424A31C4600210383 /* LoginServiceProtocol.swift */; };
 		0654371824A32A6A00210383 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654371724A32A6A00210383 /* SignUpModel.swift */; };
 		0654371A24A32B4400210383 /* SignUpTwoStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654371924A32B4400210383 /* SignUpTwoStepViewController.swift */; };
+		0654371C24A343CC00210383 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654371B24A343CC00210383 /* UserInfo.swift */; };
 		0660D67E247C00AF0081A8C0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D67D247C00AF0081A8C0 /* UIColor+Extension.swift */; };
 		0660D680247C0A150081A8C0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */; };
 		0684FC542484F6B600532B77 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */; };
@@ -83,6 +84,7 @@
 		0654371424A31C4600210383 /* LoginServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceProtocol.swift; sourceTree = "<group>"; };
 		0654371724A32A6A00210383 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
 		0654371924A32B4400210383 /* SignUpTwoStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTwoStepViewController.swift; sourceTree = "<group>"; };
+		0654371B24A343CC00210383 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		0660D67D247C00AF0081A8C0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 			children = (
 				06C9A054246C1CA50045E623 /* StoryBoardName.swift */,
 				06C9A056246C1CB00045E623 /* ViewControllerIdentifier.swift */,
+				0654371B24A343CC00210383 /* UserInfo.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				0684FC642487A3E100532B77 /* BaseAPI.swift in Sources */,
 				06C9A06D246D32890045E623 /* Date+Extension.swift in Sources */,
 				0654371524A31C4600210383 /* LoginServiceProtocol.swift in Sources */,
+				0654371C24A343CC00210383 /* UserInfo.swift in Sources */,
 				06D3E70F2490C55300360CCD /* RecordServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

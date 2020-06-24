@@ -10,8 +10,6 @@ import Foundation
 import Alamofire
 
 struct MainServiceImp: MainServiceProtocol {
-    private let testToken = "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImlkIjo2NSwiZXhwIjoxNTkzNjc3NTUyfQ.FTa2KgzKUuMhiZaKE4IIaykIH8E-O4U4DQuK03Y_qyPhuihq-Okcp6DOUILlrlEpy5V5czAdi9_Pchd6RePItA"
-    
     
     func requestTotalDrink(completion: @escaping (AFResult<TotalDrinkModel>) -> Void) {
     
@@ -20,7 +18,7 @@ struct MainServiceImp: MainServiceProtocol {
         urlComponent?.path = RequestURL.totalDrink(userId: userId).getString
         
         let header: HTTPHeaders = [
-            "Authorization": testToken
+            "Authorization": UserInfo.shared.token
         ]
         guard let url = urlComponent?.url else {
             return
@@ -46,7 +44,7 @@ struct MainServiceImp: MainServiceProtocol {
         
         urlComponent?.path = RequestURL.totalSmoke(userId: userId).getString
         let header: HTTPHeaders = [
-            "Authorization": testToken
+            "Authorization": UserInfo.shared.token
         ]
         guard let url = urlComponent?.url else {
             return
@@ -75,7 +73,7 @@ struct MainServiceImp: MainServiceProtocol {
         
         urlComponent?.path = path
         let header: HTTPHeaders = [
-            "Authorization": testToken
+            "Authorization": UserInfo.shared.token
         ]
         guard let url = urlComponent?.url else {
             return

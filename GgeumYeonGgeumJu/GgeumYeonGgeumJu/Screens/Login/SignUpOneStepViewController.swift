@@ -20,7 +20,7 @@ class SignUpOneStepViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailCheckButton: UIButton!
     @IBOutlet weak var nameCheckButton: UIButton!
     
-    private let duration = 1.0
+    private let duration = 0.7
     private let damping: CGFloat = 0.7
     private let velocity: CGFloat = 1
     
@@ -78,9 +78,6 @@ class SignUpOneStepViewController: UIViewController, UITextFieldDelegate {
         pwView.alpha = 0
         emailView.alpha = 0
         textFieldObserve()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
         appearAnim()
     }
     
@@ -104,7 +101,7 @@ class SignUpOneStepViewController: UIViewController, UITextFieldDelegate {
     }
     
     func appearAnim() {
-        DispatchQueue.main.async {
+        DispatchQueue.main.asyncAfter(deadline: .now()+0.5) {
             self.emailView.transform = CGAffineTransform(translationX: 0, y: -100)
             UIView.animate(withDuration: self.duration, delay: 0, usingSpringWithDamping: self.damping, initialSpringVelocity: self.velocity, options: [.allowUserInteraction, .curveEaseIn], animations: {
                 self.emailView.transform = .identity
@@ -136,6 +133,13 @@ class SignUpOneStepViewController: UIViewController, UITextFieldDelegate {
                 self.isCheckEmail = false
                 return
             }
+            
+            DispatchQueue.main.async {
+                if !isSuccess {
+                    self.simpleAlert(title: "실패", message: "이미 존재합니다")
+                }
+            }
+            
             self.isCheckEmail = isSuccess
         }
     }
@@ -150,6 +154,13 @@ class SignUpOneStepViewController: UIViewController, UITextFieldDelegate {
                 self.isCheckName = false
                 return
             }
+            
+            DispatchQueue.main.async {
+                if !isSuccess {
+                    self.simpleAlert(title: "실패", message: "이미 존재합니다")
+                }
+            }
+            
             self.isCheckName = isSuccess
         }
     }
@@ -165,6 +176,10 @@ class SignUpOneStepViewController: UIViewController, UITextFieldDelegate {
         
         nextVC.model = model
         navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
+    @IBAction func backClick(_ sender: Any) {
+        dismiss(animated: true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

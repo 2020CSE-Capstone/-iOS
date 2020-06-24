@@ -10,4 +10,6 @@ import Foundation
 protocol LoginServiceProtocol {
     func requestCheckEmail(email: String, completion: @escaping (Bool?) -> Void)
     func requestCheckName(name: String, completion: @escaping (Bool?) -> Void)
+    func requestSignUp(model: SignUpModel, completion: @escaping (Bool?) -> Void)
+    func requestLogin(email: String, pw: String, completion: @escaping (Bool?) -> Void) 
 }
