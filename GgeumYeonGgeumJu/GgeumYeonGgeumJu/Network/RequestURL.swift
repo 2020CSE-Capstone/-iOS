@@ -20,6 +20,9 @@ enum RequestURL {
     case totalSmoke(userId: Int)
     case monthDrinkTotal
     case monthSmokeTotal
+    case checkEmail(email: String)
+    case checkName(name: String)
+    
     
     var getString: String {
         switch self {
@@ -46,6 +49,10 @@ enum RequestURL {
             return "/api/record/drink/month"
         case .monthSmokeTotal:
             return "/api/record/smoke/month"
+        case .checkEmail(let email):
+            return "/api/user/email/\(email)"
+        case .checkName(let nickname):
+            return "/api/user/nickname/\(nickname)"
         }
     }
 }

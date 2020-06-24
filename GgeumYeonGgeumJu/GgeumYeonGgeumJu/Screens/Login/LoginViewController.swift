@@ -10,9 +10,29 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var pwTextField: UITextField!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupTextField()
     }
     
+    func setupTextField() {
+        emailTextField.addLeftPadding(num: 10)
+        pwTextField.addLeftPadding(num: 10)
+    }
+    
+    @IBAction func signUpClick(_ sender: Any) {
+        guard let nextVC = self.storyboard?.instantiateViewController(withIdentifier: ViewControllerIdentifier.signUpOneStepVC.rawValue) else {
+            return
+        }
+        nextVC.modalPresentationStyle = .fullScreen
+        present(nextVC, animated: true)
+    }
+    
+    @IBAction func loginClick(_ sender: Any) {
+    }
 }

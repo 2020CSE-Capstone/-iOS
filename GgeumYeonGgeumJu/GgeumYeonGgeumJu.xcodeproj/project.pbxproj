@@ -10,6 +10,12 @@
 		062A3117247D6706002BF51C /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A3116247D6706002BF51C /* CommunityDetailViewController.swift */; };
 		0654370324A0EF9D00210383 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0654370224A0EF9D00210383 /* Login.storyboard */; };
 		0654370624A0F05B00210383 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654370524A0F05B00210383 /* LoginViewController.swift */; };
+		0654370A24A239E500210383 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654370924A239E500210383 /* UITextField+Extension.swift */; };
+		0654370E24A317C700210383 /* SignUpOneStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654370D24A317C700210383 /* SignUpOneStepViewController.swift */; };
+		0654371224A31C3800210383 /* LoginServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654371124A31C3800210383 /* LoginServiceImp.swift */; };
+		0654371524A31C4600210383 /* LoginServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654371424A31C4600210383 /* LoginServiceProtocol.swift */; };
+		0654371824A32A6A00210383 /* SignUpModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654371724A32A6A00210383 /* SignUpModel.swift */; };
+		0654371A24A32B4400210383 /* SignUpTwoStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0654371924A32B4400210383 /* SignUpTwoStepViewController.swift */; };
 		0660D67E247C00AF0081A8C0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D67D247C00AF0081A8C0 /* UIColor+Extension.swift */; };
 		0660D680247C0A150081A8C0 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */; };
 		0684FC542484F6B600532B77 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */; };
@@ -71,6 +77,12 @@
 		062A3116247D6706002BF51C /* CommunityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewController.swift; sourceTree = "<group>"; };
 		0654370224A0EF9D00210383 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		0654370524A0F05B00210383 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		0654370924A239E500210383 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		0654370D24A317C700210383 /* SignUpOneStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpOneStepViewController.swift; sourceTree = "<group>"; };
+		0654371124A31C3800210383 /* LoginServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceImp.swift; sourceTree = "<group>"; };
+		0654371424A31C4600210383 /* LoginServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceProtocol.swift; sourceTree = "<group>"; };
+		0654371724A32A6A00210383 /* SignUpModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpModel.swift; sourceTree = "<group>"; };
+		0654371924A32B4400210383 /* SignUpTwoStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpTwoStepViewController.swift; sourceTree = "<group>"; };
 		0660D67D247C00AF0081A8C0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		0684FC532484F6B600532B77 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -144,8 +156,10 @@
 		0654370124A0EF8800210383 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				0654370424A0EF9F00210383 /* StoryBoard */,
+				0654370F24A31C2100210383 /* Views */,
 				0654370524A0F05B00210383 /* LoginViewController.swift */,
+				0654370D24A317C700210383 /* SignUpOneStepViewController.swift */,
+				0654371924A32B4400210383 /* SignUpTwoStepViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -156,6 +170,41 @@
 				0654370224A0EF9D00210383 /* Login.storyboard */,
 			);
 			path = StoryBoard;
+			sourceTree = "<group>";
+		};
+		0654370F24A31C2100210383 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0654371624A32A6100210383 /* Model */,
+				0654371024A31C2600210383 /* Service */,
+				0654370424A0EF9F00210383 /* StoryBoard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0654371024A31C2600210383 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0654371324A31C3C00210383 /* Protocol */,
+				0654371124A31C3800210383 /* LoginServiceImp.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0654371324A31C3C00210383 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				0654371424A31C4600210383 /* LoginServiceProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		0654371624A32A6100210383 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0654371724A32A6A00210383 /* SignUpModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		0684FC522484F6A000532B77 /* Cell */ = {
@@ -300,6 +349,7 @@
 				06C9A06C246D32890045E623 /* Date+Extension.swift */,
 				0660D67D247C00AF0081A8C0 /* UIColor+Extension.swift */,
 				0660D67F247C0A150081A8C0 /* UIViewController+Extension.swift */,
+				0654370924A239E500210383 /* UITextField+Extension.swift */,
 			);
 			path = GlobalExtension;
 			sourceTree = "<group>";
@@ -642,6 +692,7 @@
 			files = (
 				0684FC6D2487B72900532B77 /* DependencyContainer.swift in Sources */,
 				06C9A06B246D32500045E623 /* String+Extension.swift in Sources */,
+				0654371224A31C3800210383 /* LoginServiceImp.swift in Sources */,
 				06FE86F624A096D100F770F4 /* MainServiceImp.swift in Sources */,
 				0660D680247C0A150081A8C0 /* UIViewController+Extension.swift in Sources */,
 				06BBC143246FD53300BD0301 /* CommunityTableViewCell.swift in Sources */,
@@ -649,6 +700,7 @@
 				06C9A055246C1CA50045E623 /* StoryBoardName.swift in Sources */,
 				0684FC682487A9A300532B77 /* ResponseModel.swift in Sources */,
 				0660D67E247C00AF0081A8C0 /* UIColor+Extension.swift in Sources */,
+				0654370A24A239E500210383 /* UITextField+Extension.swift in Sources */,
 				0684FC612487A1AB00532B77 /* CommunityServiceImp.swift in Sources */,
 				0684FC6B2487AA6700532B77 /* CommunityListModel.swift in Sources */,
 				06C9A03B246C04160045E623 /* MainViewController.swift in Sources */,
@@ -657,13 +709,16 @@
 				06D3E705248F992C00360CCD /* CommunityWriteViewController.swift in Sources */,
 				06C9A069246D23AA0045E623 /* RecordViewController.swift in Sources */,
 				0684FC6F2487B75700532B77 /* DependencyPool.swift in Sources */,
+				0654371A24A32B4400210383 /* SignUpTwoStepViewController.swift in Sources */,
 				06C9A05A246C550C0045E623 /* UIView+Extension.swift in Sources */,
 				0684FC662487A47300532B77 /* RequestURL.swift in Sources */,
 				0684FC542484F6B600532B77 /* HistoryTableViewCell.swift in Sources */,
 				06D3E701248F6D3500360CCD /* CommunityHeader.swift in Sources */,
 				06FE86F824A09D9500F770F4 /* TotalModel.swift in Sources */,
 				062A3117247D6706002BF51C /* CommunityDetailViewController.swift in Sources */,
+				0654370E24A317C700210383 /* SignUpOneStepViewController.swift in Sources */,
 				06C9A057246C1CB00045E623 /* ViewControllerIdentifier.swift in Sources */,
+				0654371824A32A6A00210383 /* SignUpModel.swift in Sources */,
 				06C9A05C246C575B0045E623 /* CALayer+Extension.swift in Sources */,
 				0684FC722487BF0A00532B77 /* CommentTableViewCell.swift in Sources */,
 				0684FC5E2487A19B00532B77 /* CommunityServiceProtocol.swift in Sources */,
@@ -674,6 +729,7 @@
 				06FE86F324A096C400F770F4 /* MainServiceProtocol.swift in Sources */,
 				0684FC642487A3E100532B77 /* BaseAPI.swift in Sources */,
 				06C9A06D246D32890045E623 /* Date+Extension.swift in Sources */,
+				0654371524A31C4600210383 /* LoginServiceProtocol.swift in Sources */,
 				06D3E70F2490C55300360CCD /* RecordServiceProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
