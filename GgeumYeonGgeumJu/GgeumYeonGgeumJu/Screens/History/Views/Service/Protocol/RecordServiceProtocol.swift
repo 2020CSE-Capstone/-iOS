@@ -9,6 +9,7 @@
 import Foundation
 
 protocol RecordServiceProtocol {
-    func requestRecordList(completion: @escaping ([RecordModel]?) -> Void)
-    func requestRecordSave(record: RecordModel, completion: @escaping (Bool) -> Void)
+    func requestRecordDrinkList(completion: @escaping ([RecordDrinkModel]?) -> Void)
+    func requestRecordSmokeList(completion: @escaping ([RecordSmokeModel]?) -> Void)
+    func requestRecordSave(record: RecordDrinkModel, completion: @escaping (Bool) -> Void)
 }

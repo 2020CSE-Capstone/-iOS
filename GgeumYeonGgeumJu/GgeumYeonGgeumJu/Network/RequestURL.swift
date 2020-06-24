@@ -24,6 +24,8 @@ enum RequestURL {
     case checkName(name: String)
     case signUp
     case login
+    case drinkList(userId: Int)
+    case smokeList(userId: Int)
     
     
     var getString: String {
@@ -41,6 +43,10 @@ enum RequestURL {
             return "/api/community/\(boardIdx)"
         case .record(let userId):
             return "/api/record/\(userId)"
+        case .drinkList(let userId):
+            return "/api/record/drink/\(userId)"
+        case .smokeList(let userId):
+            return "/api/record/smoke/\(userId)"
         case .recordSave:
             return "/api/record"
         case .totalDrink(let userId):

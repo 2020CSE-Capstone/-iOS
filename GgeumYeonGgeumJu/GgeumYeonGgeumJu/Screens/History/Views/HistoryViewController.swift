@@ -22,6 +22,7 @@ class HistoryViewController: UIViewController {
     }
     private let service: RecordServiceProtocol
         = DependencyContainer.shared.getDependency(key: .recordService)
+    private var type: RecordType = .smoke
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class HistoryViewController: UIViewController {
     }
     
     func requestRecordList() {
-        service.requestRecordList { [weak self] list in
+        service.requestRecordSmokeList { [weak self] list in
             guard let list = list,
                 let self = self else {
                 return
@@ -46,6 +47,7 @@ class HistoryViewController: UIViewController {
             self.listSortByDate(list: list)
         }
     }
+    
     
     func listSortByDate(list: [RecordModel]) {
         if list.isEmpty {
@@ -90,13 +92,29 @@ class HistoryViewController: UIViewController {
     }
     
     @IBAction func tabTypeClick(_ sender: UIButton) {
-        let type: RecordType = sender.tag == 1 ? .smoke : .drink
-        
-        switch type {
+        let buttonType: RecordType = sender.tag == 1 ? .smoke : .drink
+        self.recordList.removeAll()
+        switch buttonType {
         case .smoke:
+            type = .smoke
             moveUnderView(view: sender, color: .softPink)
+            service.requestRecordSmokeList { [weak self] list in
+                guard let list = list,
+                    let self = self else {
+                        return
+                }
+                self.listSortByDate(list: list)
+            }
         case .drink:
+            type = .drink
             moveUnderView(view: sender, color: .softSky)
+            service.requestRecordDrinkList { [weak self] list in
+                guard let list = list,
+                    let self = self else {
+                        return
+                }
+                self.listSortByDate(list: list)
+            }
         }
     }
 }
@@ -110,7 +128,7 @@ extension HistoryViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: HistoryTableViewCell.reuseIdentifier, for: indexPath) as? HistoryTableViewCell else {
             return .init(style: .default, reuseIdentifier: "")
         }
-        cell.bind(model: recordList[indexPath.section].item[indexPath.row])
+        cell.bind(type: type, model: recordList[indexPath.section].item[indexPath.row])
         return cell
     }
 }

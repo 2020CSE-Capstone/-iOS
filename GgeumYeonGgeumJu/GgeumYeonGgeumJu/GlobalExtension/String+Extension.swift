@@ -64,7 +64,8 @@ extension String {
     }
     
     func recordDate() -> String {
-        var format = "yyyy-MM-dd HH:mm:ss"
+//        var format = "yyyy-MM-dd HH:mm:ss"
+        var format = "yyyy-MM-dd"
         let formatter = DateFormatter()
         formatter.dateFormat = format
         formatter.locale = Locale(identifier: "ko")

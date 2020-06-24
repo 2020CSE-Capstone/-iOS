@@ -11,10 +11,10 @@ import Alamofire
 
 struct RecordServiceImp: RecordServiceProtocol {
     // MARK: 측정 기록리스트
-    func requestRecordList(completion: @escaping ([RecordModel]?) -> Void) {
+    func requestRecordDrinkList(completion: @escaping ([RecordDrinkModel]?) -> Void) {
         var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
         let userId = 1
-        urlComponent?.path = RequestURL.record(userId: userId).getString
+        urlComponent?.path = RequestURL.drinkList(userId: userId).getString
         
         guard let url = urlComponent?.url else {
             return
@@ -25,9 +25,35 @@ struct RecordServiceImp: RecordServiceProtocol {
         let request = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
         request
             .validate(statusCode: 200...500)
-            .responseDecodable(of: SimpleResponse<[RecordModel]>.self) { response in
+            .responseDecodable(of: SimpleResponse<[RecordDrinkModel]>.self) { response in
                 switch response.result {
                 case .success(let object):
+                    print(object)
+                    completion(object.data)
+                case .failure(let err):
+                    print(err)
+                    completion(nil)
+                }
+        }
+    }
+    func requestRecordSmokeList(completion: @escaping ([RecordSmokeModel]?) -> Void) {
+        var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
+        let userId = 1
+        urlComponent?.path = RequestURL.smokeList(userId: userId).getString
+        
+        guard let url = urlComponent?.url else {
+            return
+        }
+        let header: HTTPHeaders = [
+            "Authorization": UserInfo.shared.token
+        ]
+        let request = AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: header, interceptor: nil, requestModifier: nil)
+        request
+            .validate(statusCode: 200...500)
+            .responseDecodable(of: SimpleResponse<[RecordSmokeModel]>.self) { response in
+                switch response.result {
+                case .success(let object):
+                    print(object)
                     completion(object.data)
                 case .failure(let err):
                     print(err)
@@ -37,7 +63,7 @@ struct RecordServiceImp: RecordServiceProtocol {
     }
     
     // MARK: 측정 저장
-    func requestRecordSave(record: RecordModel, completion: @escaping (Bool) -> Void) {
+    func requestRecordSave(record: RecordDrinkModel, completion: @escaping (Bool) -> Void) {
         var urlComponent = URLComponents(string: BaseAPI.shared.getBaseString())
         let userId = 1
         urlComponent?.path = RequestURL.recordSave.getString

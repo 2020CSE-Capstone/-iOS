@@ -74,7 +74,7 @@ class HistoryTableViewCell: UITableViewCell {
     }
     
     // TODO: 모델바인딩
-    func bind(model: RecordModel) {
+    func bind(type: RecordType, model: RecordModel) {
 //        dateLabel.text = model.date
         self.addSubview(amountLabel)
         self.addSubview(percentLabel)
@@ -85,17 +85,36 @@ class HistoryTableViewCell: UITableViewCell {
         setupLayout()
         setupUI()
         
-        amountLabel.text = "\(model.glass)잔"
-        if model.figure == 0 {
-            percentLabel.text = "-"
+        if model.kind == .drink {
+            guard let model = model as? RecordDrinkModel else {
+                return
+            }
+            
+            amountLabel.text = "\(model.glass)잔"
+            if model.figure == 0 {
+                percentLabel.text = "-"
+            } else {
+                percentLabel.text = "\(model.figure)%"
+            }
+            let num = UserInfo.shared.drink - model.glass
+            overAmountLabel.text =  "\(num)잔"
+            kindImageView.image = UIImage(named: "soju")
+                
         } else {
-            percentLabel.text = "\(model.figure)%"
+            guard let model = model as? RecordSmokeModel else {
+                return
+            }
+            
+            amountLabel.text = "\(model.piece)개비"
+            if model.figure == 0 {
+                percentLabel.text = "-"
+            } else {
+                percentLabel.text = "\(model.figure)%"
+            }
+            let num = UserInfo.shared.smoke - model.piece
+            overAmountLabel.text =  "\(num)개비"
+            kindImageView.image = UIImage(named: "smoke")
         }
-        
-        overAmountLabel.text =  "1잔"
-        kindImageView.image = model.kind == .drink ?
-            UIImage(named: "soju") :
-            UIImage(named: "smoke")
     }
     
     override func awakeFromNib() {

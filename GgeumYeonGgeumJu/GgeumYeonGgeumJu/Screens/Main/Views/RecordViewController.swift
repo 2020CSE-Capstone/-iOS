@@ -166,7 +166,7 @@ class RecordViewController: UIViewController {
         if let tempGlass = numTextField.text {
             glass = Int(tempGlass)!
         }
-        let record = RecordModel(id: -1, figure: figure, glass: glass, drinkDate: dateTextField.text!, drinkName: kindTextField.text!)
+        let record = RecordDrinkModel(id: -1, figure: figure, glass: glass, drinkDate: dateTextField.text!, drinkName: kindTextField.text!)
 
         service.requestRecordSave(record: record) { isSuccess in
             // TODO: 서버응답
